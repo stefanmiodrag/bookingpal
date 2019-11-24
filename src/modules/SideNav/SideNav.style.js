@@ -18,7 +18,7 @@ li {
         align-items: center;
         color: white;
         text-decoration: none;
-        margin-bottom: 10px;
+        margin: 10px 0;
         padding: 14px;
         border-radius: 2px;
 
@@ -58,8 +58,7 @@ height: 100%;
 export const List = styled.ul`
 border-bottom: 1px solid;
 border-bottom-color: #343E50;
-padding-bottom: 20px;
-margin-bottom: 20px;
+padding: 10px 0;
 `
 
 export const Toggle = styled.div`

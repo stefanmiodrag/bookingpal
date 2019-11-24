@@ -1,7 +1,7 @@
 import React from "react";
 
 import { dayOfTheWeek } from "../../helpers";
-import { UpcomingAppointments } from "../../components";
+import { UpcomingAppointments, EstimateIncome } from "../../components";
 import { Nav } from "../../modules";
 
 import * as style from "./Start.style";

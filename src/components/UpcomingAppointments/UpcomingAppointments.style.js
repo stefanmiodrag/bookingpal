@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { Card } from "@blueprintjs/core";
 
 export const Header = styled.div`
 display: flex;
@@ -10,8 +9,4 @@ margin-bottom: 14px;
 h4 {
     margin: 0;
 }
-`
-
-export const Container = styled(Card)`
-padding: 0px !important;
 `

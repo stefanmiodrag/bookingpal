@@ -1,24 +1,24 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 
 export const Header = styled.div`
 display: flex;
 justify-content: space-between;
 align-items: center;
 
-h4, p {
+h4 {
     margin: 0;
+}
+
+p {
+    margin-bottom: 4px;
 }
 `
 
-export const Item = styled(Link)`
-display: block;
-padding: 14px 24px;
+export const Item = styled.div`
+padding: 17px 24px;
 border-bottom: 1px solid #D8E1E8;
-color: inherit;
 
-&:hover {
-    text-decoration: none;
-    background-color: #F6F9FE;
+:last-child {
+    border-bottom: none;
 }
 `

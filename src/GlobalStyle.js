@@ -3,12 +3,10 @@ import reset from 'styled-reset'
 import * as blueprint from "@blueprintjs/core/lib/css/blueprint.css"
 
 const GlobalStyle = createGlobalStyle`
-  ${reset}
+  ${reset} 
   ${blueprint}
 
   body {
-    font-family: "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto",
-    "Oxygen", "Ubuntu", "Cantarell", "Open Sans", "Helvetica Neue", "Icons16", sans-serif;
     background-color: #f5f8fa;
   }
 
