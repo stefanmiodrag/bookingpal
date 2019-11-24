@@ -1,5 +1,7 @@
-import StartPage from "./StartPage";
+import Start from "./Start";
+import NotFound from "./NotFound";
 
 export {
-    StartPage
+    Start,
+    NotFound
 };

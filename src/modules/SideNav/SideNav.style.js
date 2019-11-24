@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { color } from "../../style";
 
 export const SideNav = styled.nav`
 background-color: #212B39;
@@ -24,31 +23,30 @@ li {
         border-radius: 2px;
 
         svg {
-    margin-right: 10px;
-    fill: #596475;
-}
+            margin-right: 10px;
+            fill: #596475;
+        }
 
         &:hover {
-        background-color: #2a3546;
-        
-        svg {
-            fill: white;
-        }
-    }
-
-    &.active {
-        background-color: #177EE6;
+            background-color: #2a3546;
             
-        svg {
-            fill: white;
+            svg {
+                fill: white;
+            }
+        }
+        
+        &.active {
+            background-color: #177EE6;
+            
+            svg {
+                fill: white;
+            }
         }
     }
-}
-
-span {
-    display: inherit;
-}
-
+    
+    span {
+        display: inherit;
+    }
 }
 `
 
@@ -77,7 +75,18 @@ button {
     text-align: ${props => props.toggle ? "center" : "inherit"};
     
     svg {
-        fill: #58687D;
+        fill: #58687D !important;
     }
 }
+`
+
+export const Header = styled.div`
+color: white;
+margin-bottom: 24px;
+height: 40px;
+display: ${props => props.toggle ? "none" : "flex"};
+align-items: center;
+justify-content: center;
+font-size: 21px;
+font-weight: 700;
 `

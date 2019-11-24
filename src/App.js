@@ -7,20 +7,23 @@ import {
 
 import GlobalStyle from "./GlobalStyle";
 
-import { Nav, SideNav } from "./modules";
+import { Nav, SideNav, Page } from "./modules";
 import * as page from "./pages";
 
 function App() {
   return (
     <Router>
-      <div className="App">
+      <div id="App">
         <GlobalStyle />
 
         <SideNav />
 
-        <Switch>
-          <Route path="/" component={page.StartPage} />
-        </Switch>
+        <Page>
+          <Switch>
+            <Route path="/" exact component={page.Start} />
+            <Route path="*" component={page.NotFound} />
+          </Switch>
+        </Page>
 
       </div>
     </Router>

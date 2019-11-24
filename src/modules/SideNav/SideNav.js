@@ -4,9 +4,13 @@ import { Icon } from "@blueprintjs/core";
 
 import * as style from "./SideNav.style";
 
-const SideNav = ({ toggle, toggleNav }) => (
+const SideNav = ({ toggle, closeNav, openNav }) => (
     <style.SideNav toggle={toggle}>
         <style.Container>
+            <style.Header toggle={toggle}>
+                <h3>bookingpal</h3>
+            </style.Header>
+
             <style.List>
                 <li>
                     <NavLink to="/" exact activeClassName="active">
@@ -61,7 +65,7 @@ const SideNav = ({ toggle, toggleNav }) => (
             </style.List>
 
             <style.Toggle toggle={toggle}>
-                <button onClick={toggleNav}>
+                <button onClick={toggle ? closeNav : openNav}>
                     <Icon icon={toggle ? "menu-open" : "menu-closed"} iconSize={20} title="toggle-menu" />
                 </button>
             </style.Toggle>
