@@ -19,6 +19,7 @@ const SideNavContainer = props => {
         setToggle(false);
     };
 
+
     return <SideNav toggle={toggle} openNav={openNav} closeNav={closeNav} />;
 };
 

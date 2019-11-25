@@ -19,6 +19,8 @@ function App() {
         <SideNav />
 
         <Page>
+          <Nav />
+
           <Switch>
             <Route path="/" exact component={page.Start} />
             <Route path="*" component={page.NotFound} />

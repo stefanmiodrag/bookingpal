@@ -13,5 +13,5 @@ margin-bottom: 24px;
 `
 
 export const MediumColumn = styled.div`
-width: 30%;
+width: 70%;
 `

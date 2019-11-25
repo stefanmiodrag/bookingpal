@@ -8,7 +8,7 @@ const SideNav = ({ toggle, closeNav, openNav }) => (
     <style.SideNav toggle={toggle}>
         <style.Container>
             <style.Header toggle={toggle}>
-                <h3>bookingpal</h3>
+                <span>bark</span>
             </style.Header>
 
             <style.List>
@@ -50,9 +50,9 @@ const SideNav = ({ toggle, closeNav, openNav }) => (
 
             <style.List>
                 <li>
-                    <NavLink to="/help" exact>
-                        <Icon icon="help" iconSize={20} title="support" />
-                        <span className="name">Support</span>
+                    <NavLink to="/user" exact>
+                        <Icon icon="user" iconSize={20} title="user" />
+                        <span className="name">User</span>
                     </NavLink>
                 </li>
 
@@ -60,6 +60,13 @@ const SideNav = ({ toggle, closeNav, openNav }) => (
                     <NavLink to="/settings" exact>
                         <Icon icon="cog" iconSize={20} title="settings" />
                         <span className="name">Settings</span>
+                    </NavLink>
+                </li>
+
+                <li>
+                    <NavLink to="/help" exact>
+                        <Icon icon="lifesaver" iconSize={20} title="support" />
+                        <span className="name">Support</span>
                     </NavLink>
                 </li>
             </style.List>

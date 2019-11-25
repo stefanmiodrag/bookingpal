@@ -22,6 +22,9 @@ const dayOfTheWeek = () => {
             break;
         case 6:
             day = "saturday";
+            break;
+        default:
+            day = null;
     };
 
     return day;

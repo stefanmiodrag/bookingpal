@@ -3,8 +3,6 @@ import { Button, ButtonGroup, Card } from "@blueprintjs/core";
 import SimpleBar from 'simplebar-react';
 import 'simplebar/dist/simplebar.min.css';
 
-import { AppointmentSmall } from "..";
-
 import * as style from "./UpcomingAppointments.style";
 
 const UpcomingAppointments = props => {
@@ -23,12 +21,7 @@ const UpcomingAppointments = props => {
 
             <Card>
                 <SimpleBar style={{ height: '320px' }}>
-                    <AppointmentSmall />
-                    <AppointmentSmall />
-                    <AppointmentSmall />
-                    <AppointmentSmall />
-                    <AppointmentSmall />
-                    <AppointmentSmall />
+
                 </SimpleBar>
             </Card>
         </>
