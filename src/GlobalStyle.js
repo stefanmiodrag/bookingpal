@@ -13,6 +13,7 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     background-color: #f8fafc;
+    color: #343C47;
     font-family: "Roboto", sans-serif;
     font-weight: 400;
     line-height: 1.45;
@@ -32,7 +33,7 @@ const GlobalStyle = createGlobalStyle`
   }
   
   h1, h2, h3, h4, h5 {
-    margin-bottom: 1rem;
+    margin-bottom: 0.65rem;
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
     line-height: 1.15;
@@ -57,6 +58,14 @@ const GlobalStyle = createGlobalStyle`
   
   h5 {
     font-size: 1.25em;
+  }
+
+  .bold {
+    font-weight: 700;
+  }
+
+  .semibold {
+    font-weight: 500;
   }
   
   small, .text_small {

@@ -2,6 +2,8 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { Icon } from "@blueprintjs/core";
 
+import { Tag } from "../../components";
+
 import * as style from "./SideNav.style";
 
 const SideNav = ({ toggle, closeNav, openNav }) => (
@@ -9,6 +11,8 @@ const SideNav = ({ toggle, closeNav, openNav }) => (
         <style.Container>
             <style.Header toggle={toggle}>
                 <span>bark</span>
+
+                <Tag label="Beta" />
             </style.Header>
 
             <style.List>

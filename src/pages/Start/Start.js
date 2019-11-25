@@ -1,7 +1,7 @@
 import React from "react";
 
 import { dayOfTheWeek } from "../../helpers";
-import { UpcomingAppointments } from "../../components";
+import { UpcomingAppointments, Button } from "../../components";
 
 import * as style from "./Start.style";
 
@@ -9,8 +9,10 @@ const Start = () => (
     <>
         <style.Container>
             <style.FullColumn>
-                <h3 className="bp3-heading">Hi Richard, happy {dayOfTheWeek()}! <span role="img" aria-label="wave">👋</span></h3>
-                <p className="bp3-text-large">Here's what's happening today.</p>
+                <h3 className="semibold">Hi Richard, happy {dayOfTheWeek()}! <span role="img" aria-label="wave">👋</span></h3>
+                <p>Here's what's happening today.</p>
+
+                <Button label="New booking" theme="success" />
             </style.FullColumn>
 
             <style.MediumColumn>

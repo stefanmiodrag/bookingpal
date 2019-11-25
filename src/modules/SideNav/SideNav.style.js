@@ -10,12 +10,14 @@ transition: width, ease-in-out 200ms;
 
 .name {
     display: ${props => props.toggle ? "none" : "block"};
+    margin-left: 10px;
 }
 
 li {
     a {
         display: flex;
         align-items: center;
+        justify-content:  ${props => props.toggle ? "center" : "left"};
         color: #C3D0E0;
         text-decoration: none;
         padding: 20px;
@@ -23,7 +25,7 @@ li {
         border-left-color: transparent;
 
         svg {
-            margin-right: 10px;
+            padding-right: 3px;
             fill: #C3D0E0;
         }
 
@@ -50,7 +52,6 @@ li {
     
     span {
         display: inherit;
-        margin: ${props => props.toggle ? "0 auto" : "inherit"};
     }
 }
 `
@@ -83,10 +84,6 @@ button {
 `
 
 export const Header = styled.div`
-font-family: "Exo", sans-serif;
-font-weight: 700;
-font-size: 21px;
-font-weight: 700;
 color: white;
 border-bottom: 1px solid;
 border-bottom-color: #343E50;
@@ -94,4 +91,12 @@ padding: 0 20px;
 min-height: 70px;
 display: ${props => props.toggle ? "none" : "flex"};
 align-items: center;
+
+span {
+    font-family: "Exo", sans-serif;
+    font-weight: 700;
+    font-size: 21px;
+    font-weight: 700;
+    margin-right: 10px;
+}
 `
