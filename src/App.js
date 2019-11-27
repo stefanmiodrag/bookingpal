@@ -7,7 +7,7 @@ import {
 
 import GlobalStyle from "./GlobalStyle";
 
-import { Nav, SideNav, Page } from "./modules";
+import { Nav, SideNav, Container, Page, LoginWrap } from "./modules";
 import * as page from "./pages";
 
 function App() {
@@ -21,10 +21,16 @@ function App() {
         <Page>
           <Nav />
 
-          <Switch>
-            <Route path="/" exact component={page.Start} />
-            <Route path="*" component={page.NotFound} />
-          </Switch>
+          <LoginWrap>
+            <Container>
+              <Switch>
+                <Route path="/" exact component={page.Start} />
+                <Route path="/auth/login" exact component={page.Login} />
+                <Route path="/booking/new" exact component={page.NewBooking} />
+                <Route path="*" csomponent={page.NotFound} />
+              </Switch>
+            </Container>
+          </LoginWrap>
         </Page>
 
       </div>

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const BUTTON_BACKGROUND = theme => {
     switch (theme) {
@@ -18,7 +19,7 @@ const BUTTON_COLOR = theme => {
         case "primary":
             return "#343C47";
         case "disabled":
-            return "#6b7482";
+            return "#343C47";
         case "success":
             return "#FFFFFF";
         default:
@@ -52,18 +53,19 @@ const BUTTON_ACTIVE_BACKGROUND = theme => {
     }
 };
 
-export const Button = styled.button`
+export const ButtonLink = styled(Link)`
 all: unset;
 cursor: pointer;
 text-align: center;
 color: ${({ theme }) => BUTTON_COLOR(theme)};
 background-color: ${({ theme }) => BUTTON_BACKGROUND(theme)};
-box-shadow: ${props => !props.minimal ?
-        "inset 0 0 0 1px rgba(16,22,26,.2), inset 0 -1px 0 rgba(16,22,26,.1)" : "none"};
+box-shadow: inset 0 0 0 1px rgba(16,22,26,.2), inset 0 -1px 0 rgba(16,22,26,.1);
 border-radius: 3px;
 padding: 5px 14px;
 min-width: 30px;
+display: inline-block;
 min-height: 30px;
+line-height: 30px;
 transition: background-color 0.2s ease;
 
 &:hover {
@@ -74,10 +76,5 @@ transition: background-color 0.2s ease;
 &:active {
     transform: translateY(1px);
     background-color: ${({ theme }) => BUTTON_ACTIVE_BACKGROUND(theme)};
-}
-
-&:disabled {
-    cursor: not-allowed;
-    box-shadow: none;
 }
 `

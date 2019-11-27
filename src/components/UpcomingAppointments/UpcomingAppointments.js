@@ -27,12 +27,14 @@ const UpcomingAppointments = props => {
     return (
         <>
             <style.Container>
+                <style.Header>
                 <h4 className="semibold">Today's Schedule</h4>
                 <p>You have (8) appointments today.</p>
+                </style.Header>
 
-                <SimpleBar style={{ maxHeight: 500 }}>
+                <SimpleBar style={{ maxHeight: 700 }}>
 
-                    {SAMPLE_BOOKING_DATA.bookings.map(item => {
+                    {/* {SAMPLE_BOOKING_DATA.bookings.map(item => {
                         const maxWidth = 100; // px
                         const eventLength = Number(item.end_date) - Number(item.start_date);
 
@@ -51,7 +53,7 @@ const UpcomingAppointments = props => {
                                 </style.Event>
                             </>
                         );
-                    })}
+                    })} */}
 
                 </SimpleBar>
             </style.Container>

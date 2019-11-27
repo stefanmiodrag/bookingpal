@@ -45,9 +45,9 @@ const SideNav = ({ toggle, closeNav, openNav }) => (
                 </li>
 
                 <li>
-                    <NavLink to="/orders" exact>
-                        <Icon icon="inbox" iconSize={20} title="orders" />
-                        <span className="name">Orders</span>
+                    <NavLink to="/booking">
+                        <Icon icon="inbox" iconSize={20} title="bookings" />
+                        <span className="name">Bookings</span>
                     </NavLink>
                 </li>
             </style.List>
