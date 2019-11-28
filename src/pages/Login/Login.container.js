@@ -6,6 +6,7 @@ import Login from "./Login";
 
 const LoginContainer = props => {
     const [error, setError] = useState(false);
+    const [showPassword, setShowPassword] = useState(false);
     const [state, setState] = useState({
         password: "",
         email: ""
@@ -26,6 +27,8 @@ const LoginContainer = props => {
 
     const removeErrorMessage = () => setError(false);
 
+    const toggleShowPassword = () => setShowPassword(!showPassword);
+
     const onLoginClick = e => {
         e.preventDefault();
 
@@ -44,6 +47,8 @@ const LoginContainer = props => {
             handleChange={handleChange}
             password={state.password}
             email={state.email}
+            showPassword={showPassword}
+            toggleShowPassword={toggleShowPassword}
         />
     );
 };

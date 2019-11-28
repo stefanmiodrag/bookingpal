@@ -11,9 +11,8 @@ width: 90%;
 margin: 0 auto;
 
 @media (max-width: 480px) {
-margin-left: none;
+    margin-left: none;
 }
-   
 `
 
 export const Form = styled.div`
@@ -38,5 +37,21 @@ export const Fieldset = styled.fieldset`
 input {
     width: 100%;
     margin-bottom: 14px;
+}
+`
+
+export const Password = styled.div`
+position: relative;
+`
+
+export const ShowPassword = styled.div`
+position: absolute;
+cursor: pointer;
+right: 10px;
+top: 20%;
+
+svg {
+    display: flex;
+    fill: #343C47;
 }
 `

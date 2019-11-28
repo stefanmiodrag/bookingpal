@@ -6,7 +6,7 @@ import { checkIfAuthenticated } from "../../api/auth"
 const LoginWrap = ({ children }) => {
   useEffect(() => {
     checkIfAuthenticated();
-  }, []);
+  });
 
   // If we are logged in we just pass the children
   if (checkIfAuthenticated()) {

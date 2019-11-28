@@ -16,6 +16,7 @@ export const callLogIn = (email, password) => {
         .then(checkOkAndJSON)
         .then(res => {
             cookie.set('token', res.token, { expires: 7 });
+            window.location.reload(false); // reload page if authenticated
             return Promise.resolve(res);
         })
         .catch(err => {
@@ -26,6 +27,7 @@ export const callLogIn = (email, password) => {
 export const checkIfAuthenticated = () => {
     const token = cookie.get('token')
 
+    // checking if token is valid...
     if (token !== undefined) {
         return true;
     };

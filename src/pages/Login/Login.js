@@ -1,4 +1,5 @@
 import React from "react";
+import { Icon } from "@blueprintjs/core";
 
 import {
     Card,
@@ -15,7 +16,9 @@ const Login = ({
     onLoginClick,
     handleChange,
     password,
-    email
+    email,
+    showPassword,
+    toggleShowPassword
 }) => (
         <>
             <Toaster visible={error} close={removeErrorMessage} label="Please provide both an email and a password." theme="danger" />
@@ -35,12 +38,19 @@ const Login = ({
                         <form onSubmit={onLoginClick}>
                             <style.Fieldset>
                                 <Input type="text" name="email" placeholder="Email..." value={email} onChange={handleChange} />
-                                <Input type="password" name="password" placeholder="Password..." value={password} onChange={handleChange} />
+                                <style.Password>
+                                    <Input type={!showPassword ? "password" : "text"} name="password" placeholder="Password..." value={password} onChange={handleChange} />
+                                    <style.ShowPassword role="button" onClick={toggleShowPassword}>
+                                        <Icon icon={!showPassword ? "eye-open" : "eye-off"} iconSize={16} title="show-password" />
+                                    </style.ShowPassword>
+                                </style.Password>
                             </style.Fieldset>
 
                             <Button type="submit" theme="success" label="Login" onClick={onLoginClick} />
                         </form>
                     </Card>
+
+
                 </style.Form>
             </style.Container>
         </>
