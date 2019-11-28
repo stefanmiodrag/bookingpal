@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const SideNav = styled.nav`
-background-color: #283142;
+background-color: #203543;
 position: fixed;
 left: 0;
 height: 100vh;
@@ -18,7 +18,7 @@ li {
         display: flex;
         align-items: center;
         justify-content:  ${props => props.toggle ? "center" : "left"};
-        color: #C3D0E0;
+        color: #E7E9EB;
         text-decoration: none;
         padding: 20px;
         border-left: 3px solid;
@@ -26,11 +26,11 @@ li {
 
         svg {
             padding-right: 3px;
-            fill: #C3D0E0;
+            fill: #E7E9EB;
         }
 
         &:hover {
-            background-color: #344258;
+            background-color: #2A4150;
             color: white;
             
             svg {
@@ -39,9 +39,9 @@ li {
         }
         
         &.active {
-            background-color: #212832;
+            background-color: #151f25;
             border-left: 3px solid;
-            border-left-color: #02A7FF;
+            border-left-color: #00ad9e;
             color: white;
             
             svg {
@@ -62,7 +62,7 @@ height: 100%;
 
 export const List = styled.ul`
 border-bottom: 1px solid;
-border-bottom-color: #343E50;
+border-bottom-color: #2a4354;
 `
 
 export const Toggle = styled.div`
@@ -78,7 +78,7 @@ button {
     text-align: ${props => props.toggle ? "center" : "inherit"};
     
     svg {
-        fill: #C3D0E0;
+        fill: #E7E9EB;
     }
 }
 `
@@ -86,7 +86,7 @@ button {
 export const Header = styled.div`
 color: white;
 border-bottom: 1px solid;
-border-bottom-color: #343E50;
+border-bottom-color: #2a4354;
 padding: 0 20px;
 min-height: 70px;
 display: ${props => props.toggle ? "none" : "flex"};

@@ -34,7 +34,7 @@ const Login = ({
                 </style.FullColumn>
 
                 <style.Form>
-                    <Card space={true}>
+                    <Card space={true} elevated={true}>
                         <form onSubmit={onLoginClick}>
                             <style.Fieldset>
                                 <Input type="text" name="email" placeholder="Email..." value={email} onChange={handleChange} />
