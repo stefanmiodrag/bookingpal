@@ -26,7 +26,7 @@ font-family: "Exo", sans-serif;
 font-weight: 700;
 font-size: 28px;
 font-weight: 700;
-margin-bottom: 21px;
+margin-bottom: 42px;
 `
 
 export const Content = styled.div`
@@ -47,8 +47,15 @@ position: relative;
 export const ShowPassword = styled.div`
 position: absolute;
 cursor: pointer;
-right: 10px;
-top: 20%;
+top: 1px;
+right: 1px;
+height: 38px;
+width: 40px;
+justify-content: center;
+display: flex;
+align-items: center;
+background: linear-gradient(90deg, rgba(255,255,255,0) 0%, 
+rgba(255,255,255,1) 26%, rgba(255,255,255,1) 100%);
 
 svg {
     display: flex;
