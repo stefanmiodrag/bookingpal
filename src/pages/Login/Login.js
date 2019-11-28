@@ -20,26 +20,28 @@ const Login = ({
         <>
             <Toaster visible={error} close={removeErrorMessage} label="Please provide both an email and a password." theme="danger" />
 
-            <style.FullColumn>
-                <style.Content>
-                    <style.Mark>bark</style.Mark>
-
-                    <h4 className="semibold">Hey, welcome back <span role="img" aria-label="wave">👋</span></h4>
-                    <p>Let's get back to it, just sign in below and we'll take you straight to your dashboard.</p>
-                </style.Content>
-            </style.FullColumn>
-
             <style.Container>
-                <Card space={true}>
-                    <form onSubmit={onLoginClick}>
-                        <style.Fieldset>
-                            <Input type="text" name="email" placeholder="Email..." value={email} onChange={handleChange} />
-                            <Input type="password" name="password" placeholder="Password..." value={password} onChange={handleChange} />
-                        </style.Fieldset>
+                <style.FullColumn>
+                    <style.Content>
+                        <style.Mark>bark</style.Mark>
 
-                        <Button type="submit" theme="success" label="Login" onClick={onLoginClick} />
-                    </form>
-                </Card>
+                        <h4 className="semibold">Hey, welcome back <span role="img" aria-label="wave">👋</span></h4>
+                        <p>Let's get back to it, just sign in below and we'll take you straight to your dashboard.</p>
+                    </style.Content>
+                </style.FullColumn>
+
+                <style.Form>
+                    <Card space={true}>
+                        <form onSubmit={onLoginClick}>
+                            <style.Fieldset>
+                                <Input type="text" name="email" placeholder="Email..." value={email} onChange={handleChange} />
+                                <Input type="password" name="password" placeholder="Password..." value={password} onChange={handleChange} />
+                            </style.Fieldset>
+
+                            <Button type="submit" theme="success" label="Login" onClick={onLoginClick} />
+                        </form>
+                    </Card>
+                </style.Form>
             </style.Container>
         </>
     );

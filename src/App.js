@@ -19,19 +19,19 @@ function App() {
 
         {checkIfAuthenticated() && <SideNav />}
 
-        <Page>
-          {checkIfAuthenticated() && <Nav />}
+        <LoginWrap>
+          <Page>
+            <Nav />
 
-          <Container>
-            <Switch>
-              <LoginWrap>
+            <Container>
+              <Switch>
                 <Route path="/" exact component={page.Start} />
                 <Route path="/booking/new" exact component={page.NewBooking} />
                 <Route path="*" csomponent={page.NotFound} />
-              </LoginWrap>
-            </Switch>
-          </Container>
-        </Page>
+              </Switch>
+            </Container>
+          </Page>
+        </LoginWrap>
 
       </div>
     </Router>
