@@ -5,6 +5,7 @@ import { callLogIn } from "../../api/auth";
 import Login from "./Login";
 
 const LoginContainer = props => {
+    const [error, setError] = useState(false);
     const [state, setState] = useState({
         password: "",
         email: ""
@@ -18,20 +19,27 @@ const LoginContainer = props => {
         });
     };
 
+    const displayErrorMessage = () => {
+        setError(true);
+        setTimeout(() => { setError(false) }, 4000)
+    };
+
+    const removeErrorMessage = () => setError(false);
+
     const onLoginClick = e => {
         e.preventDefault();
 
         if (state.email && state.password) {
-            callLogIn(state.email, state.password).catch(err => {
-                if (err.status === 401) {
-                    console.log("BAD_CREDENTIALS")
-                }
-            });
+            callLogIn(state.email, state.password);
+        } else {
+            displayErrorMessage();
         };
     };
 
     return (
         <Login
+            error={error}
+            removeErrorMessage={removeErrorMessage}
             onLoginClick={onLoginClick}
             handleChange={handleChange}
             password={state.password}

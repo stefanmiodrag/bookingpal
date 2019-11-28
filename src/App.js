@@ -7,6 +7,7 @@ import {
 
 import GlobalStyle from "./GlobalStyle";
 
+import { checkIfAuthenticated } from "./api/auth"
 import { Nav, SideNav, Container, Page, LoginWrap } from "./modules";
 import * as page from "./pages";
 
@@ -16,21 +17,20 @@ function App() {
       <div id="App">
         <GlobalStyle />
 
-        <SideNav />
+        {checkIfAuthenticated() && <SideNav />}
 
         <Page>
-          <Nav />
+          {checkIfAuthenticated() && <Nav />}
 
-          <LoginWrap>
-            <Container>
-              <Switch>
+          <Container>
+            <Switch>
+              <LoginWrap>
                 <Route path="/" exact component={page.Start} />
-                <Route path="/auth/login" exact component={page.Login} />
                 <Route path="/booking/new" exact component={page.NewBooking} />
                 <Route path="*" csomponent={page.NotFound} />
-              </Switch>
-            </Container>
-          </LoginWrap>
+              </LoginWrap>
+            </Switch>
+          </Container>
         </Page>
 
       </div>

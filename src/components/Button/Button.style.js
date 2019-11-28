@@ -61,9 +61,11 @@ background-color: ${({ theme }) => BUTTON_BACKGROUND(theme)};
 box-shadow: ${props => !props.minimal ?
         "inset 0 0 0 1px rgba(16,22,26,.2), inset 0 -1px 0 rgba(16,22,26,.1)" : "none"};
 border-radius: 3px;
+box-sizing: border-box;
 padding: 5px 14px;
 min-width: 30px;
-min-height: 30px;
+height: 100%;
+min-height: 40px;
 transition: background-color 0.2s ease;
 
 &:hover {
@@ -71,7 +73,7 @@ transition: background-color 0.2s ease;
     transition: background-color 0.2s ease;
 }
 
-&:active {
+&:active, :focus {
     transform: translateY(1px);
     background-color: ${({ theme }) => BUTTON_ACTIVE_BACKGROUND(theme)};
 }
