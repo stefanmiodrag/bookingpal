@@ -2,6 +2,8 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { Icon } from "@blueprintjs/core";
 
+import { callLogOut } from "../../api/auth";
+
 import { Tag } from "../../components";
 
 import * as style from "./SideNav.style";
@@ -10,9 +12,10 @@ const SideNav = ({ toggle, closeNav, openNav }) => (
     <style.SideNav toggle={toggle}>
         <style.Container>
             <style.Header toggle={toggle}>
-                <span>bark</span>
-
-                <Tag label="Beta" />
+                <style.Mark>
+                    <span>bark</span>
+                    <Tag label="Beta" />
+                </style.Mark>
             </style.Header>
 
             <style.List>
@@ -64,13 +67,6 @@ const SideNav = ({ toggle, closeNav, openNav }) => (
                     <NavLink to="/settings" exact>
                         <Icon icon="cog" iconSize={20} title="settings" />
                         <span className="name">Settings</span>
-                    </NavLink>
-                </li>
-
-                <li>
-                    <NavLink to="/help" exact>
-                        <Icon icon="lifesaver" iconSize={20} title="support" />
-                        <span className="name">Support</span>
                     </NavLink>
                 </li>
             </style.List>

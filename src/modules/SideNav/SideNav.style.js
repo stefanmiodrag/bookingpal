@@ -91,6 +91,36 @@ padding: 0 20px;
 min-height: 70px;
 display: ${props => props.toggle ? "none" : "flex"};
 align-items: center;
+justify-content: space-between;
+
+button {
+    all: unset;
+    cursor: pointer;
+    width: 28px;
+    height: 28px;
+    background-color: #2A4150;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.2s ease;
+    border: 1px solid #3b5261;
+    border-radius: 3px;
+
+    :hover {
+        background-color: #1d2a31;
+        transition: background-color 0.2s ease;
+    }
+    
+    svg {
+        fill: #E7E9EB;
+        display: flex;
+    }
+}
+`
+
+export const Mark = styled.div`
+display: flex;
+align-items: center;
 
 span {
     font-family: "Exo", sans-serif;

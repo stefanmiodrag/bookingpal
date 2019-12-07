@@ -1,1 +1,1 @@
-export { default } from "./NewBooking";
+export { default } from "./NewBooking.container";
