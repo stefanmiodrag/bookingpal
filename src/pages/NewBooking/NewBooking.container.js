@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 
+import { formatTime } from "../../helpers";
 import { callNewBooking } from "../../api/booking";
 
 import NewBooking from "./NewBooking";
@@ -8,9 +9,14 @@ const NewBookingContainer = props => {
     const [state, setState] = useState({
         service: "",
         customer: "",
-        startTime: "",
-        endTime: "",
+        startTimeHour: "",
+        startTimeMinutes: "",
+        endTimeHour: "",
+        endTimeMinutes: "",
     });
+
+    const startTime = state.startTimeHour + ':' + state.startTimeMinutes;
+    const endTime = state.endTimeHour + ':' + state.endTimeMinutes;
 
     const handleChange = (evt) => {
         const value = evt.target.value;
@@ -23,7 +29,7 @@ const NewBookingContainer = props => {
     const onNewBookingClick = e => {
         e.preventDefault();
 
-        const { service, customer, startTime, endTime } = state;
+        const { service, customer } = state;
 
         if (service && customer && startTime && endTime) {
             callNewBooking(service, customer, startTime, endTime);
@@ -33,7 +39,7 @@ const NewBookingContainer = props => {
     };
 
     const isFormValid = () => {
-        const { service, customer, startTime, endTime } = state;
+        const { service, customer } = state;
 
         if (service && customer && startTime && endTime) {
             return false;

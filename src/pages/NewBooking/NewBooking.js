@@ -1,60 +1,84 @@
 import React from "react";
 
-import { Card, Input, Button } from "../../components";
+import * as style from "./NewBooking.style";
 
-const NewBooking = ({ handleChange, onNewBookingClick, isFormValid, service, customer, startTime, endTime }) => (
-    <>
-        <div>
-            <h3 className="semibold">New Booking</h3>
-            <p>Saturday, 7 Dec 2019</p>
-        </div>
+import {
+    Card,
+    Label,
+    Input,
+    Button,
+    TimePicker
+} from "../../components";
 
-        <Card space={true}>
-            <form onSubmit={onNewBookingClick}>
-                <fieldset>
-                    <Input
-                        type="text"
-                        name="service"
-                        placeholder="Service"
-                        value={service}
-                        onChange={handleChange}
-                    />
+const NewBooking = ({
+    handleChange,
+    onNewBookingClick,
+    isFormValid,
+    service,
+    customer,
+    startTime,
+    endTime
+}) => (
+        <>
+            <div>
+                <h3 className="semibold">New Booking</h3>
+                <p>Saturday, 7 Dec 2019</p>
+            </div>
 
-                    <Input
-                        type="text"
-                        name="customer"
-                        placeholder="Customer"
-                        value={customer}
-                        onChange={handleChange}
-                    />
+            <Card space={true}>
+                <form onSubmit={onNewBookingClick}>
+                    <style.Fieldset>
+                        <Label label="Service">
+                            <Input
+                                type="text"
+                                name="service"
+                                placeholder="Service"
+                                value={service}
+                                onChange={handleChange}
+                            />
+                        </Label>
 
-                    <Input
-                        type="text"
-                        name="startTime"
-                        placeholder="Start time"
-                        value={startTime}
-                        onChange={handleChange}
-                    />
+                        <Label label="Customer">
+                            <Input
+                                type="text"
+                                name="customer"
+                                placeholder="Customer"
+                                value={customer}
+                                onChange={handleChange}
+                            />
+                        </Label>
+                    </style.Fieldset>
 
-                    <Input
-                        type="text"
-                        name="endTime"
-                        placeholder="End time"
-                        value={endTime}
-                        onChange={handleChange}
-                    />
-                </fieldset>
+                    <style.Fieldset>
+                        <Label label="Start time">
+                            <TimePicker
+                                name="startTime"
+                                onChange={handleChange}
+                                value={startTime}
+                            />
+                        </Label>
 
-                <Button
-                    type="submit"
-                    label="Save booking"
-                    disabled={isFormValid()}
-                    theme={isFormValid() ? "disabled" : "success"}
-                    onClick={onNewBookingClick}
-                />
-            </form>
-        </Card>
-    </>
-);
+                        <Label label="End time">
+                            <TimePicker
+                                name="endTime"
+                                onChange={handleChange}
+                                value={endTime}
+                            />
+                        </Label>
+                    </style.Fieldset>
+
+                    <style.ButtonWrapper>
+                        <Button
+                            type="submit"
+                            label="Save booking"
+                            disabled={isFormValid()}
+                            theme={isFormValid() ? "disabled" : "success"}
+                            onClick={onNewBookingClick}
+                        />
+                    </style.ButtonWrapper>
+                </form>
+            </Card>
+        </>
+    );
 
 export default NewBooking;

@@ -20,3 +20,12 @@ export const callNewBooking = (service, customer, startTime, endTime) => {
             return alert(err.status);
         })
 };
+
+export const callFindBooking = () =>
+    fetch('http://localhost:3000/api/v1/booking', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    })
+        .then(checkOkAndJSON);
