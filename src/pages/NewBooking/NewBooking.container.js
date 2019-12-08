@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 
-import { formatTime } from "../../helpers";
+import { callFindService } from "../../api/service";
 import { callNewBooking } from "../../api/booking";
 
 import NewBooking from "./NewBooking";
 
 const NewBookingContainer = props => {
+    const [services, setServices] = useState("");
     const [state, setState] = useState({
         service: "",
         customer: "",
@@ -46,6 +47,10 @@ const NewBookingContainer = props => {
         } return true;
     };
 
+    const getServices = () => {
+        callFindService().then(data => setServices(data));
+    };
+
     return (
         <NewBooking
             service={state.service}
@@ -55,6 +60,8 @@ const NewBookingContainer = props => {
             handleChange={handleChange}
             onNewBookingClick={onNewBookingClick}
             isFormValid={isFormValid}
+            services={services}
+            getServices={getServices}
         />);
 };
 

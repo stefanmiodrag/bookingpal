@@ -1,13 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import * as style from "./NewBooking.style";
 
 import {
     Card,
+    Select,
+    TimePicker,
     Label,
     Input,
     Button,
-    TimePicker
 } from "../../components";
 
 const NewBooking = ({
@@ -17,8 +18,15 @@ const NewBooking = ({
     service,
     customer,
     startTime,
-    endTime
-}) => (
+    endTime,
+    services,
+    getServices,
+}) => {
+    useEffect(() => {
+        getServices();
+    }, []);
+
+    return (
         <>
             <div>
                 <h3 className="semibold">New Booking</h3>
@@ -28,15 +36,21 @@ const NewBooking = ({
             <Card space={true}>
                 <form onSubmit={onNewBookingClick}>
                     <style.Fieldset>
-                        <Label label="Service">
-                            <Input
-                                type="text"
-                                name="service"
-                                placeholder="Service"
-                                onChange={handleChange}
-                                value={service}
-                            />
-                        </Label>
+                        {services &&
+                            <Label label="Service">
+                                <Select
+                                    name="service"
+                                    value={service}
+                                    onChange={handleChange}
+                                    options={
+                                        services.map(service => {
+                                            return {
+                                                value: service.slug,
+                                                label: service.name
+                                            }
+                                        })}
+                                />
+                            </Label>}
 
                         <Label label="Customer">
                             <Input
@@ -80,5 +94,6 @@ const NewBooking = ({
             </Card>
         </>
     );
+};
 
 export default NewBooking;

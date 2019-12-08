@@ -20,7 +20,7 @@ export const Mark = styled.span`
 display: block;
 font-family: "Exo", sans-serif;
 font-weight: 700;
-font-size: 28px;
+font-size: 1.563em;
 margin-bottom: 24px;
 `
 
