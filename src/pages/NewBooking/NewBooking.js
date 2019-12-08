@@ -33,8 +33,8 @@ const NewBooking = ({
                                 type="text"
                                 name="service"
                                 placeholder="Service"
-                                value={service}
                                 onChange={handleChange}
+                                value={service}
                             />
                         </Label>
 
@@ -43,8 +43,8 @@ const NewBooking = ({
                                 type="text"
                                 name="customer"
                                 placeholder="Customer"
-                                value={customer}
                                 onChange={handleChange}
+                                value={customer}
                             />
                         </Label>
                     </style.Fieldset>

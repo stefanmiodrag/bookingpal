@@ -25,7 +25,10 @@ const UpcomingBookings = props => {
                         <SimpleBar style={{ maxHeight: 700 }}>
                             {props.bookings.map(item => {
                                 return (
-                                    <p>{item.startTime}</p>
+                                    <>
+                                        <p>{item.startTime}</p>
+                                        <p>{item.endTime}</p>
+                                    </>
                                 );
                             })}
                         </SimpleBar>}

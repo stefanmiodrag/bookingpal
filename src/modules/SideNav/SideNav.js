@@ -34,7 +34,7 @@ const SideNav = ({ toggle, closeNav, openNav }) => (
                 </li>
 
                 <li>
-                    <NavLink to="/catalog" exact>
+                    <NavLink to="/catalog">
                         <Icon icon="layers" iconSize={20} title="catalog" />
                         <span className="name">Catalog</span>
                     </NavLink>
