@@ -64,7 +64,7 @@ const GlobalStyle = createGlobalStyle`
     font-weight: 700;
   }
 
-  .semibold {
+  .semibold, strong {
     font-weight: 500;
   }
   

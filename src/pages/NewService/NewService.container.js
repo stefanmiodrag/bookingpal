@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 
+import { stringToSlug } from "../../helpers";
 import { callNewService } from "../../api/service"
 
 import NewService from "./NewService";
@@ -29,8 +30,7 @@ const NewServiceContainer = props => {
         const { name, price, currency } = state;
 
         if (name && duration && price && currency) {
-            console.log(currency)
-            callNewService(name, name.toLowerCase(), duration, price, currency);
+            callNewService(name, stringToSlug(name), duration, price, currency);
         } else {
             alert("Error");
         };

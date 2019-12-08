@@ -18,10 +18,7 @@ export const callLogIn = (email, password) => {
             cookie.set('token', res.token, { expires: 7 });
             window.location.reload(false); // reload page if authenticated
             return Promise.resolve(res);
-        })
-        .catch(err => {
-            return alert(err.status);
-        })
+        });
 };
 
 export const checkIfAuthenticated = () => {
@@ -36,4 +33,25 @@ export const checkIfAuthenticated = () => {
 export const callLogOut = () => {
     cookie.remove('token');
     window.location.reload(false); // reload page after removing cookie
+};
+
+export const callSignup = (email, username, password) => {
+    if (!email || !username || !password) {
+        Promise.reject('Missing email, username or password');
+    }
+
+    fetch('http://localhost:3000/api/v1/register', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, username, password })
+    })
+        .then(checkOkAndJSON)
+        .then(res => {
+            return Promise.resolve(res);
+        })
+        .catch(err => {
+            return alert(err.status);
+        })
 };

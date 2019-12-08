@@ -14,7 +14,7 @@ const SideNav = ({ toggle, closeNav, openNav }) => (
             <style.Header toggle={toggle}>
                 <style.Mark>
                     <span>bark</span>
-                    <Tag label="Beta" />
+                    <Tag label="BETA" theme="secondary" />
                 </style.Mark>
             </style.Header>
 

@@ -15,10 +15,14 @@ const Login = ({
     removeErrorMessage,
     onLoginClick,
     handleChange,
+    username,
     password,
     email,
     showPassword,
-    toggleShowPassword
+    toggleShowPassword,
+    onSignupClick,
+    signup,
+    toggleSignup
 }) => (
         <>
             <Toaster
@@ -29,18 +33,16 @@ const Login = ({
             />
 
             <style.Container>
-                <style.FullColumn>
+                <style.Form>
                     <style.Content>
                         <style.Mark>bark</style.Mark>
 
                         <h4 className="semibold">Hey, welcome back <span role="img" aria-label="wave">👋</span></h4>
                         <p>Let's get back to it, just sign in below and we'll take you straight to your dashboard.</p>
                     </style.Content>
-                </style.FullColumn>
 
-                <style.Form>
                     <Card space={true} elevated={true}>
-                        <form onSubmit={onLoginClick}>
+                        <form onSubmit={signup ? onSignupClick : onLoginClick}>
                             <style.Fieldset>
                                 <Input
                                     type="text"
@@ -49,6 +51,16 @@ const Login = ({
                                     value={email}
                                     onChange={handleChange}
                                 />
+
+                                {signup &&
+                                    <Input
+                                        type="text"
+                                        name="username"
+                                        placeholder="Username..."
+                                        value={username}
+                                        onChange={handleChange}
+                                    />}
+
                                 <style.Password>
                                     <Input
                                         type={!showPassword ? "password" : "text"}
@@ -70,13 +82,16 @@ const Login = ({
                             <Button
                                 type="submit"
                                 theme="success"
-                                label="Login"
-                                onClick={onLoginClick}
+                                label={signup ? "Create new account" : "Login"}
+                                onClick={signup ? onSignupClick : onLoginClick}
                             />
                         </form>
                     </Card>
 
-
+                    <style.Footer onClick={toggleSignup}>
+                        <p>Don't have an account? Register</p>
+                        <Icon icon="arrow-right" iconSize={12} title="arrow" />
+                    </style.Footer>
                 </style.Form>
             </style.Container>
         </>

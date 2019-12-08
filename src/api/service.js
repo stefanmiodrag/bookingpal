@@ -20,3 +20,12 @@ export const callNewService = (name, slug, duration, price, currency) => {
             return alert(err.status);
         })
 };
+
+export const callFindService = () =>
+    fetch('http://localhost:3000/api/v1/service', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    })
+        .then(checkOkAndJSON);
