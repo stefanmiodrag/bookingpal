@@ -15,24 +15,25 @@ export const callLogIn = (email, password) => {
     })
         .then(checkOkAndJSON)
         .then(res => {
+            // set cookie that expires within 7 days
             cookie.set('token', res.token, { expires: 7 });
-            window.location.reload(false); // reload page if authenticated
+            // reload page if properly authenticated
+            window.location.reload(false);
+
             return Promise.resolve(res);
         });
 };
 
 export const checkIfAuthenticated = () => {
     const token = cookie.get('token')
-
     // checking if token is valid...
-    if (token !== undefined) {
-        return true;
-    };
+    if (token !== undefined) { return true };
 };
 
 export const callLogOut = () => {
     cookie.remove('token');
-    window.location.reload(false); // reload page after removing cookie
+    // reload page after removing cookie
+    window.location.reload(false);
 };
 
 export const callSignup = (email, username, password) => {
