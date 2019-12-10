@@ -1,4 +1,5 @@
 import React from 'react';
+import { Provider } from "react-redux";
 import {
   BrowserRouter as Router,
   Switch,
@@ -8,35 +9,38 @@ import {
 import GlobalStyle from "./GlobalStyle";
 
 import { checkIfAuthenticated } from "./api/auth"
+import store from "./store";
 import { Nav, SideNav, Container, Page, LoginWrap } from "./modules";
 import * as page from "./pages";
 
 function App() {
   return (
-    <Router>
-      <div id="App">
-        <GlobalStyle />
+    <Provider store={store}>
+      <Router>
+        <div id="App">
+          <GlobalStyle />
 
-        {checkIfAuthenticated() && <SideNav />}
+          {checkIfAuthenticated() && <SideNav />}
 
-        <LoginWrap>
-          <Page>
-            <Nav />
+          <LoginWrap>
+            <Page>
+              <Nav />
 
-            <Container>
-              <Switch>
-                <Route path="/" exact component={page.Start} />
-                <Route path="/booking/new" exact component={page.NewBooking} />
-                <Route path="/catalog/new" exact component={page.NewService} />
-                <Route path="/catalog" exact component={page.Service} />
-                <Route path="*" csomponent={page.NotFound} />
-              </Switch>
-            </Container>
-          </Page>
-        </LoginWrap>
+              <Container>
+                <Switch>
+                  <Route path="/" exact component={page.Start} />
+                  <Route path="/booking/new" exact component={page.NewBooking} />
+                  <Route path="/catalog/new" exact component={page.NewService} />
+                  <Route path="/catalog" exact component={page.Service} />
+                  <Route path="*" csomponent={page.NotFound} />
+                </Switch>
+              </Container>
+            </Page>
+          </LoginWrap>
 
-      </div>
-    </Router>
+        </div>
+      </Router>
+    </Provider>
   );
 }
 

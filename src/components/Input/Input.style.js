@@ -5,7 +5,7 @@ outline: none;
 border: none;
 border-radius: 3px;
 box-shadow: 0 0 0 0 rgba(19,124,189,0), 0 0 0 0 rgba(19,124,189,0), 
-inset 0 0 0 1px rgba(16,22,26,.15), inset 0 1px 1px rgba(16,22,26,.2);
+   inset 0 0 0 1px rgba(16,22,26,.15), inset 0 1px 1px rgba(16,22,26,.2);
 background: white;
 min-height: 40px;
 height: 100%;

@@ -1,10 +1,15 @@
 import React, { useState } from "react";
 
-import { callSignup, callLogIn } from "../../api/auth";
+import { logIn } from '../../actions';
+import { useDispatch } from 'react-redux';
+
+import { callSignup, setToken, callLogIn } from "../../api/auth";
 
 import Login from "./Login";
 
 const LoginContainer = props => {
+    const dispatch = useDispatch();
+
     const [error, setError] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
     const [signup, setSignup] = useState(false);
@@ -34,10 +39,8 @@ const LoginContainer = props => {
         e.preventDefault();
 
         if (state.email && state.password) {
-            callLogIn(state.email, state.password);
-        } else {
-            displayErrorMessage();
-        }
+            dispatch(logIn(state.email, state.password));
+        };
     };
 
     const toggleSignup = () => setSignup(!signup);

@@ -21,11 +21,12 @@ export const callNewService = (name, slug, duration, price, currency) => {
         })
 };
 
-export const callFindService = () =>
-    fetch('http://localhost:3000/api/v1/service', {
+export const callFindService = (userId) =>
+
+    fetch(`http://localhost:3000/api/v1/service/${userId}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
-        },
+        }
     })
         .then(checkOkAndJSON);

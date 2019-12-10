@@ -6,23 +6,22 @@ export const callLogIn = (email, password) => {
         Promise.reject('Missing email or password');
     }
 
-    fetch('http://localhost:3000/api/v1/login', {
+    return fetch('http://localhost:3000/api/v1/login', {
         method: 'POST',
+        credentials: 'include',
         headers: {
-            'Content-Type': 'application/json',
+            'Content-Type': 'application/json'
         },
         body: JSON.stringify({ email, password })
     })
         .then(checkOkAndJSON)
-        .then(res => {
-            // set cookie that expires within 7 days
-            cookie.set('token', res.token, { expires: 7 });
-            // reload page if properly authenticated
-            window.location.reload(false);
-
-            return Promise.resolve(res);
-        });
+    /*         .then(res => {
+                setToken(res.token)
+            }) */
 };
+
+// set cookie that expires within 7 days
+export const setToken = (token) => cookie.set('token', token, { expires: 7 });
 
 export const checkIfAuthenticated = () => {
     const token = cookie.get('token')
