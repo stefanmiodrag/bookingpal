@@ -1,8 +1,7 @@
-import { SET_LOGGED_IN, SET_USER, SET_LOGGED_OUT } from "../actionTypes";
+import { SET_LOGGED_IN, SET_LOGGED_OUT } from "../actionTypes";
 
 const initialState = {
-  loggedIn: false,
-  user: null
+  loggedIn: false
 };
 
 export default (state = initialState, action) => {
@@ -11,11 +10,6 @@ export default (state = initialState, action) => {
       return {
         loggedIn: true,
       };
-    case SET_USER:
-      return {
-        ...state,
-        user: action.user
-      }
     case SET_LOGGED_OUT:
       return {
         loggedIn: false,

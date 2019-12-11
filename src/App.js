@@ -10,10 +10,14 @@ import GlobalStyle from "./GlobalStyle";
 
 import { checkIfAuthenticated } from "./api/auth"
 import store from "./store";
+import { init } from "./actions";
 import { Nav, SideNav, Container, Page, LoginWrap } from "./modules";
 import * as page from "./pages";
 
 function App() {
+  // Fetch all data from API endpoints
+  store.dispatch(init());
+
   return (
     <Provider store={store}>
       <Router>

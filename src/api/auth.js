@@ -16,13 +16,7 @@ export const callLogIn = (email, password) => {
         body: JSON.stringify({ email, password })
     })
         .then(checkOkAndJSON)
-    /*         .then(res => {
-                setToken(res.token)
-            }) */
 };
-
-// set cookie that expires within 7 days
-export const setToken = (token) => cookie.set('token', token, { expires: 7 });
 
 export const checkIfAuthenticated = () => {
     const token = cookie.get('token')
@@ -43,6 +37,7 @@ export const callSignup = (email, username, password) => {
 
     fetch('http://localhost:3000/api/v1/register', {
         method: 'POST',
+        credentials: 'include',
         headers: {
             'Content-Type': 'application/json',
         },
@@ -56,3 +51,13 @@ export const callSignup = (email, username, password) => {
             return alert(err.status);
         })
 };
+
+export const callGetUser = () =>
+    fetch('http://localhost:3000/api/v1/user', {
+        method: 'GET',
+        credentials: 'include',
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    })
+        .then(checkOkAndJSON);
