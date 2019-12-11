@@ -12,6 +12,7 @@ export const callLogIn = (email, password) => {
         headers: {
             'Content-Type': 'application/json'
         },
+
         body: JSON.stringify({ email, password })
     })
         .then(checkOkAndJSON)

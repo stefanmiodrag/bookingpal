@@ -7,6 +7,7 @@ export const callNewService = (name, slug, duration, price, currency) => {
 
     fetch('http://localhost:3000/api/v1/service', {
         method: 'POST',
+        credentials: 'include',
         headers: {
             'Content-Type': 'application/json',
         },
@@ -21,12 +22,12 @@ export const callNewService = (name, slug, duration, price, currency) => {
         })
 };
 
-export const callFindService = (userId) =>
-
-    fetch(`http://localhost:3000/api/v1/service/${userId}`, {
+export const callFindService = () =>
+    fetch('http://localhost:3000/api/v1/service/', {
         method: 'GET',
+        credentials: 'include',
         headers: {
             'Content-Type': 'application/json',
-        }
+        },
     })
         .then(checkOkAndJSON);

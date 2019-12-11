@@ -8,7 +8,7 @@ import NewBooking from "./NewBooking";
 const NewBookingContainer = props => {
     const [services, setServices] = useState("");
     const [state, setState] = useState({
-        service: "",
+        service: "", // TODO: Set default if select hasn't triggered onChange event
         customer: "",
         startTimeHour: "",
         startTimeMinutes: "",
@@ -40,17 +40,15 @@ const NewBookingContainer = props => {
     };
 
     const isFormValid = () => {
-        const { service, customer } = state;
+        const { customer } = state;
 
-        if (service && customer && startTime && endTime) {
+        if (customer && startTime && endTime) {
             return false;
         } return true;
     };
 
     const getServices = () => {
-        const userId = "5de4817b-fd46-4b9e-bc1b-9afb5de6e7b8";
-
-        callFindService(userId).then(data => setServices(data));
+        callFindService().then(data => setServices(data));
     };
 
     return (
