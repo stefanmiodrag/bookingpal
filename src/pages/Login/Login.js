@@ -22,20 +22,22 @@ const Login = ({
     toggleShowPassword,
     onSignupClick,
     signup,
-    toggleSignup
+    toggleSignup,
+    errorMessage,
+    loading
 }) => (
         <>
             <Toaster
                 visible={error}
                 close={removeErrorMessage}
-                label="Please provide both an email and a password."
+                label={errorMessage}
                 theme="danger"
             />
 
             <style.Container>
                 <style.Form>
                     <style.Content>
-                        <style.Mark>bark</style.Mark>
+                        {/* <style.Mark>bark</style.Mark> */}
 
                         <h4 className="semibold">Hey, welcome back <span role="img" aria-label="wave">👋</span></h4>
                         <p>Let's get back to it, just sign in below and we'll take you straight to your dashboard.</p>
@@ -89,7 +91,7 @@ const Login = ({
                     </Card>
 
                     <style.Footer onClick={toggleSignup}>
-                        <p>Don't have an account? Register</p>
+                        <p>{signup ? "Already have an acccount? Login here" : "Not got an account? Create one here"}</p>
                         <Icon icon="arrow-right" iconSize={12} title="arrow" />
                     </style.Footer>
                 </style.Form>

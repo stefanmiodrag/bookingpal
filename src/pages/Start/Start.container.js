@@ -7,7 +7,7 @@ import { callFindBooking } from "../../api/booking";
 
 import Start from "./Start";
 
-const StartContainer = props => {
+const StartContainer = () => {
     const [bookings, setBookings] = useState("");
 
     const user = useSelector(selectUser);
@@ -18,7 +18,6 @@ const StartContainer = props => {
 
     return (
         <Start
-            page={props}
             user={user}
             getBookings={getBookings}
             bookings={bookings}

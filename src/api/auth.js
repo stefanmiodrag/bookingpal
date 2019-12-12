@@ -27,7 +27,6 @@ export const checkIfAuthenticated = () => {
 export const callLogOut = () => {
     cookie.remove('token');
     // reload page after removing cookie
-    window.location.reload(false);
 };
 
 export const callSignup = (email, username, password) => {

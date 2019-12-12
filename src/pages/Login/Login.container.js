@@ -7,12 +7,15 @@ import { callSignup, setToken, callLogIn } from "../../api/auth";
 
 import Login from "./Login";
 
-const LoginContainer = props => {
+const LoginContainer = () => {
     const dispatch = useDispatch();
 
     const [error, setError] = useState(false);
+    const [errorMessage, setErrorMessage] = useState("");
     const [showPassword, setShowPassword] = useState(false);
+    const [loading, setLoading] = useState(false);
     const [signup, setSignup] = useState(false);
+
     const [state, setState] = useState({
         password: "",
         email: "",
@@ -29,7 +32,7 @@ const LoginContainer = props => {
 
     const displayErrorMessage = () => {
         setError(true);
-        setTimeout(() => { setError(false) }, 4000)
+        setTimeout(() => { setError(false) }, 4000);
     };
 
     const removeErrorMessage = () => setError(false);
@@ -38,9 +41,25 @@ const LoginContainer = props => {
     const onLoginClick = e => {
         e.preventDefault();
 
-        if (state.email && state.password) {
-            dispatch(logIn(state.email, state.password));
-        };
+        const { email, password } = state;
+
+        if (email && password) {
+            // setLoading(true); toggle on later for including loading animation
+
+            return dispatch(logIn(email, password))
+                .catch(err => {
+                    // setLoading(false);
+
+                    if (err.status === 401) {
+                        setErrorMessage("Couldn't find a matching user with these credentials.")
+                        displayErrorMessage();
+                    }
+                })
+        }
+
+        setErrorMessage("Please provide both an email and a password.")
+        displayErrorMessage();
+
     };
 
     const toggleSignup = () => setSignup(!signup);
@@ -65,6 +84,8 @@ const LoginContainer = props => {
             toggleShowPassword={toggleShowPassword}
             signup={signup}
             toggleSignup={toggleSignup}
+            errorMessage={errorMessage}
+        // loading={loading}
         />
     );
 };
