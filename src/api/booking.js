@@ -1,10 +1,6 @@
 import { checkOkAndJSON } from './utils';
 
-export const callNewBooking = (service, customer, startTime, endTime) => {
-    if (!service || !customer || !startTime || !endTime) {
-        Promise.reject('Missing all required inputs');
-    }
-
+export const callNewBooking = (service, customer, startTime, endTime) =>
     fetch('http://localhost:3000/api/v1/booking', {
         method: 'POST',
         credentials: 'include',
@@ -14,14 +10,7 @@ export const callNewBooking = (service, customer, startTime, endTime) => {
 
         body: JSON.stringify({ service, customer, startTime, endTime })
     })
-        .then(checkOkAndJSON)
-        .then(res => {
-            return Promise.resolve(res);
-        })
-        .catch(err => {
-            return alert(err.status);
-        })
-};
+        .then(checkOkAndJSON);
 
 export const callFindBooking = () =>
     fetch('http://localhost:3000/api/v1/booking', {

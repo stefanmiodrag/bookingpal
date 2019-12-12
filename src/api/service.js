@@ -1,10 +1,6 @@
 import { checkOkAndJSON } from './utils';
 
-export const callNewService = (name, slug, duration, price, currency) => {
-    if (!name || !duration || !price || !currency) {
-        Promise.reject('Missing all required inputs');
-    }
-
+export const callNewService = (name, slug, duration, price, currency) =>
     fetch('http://localhost:3000/api/v1/service', {
         method: 'POST',
         credentials: 'include',
@@ -13,14 +9,8 @@ export const callNewService = (name, slug, duration, price, currency) => {
         },
         body: JSON.stringify({ name, slug, duration, price, currency })
     })
-        .then(checkOkAndJSON)
-        .then(res => {
-            return Promise.resolve(res);
-        })
-        .catch(err => {
-            return alert(err.status);
-        })
-};
+        .then(checkOkAndJSON);
+
 
 export const callFindService = () =>
     fetch('http://localhost:3000/api/v1/service/', {

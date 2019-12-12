@@ -12,12 +12,10 @@ const NewBookingContainer = props => {
         customer: "",
         startTimeHour: "",
         startTimeMinutes: "",
-        endTimeHour: "",
-        endTimeMinutes: "",
     });
 
     const startTime = state.startTimeHour + ':' + state.startTimeMinutes;
-    const endTime = state.endTimeHour + ':' + state.endTimeMinutes;
+    const endTime = "";
 
     const handleChange = (evt) => {
         const value = evt.target.value;
@@ -33,9 +31,15 @@ const NewBookingContainer = props => {
         const { service, customer } = state;
 
         if (service && customer && startTime && endTime) {
-            callNewBooking(service, customer, startTime, endTime);
+            callNewBooking(service, customer, startTime, endTime)
+                .then(alert("complete!"))
+                .catch(err => {
+                    if (err.status === 401) {
+                        alert("401")
+                    }
+                })
         } else {
-            alert("Error");
+            alert("Missing fields");
         };
     };
 

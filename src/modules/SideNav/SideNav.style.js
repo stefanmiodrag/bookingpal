@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const SideNav = styled.nav`
-background-color: #203543;
+background-color: #182D4A;
 position: fixed;
 left: 0;
 height: 100vh;
@@ -30,7 +30,7 @@ li {
         }
 
         &:hover {
-            background-color: #2A4150;
+            background-color: #1d3556;
             color: white;
             
             svg {
@@ -39,9 +39,9 @@ li {
         }
         
         &.active {
-            background-color: #151f25;
+            background-color: #0c1b2f;
             border-left: 3px solid;
-            border-left-color: #00ad9e;
+            border-left-color: #6BD1FF;
             color: white;
             
             svg {
@@ -62,7 +62,7 @@ height: 100%;
 
 export const List = styled.ul`
 border-bottom: 1px solid;
-border-bottom-color: #2a4354;
+border-bottom-color: #253852;
 `
 
 export const Toggle = styled.div`

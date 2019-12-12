@@ -30,9 +30,15 @@ const NewServiceContainer = props => {
         const { name, price, currency } = state;
 
         if (name && duration && price && currency) {
-            callNewService(name, stringToSlug(name), duration, price, currency);
+            callNewService(name, stringToSlug(name), duration, price, currency)
+                .then(alert("complete!"))
+                .catch(err => {
+                    if (err.status === 401) {
+                        alert("401")
+                    }
+                })
         } else {
-            alert("Error");
+            alert("Missing fields");
         };
     };
 

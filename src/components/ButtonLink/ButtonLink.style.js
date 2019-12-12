@@ -8,7 +8,7 @@ const BUTTON_BACKGROUND = theme => {
         case "disabled":
             return "#CBD1DB";
         case "success":
-            return "#FD7545";
+            return "#2D9BF3";
         default:
             return "transparent";
     }

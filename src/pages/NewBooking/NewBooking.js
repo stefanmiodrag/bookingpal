@@ -18,7 +18,6 @@ const NewBooking = ({
     service,
     customer,
     startTime,
-    endTime,
     services,
     getServices,
 }) => {
@@ -69,14 +68,6 @@ const NewBooking = ({
                                 name="startTime"
                                 onChange={handleChange}
                                 value={startTime}
-                            />
-                        </Label>
-
-                        <Label label="End time">
-                            <TimePicker
-                                name="endTime"
-                                onChange={handleChange}
-                                value={endTime}
                             />
                         </Label>
                     </style.Fieldset>

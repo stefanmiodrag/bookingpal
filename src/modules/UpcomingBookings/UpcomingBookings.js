@@ -8,9 +8,8 @@ import { Card } from "../../components";
 import * as style from "./UpcomingBookings.style";
 
 const UpcomingBookings = props => {
-    console.log("BOOKINGS", props.bookings)
-
     if (props) {
+        console.log(props.bookings)
         return (
             <>
                 <style.Container>
@@ -18,7 +17,7 @@ const UpcomingBookings = props => {
                         <h4 className="semibold">Today's Schedule</h4>
                         {props.bookings.length <= 0 ?
                             <p>You have no bookings today.</p> :
-                            <p>{`You have (${props.bookings.length}) bookings today.`}</p>}
+                            <p>{`You have (${props.bookings.length}) ${props.bookings.length !== 1 ? "bookings" : "booking"} today.`}</p>}
                     </style.Header>
 
                     {props.bookings &&
@@ -27,7 +26,6 @@ const UpcomingBookings = props => {
                                 return (
                                     <>
                                         <p>{item.startTime}</p>
-                                        <p>{item.endTime}</p>
                                     </>
                                 );
                             })}
