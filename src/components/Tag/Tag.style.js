@@ -23,15 +23,16 @@ const TAG_COLOR = theme => {
 };
 
 export const Tag = styled.div`
-border-radius: 4px;
+border-radius: 3px;
 font-size: 0.75rem;
 text-align: center;
 line-height: 18px;
+height: 24px;
 display: inline-flex;
 align-items: center;
 color: ${({ theme }) => TAG_COLOR(theme)};
 border: 1px solid ${({ theme }) => TAG_BORDER(theme)};
 font-weight: 500;
+letter-spacing: 0.6px;
 padding: 0 7px;
-height: 24px;
 `

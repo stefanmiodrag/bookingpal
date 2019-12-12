@@ -51,12 +51,25 @@ export const callSignup = (email, username, password) => {
         })
 };
 
-export const callGetUser = () =>
+export const callFindUser = () =>
     fetch('http://localhost:3000/api/v1/user', {
         method: 'GET',
         credentials: 'include',
         headers: {
             'Content-Type': 'application/json',
         }
+    })
+        .then(checkOkAndJSON);
+
+
+export const callUpdateUser = (user) =>
+    fetch('http://localhost:3000/api/v1/user', {
+        method: 'PUT',
+        credentials: 'include',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+
+        body: JSON.stringify(user)
     })
         .then(checkOkAndJSON);
