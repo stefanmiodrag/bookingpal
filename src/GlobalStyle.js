@@ -28,10 +28,6 @@ const GlobalStyle = createGlobalStyle`
     margin-left: 76px;
   }
   
-  p {
-    margin-bottom: 1.25em;
-  }
-  
   h1, h2, h3, h4, h5 {
     margin-bottom: 0.65rem;
     font-family: 'Roboto', sans-serif;
@@ -58,6 +54,14 @@ const GlobalStyle = createGlobalStyle`
   
   h5 {
     font-size: 1.25em;
+  }
+
+  p {
+    margin-bottom: 1.25em;
+  }
+
+  a {
+    color: #2D9BF3;
   }
 
   .bold {

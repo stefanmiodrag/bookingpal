@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 import * as style from "./NewBooking.style";
 
@@ -7,6 +8,7 @@ import {
     Select,
     TimePicker,
     Label,
+    Notice,
     Input,
     Button,
 } from "../../components";
@@ -31,6 +33,13 @@ const NewBooking = ({
                 <h3 className="semibold">New Booking</h3>
                 <p>Saturday, 7 Dec 2019</p>
             </div>
+
+            {services.length !== 1 &&
+                <Notice>
+                    <h5 className="semibold">You haven't created any services.</h5>
+                    <p>Before you're able to create a booking you need to {' '}
+                        <Link href="/">create a service.</Link></p>
+                </Notice>}
 
             <Card space={true}>
                 <form onSubmit={onNewBookingClick}>
