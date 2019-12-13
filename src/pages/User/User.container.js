@@ -14,6 +14,7 @@ import { selectUser } from "../../selectors/user";
 import { selectCompany } from "../../selectors/company";
 
 const UserContainer = () => {
+    const [complete, setComplete] = useState(false);
     const [state, setState] = useState({
         companyName: "",
     });
@@ -32,6 +33,8 @@ const UserContainer = () => {
     const saveOnClick = e => {
         e.preventDefault();
 
+        // TODO: handle POST / PUT events here
+
         store.dispatch(init());
         window.location.reload(false);
     }
@@ -44,6 +47,7 @@ const UserContainer = () => {
         if (companyName, user._id) {
             callNewCompany(companyName, stringToSlug(companyName), [user._id])
                 .then(alert("complete!"))
+                .then(setComplete(true))
                 .catch(err => {
                     if (err.status === 401) {
                         alert("401")
@@ -61,6 +65,7 @@ const UserContainer = () => {
             company={company}
             handleChange={handleChange}
             companyName={state.companyName}
+            complete={complete}
             saveOnClick={saveOnClick}
         />);
 };

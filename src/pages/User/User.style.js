@@ -13,10 +13,10 @@ width: 70%;
 `
 
 export const SmallColumn = styled.div`
-width: 30%;
+width: 40%;
 
-@media (max-width: 1281px) {
-    width: 50%;
+@media (max-width: 1381px) {
+    width: 60%;
 }
 
 @media (max-width: 961px) {
@@ -40,6 +40,17 @@ margin-bottom: 20px;
 `
 
 export const Form = styled.form`
+display: flex;
+flex-wrap: wrap;
+
+button {
+    margin-bottom: 8px;
+}
+
+input {
+    margin-right: 8px;
+    margin-bottom: 8px;
+}
 `
 
 export const Users = styled.div`

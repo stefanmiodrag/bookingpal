@@ -83,3 +83,14 @@ transition: background-color 0.2s ease;
     box-shadow: none;
 }
 `
+
+export const Label = styled.span`
+display: flex;
+align-items: center;
+
+span {
+    display: flex;
+    align-items: center;
+    margin-left: 4px;
+}
+`

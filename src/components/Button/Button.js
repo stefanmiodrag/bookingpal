@@ -1,4 +1,5 @@
 import React from "react";
+import { Icon } from "@blueprintjs/core";
 
 import * as style from "./Button.style";
 
@@ -10,7 +11,10 @@ const Button = props => (
         theme={props.theme}
         minimal={props.minimal}
     >
-        {props.label}
+        <style.Label>
+            {props.label}
+            {props.icon && <Icon icon={props.icon} />}
+        </style.Label>
     </style.Button>
 );
 

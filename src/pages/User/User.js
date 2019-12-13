@@ -4,7 +4,15 @@ import { Tag, Card, Input, Button } from "../../components";
 
 import * as style from "./User.style";
 
-const User = ({ user, companyName, handleChange, onNewCompanyClick, company, saveOnClick }) => {
+const User = ({
+    user,
+    companyName,
+    handleChange,
+    onNewCompanyClick,
+    company,
+    saveOnClick,
+    complete
+}) => {
     if (user && company) {
         return (
             <>
@@ -38,7 +46,10 @@ const User = ({ user, companyName, handleChange, onNewCompanyClick, company, sav
                                     placeholder="Company name..."
                                     value={companyName}
                                 />
-                                <Button label="Activate your company" />
+                                <Button
+                                    label={complete ? "Activated" : "Activate your company"}
+                                    icon={complete && "small-tick"}
+                                />
                             </style.Form>
                         </Card>}
                 </style.SmallColumn>
