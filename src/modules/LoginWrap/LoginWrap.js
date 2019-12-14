@@ -1,20 +1,21 @@
 import React, { useEffect } from 'react';
-import { Login } from '../../pages';
 
-import { checkIfAuthenticated } from "../../api/auth"
+import { useSelector, useDispatch } from 'react-redux';
+import { checkIfAuthenticated } from "../../actions"
+import { selectIsLoggedIn } from '../../selectors/authentication';
 
-const LoginWrap = ({ children }) => {
+import Routes from "../../Routes";
+
+const LoginWrap = () => {
+  const dispatch = useDispatch();
+  const isLoggedIn = useSelector(selectIsLoggedIn);
+
   useEffect(() => {
-    checkIfAuthenticated();
+    dispatch(checkIfAuthenticated());
   });
 
-  // If we are logged in we just pass the children
-  if (checkIfAuthenticated()) {
-    return children;
-  }
-
   // If we are not logged in we pass the login page
-  return <Login />;
+  return <Routes isLoggedIn={isLoggedIn} />;
 };
 
 export default LoginWrap;

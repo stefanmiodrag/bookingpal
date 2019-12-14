@@ -1,9 +1,14 @@
 import React, { useState } from "react";
 
+import { useSelector } from 'react-redux';
+import { selectIsLoggedIn } from '../../selectors/authentication';
+
 import SideNav from "./SideNav";
 
-const SideNavContainer = props => {
+const SideNavContainer = () => {
     const [toggle, setToggle] = useState(false);
+
+    const isLoggedIn = useSelector(selectIsLoggedIn);
 
     const openNav = () => {
         const app = document.getElementById("App");
@@ -19,8 +24,13 @@ const SideNavContainer = props => {
         setToggle(false);
     };
 
-
-    return <SideNav toggle={toggle} openNav={openNav} closeNav={closeNav} />;
+    return (
+        <SideNav
+            isLoggedIn={isLoggedIn}
+            toggle={toggle}
+            openNav={openNav}
+            closeNav={closeNav}
+        />);
 };
 
 export default SideNavContainer;

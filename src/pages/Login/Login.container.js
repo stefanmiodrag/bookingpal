@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-
-import { logIn } from '../../actions';
 import { useDispatch } from 'react-redux';
 
-import { callSignup, callLogIn } from "../../api/auth";
+import { logIn } from '../../actions';
+import { callSignup } from "../../api/auth";
 
 import Login from "./Login";
 

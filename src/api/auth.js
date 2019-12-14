@@ -1,4 +1,3 @@
-import cookie from 'js-cookie'
 import { checkOkAndJSON } from './utils';
 
 export const callLogIn = (email, password) => {
@@ -18,16 +17,15 @@ export const callLogIn = (email, password) => {
         .then(checkOkAndJSON)
 };
 
-export const checkIfAuthenticated = () => {
-    const token = cookie.get('token')
-    // checking if token is valid...
-    if (token !== undefined) { return true };
-};
-
-export const callLogOut = () => {
-    cookie.remove('token');
-    // reload page after removing cookie
-};
+export const callLogOut = () =>
+    fetch('http://localhost:3000/api/v1/logout', {
+        method: 'POST',
+        credentials: 'include',
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    })
+        .then(checkOkAndJSON)
 
 export const callSignup = (email, username, password, company, role) =>
     fetch('http://localhost:3000/api/v1/register', {

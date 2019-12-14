@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 import Settings from "./Settings";
 
@@ -8,12 +8,14 @@ import { callSignup, callUpdateUser } from "../../api/auth";
 import { callNewCompany, } from "../../api/company";
 
 import store from "../../store";
-import { init } from "../../actions";
+import { init, logOut } from "../../actions";
 
 import { selectUser } from "../../selectors/user";
 import { selectCompany } from "../../selectors/company";
 
 const SettingsContainer = () => {
+    const dispatch = useDispatch();
+
     const [error, setError] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
     const [complete, setComplete] = useState(false);
@@ -80,6 +82,8 @@ const SettingsContainer = () => {
         callSignup(state.email, state.username, state.password, company[0], state.role);
     };
 
+    const onLogoutCLick = () => dispatch(logOut());
+
     return (
         <Settings
             user={user}
@@ -97,6 +101,7 @@ const SettingsContainer = () => {
             error={error}
             errorMessage={errorMessage}
             removeErrorMessage={removeErrorMessage}
+            onLogoutCLick={onLogoutCLick}
         />);
 };
 

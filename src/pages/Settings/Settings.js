@@ -1,6 +1,14 @@
 import React from "react";
 
-import { Tag, Card, Toaster, Input, Label, Select, Button } from "../../components";
+import {
+    Tag,
+    Card,
+    Toaster,
+    Input,
+    Label,
+    Select,
+    Button
+} from "../../components";
 
 import * as style from "./Settings.style";
 
@@ -20,6 +28,7 @@ const User = ({
     error,
     errorMessage,
     removeErrorMessage,
+    onLogoutCLick,
 }) => {
     if (user && company) {
         return (
@@ -139,9 +148,10 @@ const User = ({
                 </style.SmallColumn>
 
                 <style.SmallColumn>
-                    <style.ButtonWrapper>
+                    <style.Buttons>
+                        <Button label="Logout" onClick={onLogoutCLick} />
                         <Button theme="success" label="Save changes" onClick={saveOnClick} />
-                    </style.ButtonWrapper>
+                    </style.Buttons>
                 </style.SmallColumn>
             </>
         );

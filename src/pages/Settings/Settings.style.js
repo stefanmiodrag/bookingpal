@@ -30,9 +30,13 @@ border-bottom-color: #E1E8ED;
 margin-bottom: 20px;
 `
 
-export const ButtonWrapper = styled.div`
+export const Buttons = styled.div`
 margin: 20px 0;
 text-align: right;
+
+button + button {
+    margin-left: 14px;
+}
 `
 
 export const CardWrapper = styled.div`
