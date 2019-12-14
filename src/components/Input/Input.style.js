@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const Input = styled.input`
 outline: none;
+vertical-align: baseline;
 border: none;
 border-radius: 3px;
 box-shadow: 0 0 0 0 rgba(19,124,189,0), 0 0 0 0 rgba(19,124,189,0), 
@@ -10,7 +11,6 @@ background: white;
 min-height: 40px;
 height: 100%;
 padding: 5px 14px;
-vertical-align: middle;
 line-height: 30px;
 color: #182026;
 font-size: 14px;

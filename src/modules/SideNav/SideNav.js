@@ -57,13 +57,6 @@ const SideNav = ({ toggle, closeNav, openNav }) => (
 
             <style.List>
                 <li>
-                    <NavLink to="/user" exact>
-                        <Icon icon="user" iconSize={20} title="user" />
-                        <span className="name">User</span>
-                    </NavLink>
-                </li>
-
-                <li>
                     <NavLink to="/settings" exact>
                         <Icon icon="cog" iconSize={20} title="settings" />
                         <span className="name">Settings</span>

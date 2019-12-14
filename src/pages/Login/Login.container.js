@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { logIn } from '../../actions';
 import { useDispatch } from 'react-redux';
 
-import { callSignup, setToken, callLogIn } from "../../api/auth";
+import { callSignup, callLogIn } from "../../api/auth";
 
 import Login from "./Login";
 
@@ -59,7 +59,6 @@ const LoginContainer = () => {
 
         setErrorMessage("Please provide both an email and a password.")
         displayErrorMessage();
-
     };
 
     const toggleSignup = () => setSignup(!signup);
@@ -67,7 +66,7 @@ const LoginContainer = () => {
     const onSignupClick = e => {
         e.preventDefault();
 
-        callSignup(state.email, state.username, state.password);
+        callSignup(state.email, state.username, state.password, null, "admin");
     };
 
     return (

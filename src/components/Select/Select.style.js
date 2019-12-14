@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const Select = styled.select`
 border: none;
+vertical-align: baseline;
 cursor: pointer;
 text-align: left;
 box-shadow: inset 0 0 0 1px rgba(16,22,26,.2), 

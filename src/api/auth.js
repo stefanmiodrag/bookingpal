@@ -29,27 +29,16 @@ export const callLogOut = () => {
     // reload page after removing cookie
 };
 
-export const callSignup = (email, username, password) => {
-    if (!email || !username || !password) {
-        Promise.reject('Missing email, username or password');
-    }
-
+export const callSignup = (email, username, password, company, role) =>
     fetch('http://localhost:3000/api/v1/register', {
         method: 'POST',
         credentials: 'include',
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ email, username, password })
+        body: JSON.stringify({ email, username, password, company, role })
     })
         .then(checkOkAndJSON)
-        .then(res => {
-            return Promise.resolve(res);
-        })
-        .catch(err => {
-            return alert(err.status);
-        })
-};
 
 export const callFindUser = () =>
     fetch('http://localhost:3000/api/v1/user', {
@@ -61,8 +50,7 @@ export const callFindUser = () =>
     })
         .then(checkOkAndJSON);
 
-
-export const callUpdateUser = (user) =>
+export const callUpdateUser = (company, role) =>
     fetch('http://localhost:3000/api/v1/user', {
         method: 'PUT',
         credentials: 'include',
@@ -70,6 +58,6 @@ export const callUpdateUser = (user) =>
             'Content-Type': 'application/json',
         },
 
-        body: JSON.stringify(user)
+        body: JSON.stringify({ company, role })
     })
         .then(checkOkAndJSON);

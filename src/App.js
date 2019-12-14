@@ -36,7 +36,7 @@ function App() {
                   <Route path="/booking/new" exact component={page.NewBooking} />
                   <Route path="/catalog/new" exact component={page.NewService} />
                   <Route path="/catalog" exact component={page.Service} />
-                  <Route path="/user" exact component={page.User} />
+                  <Route path="/settings" exact component={page.Settings} />
                   <Route path="*" csomponent={page.NotFound} />
                 </Switch>
               </Container>

@@ -6,7 +6,7 @@ border-radius: 3px;
 box-shadow: inset 0 0 0 1px rgba(16,22,26,.15), inset 0 1px 1px rgba(16,22,26,.2);
 background-color: white;
 height: 40px;
-vertical-align: middle;
+vertical-align: baseline;
 line-height: 28px;
 
 span {

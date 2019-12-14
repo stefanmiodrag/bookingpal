@@ -53,12 +53,27 @@ input {
 }
 `
 
+export const Fieldset = styled.fieldset`
+margin-bottom: 20px;
+`
+
 export const Users = styled.div`
 display: flex;
 justify-content: space-between;
+flex-wrap: wrap;
 align-items: center;
 
 p {
     margin: 0;
+}
+`
+
+export const Tags = styled.div`
+div {
+    margin-right: 8px;
+
+    &:last-child {
+        margin-right: 0;
+    }
 }
 `

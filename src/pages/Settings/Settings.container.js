@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 
-import User from "./User";
+import Settings from "./Settings";
 
 import { stringToSlug } from "../../helpers";
-import { callNewCompany } from "../../api/company";
-import { callUpdateUser } from "../../api/auth";
+import { callSignup, callUpdateUser } from "../../api/auth";
+import { callNewCompany, } from "../../api/company";
 
 import store from "../../store";
 import { init } from "../../actions";
@@ -13,10 +13,17 @@ import { init } from "../../actions";
 import { selectUser } from "../../selectors/user";
 import { selectCompany } from "../../selectors/company";
 
-const UserContainer = () => {
+const SettingsContainer = () => {
+    const [error, setError] = useState(false);
+    const [errorMessage, setErrorMessage] = useState("");
     const [complete, setComplete] = useState(false);
+
     const [state, setState] = useState({
         companyName: "",
+        password: "",
+        email: "",
+        username: "",
+        role: "user",
     });
 
     const user = useSelector(selectUser);
@@ -30,13 +37,21 @@ const UserContainer = () => {
         });
     };
 
+    const displayErrorMessage = () => {
+        setError(true);
+        setTimeout(() => { setError(false) }, 4000);
+    };
+
+    const removeErrorMessage = () => setError(false);
+
     const saveOnClick = e => {
         e.preventDefault();
 
         // TODO: handle POST / PUT events here
 
         store.dispatch(init());
-        window.location.reload(false);
+        callUpdateUser(company[0]);
+        // window.location.reload(false);
     }
 
     const onNewCompanyClick = e => {
@@ -44,30 +59,45 @@ const UserContainer = () => {
 
         const { companyName } = state;
 
-        if (companyName, user._id) {
+        if (companyName) {
             callNewCompany(companyName, stringToSlug(companyName), [user._id])
-                .then(alert("complete!"))
                 .then(setComplete(true))
                 .catch(err => {
-                    if (err.status === 401) {
-                        alert("401")
+                    if (err.status === 400) {
+                        setErrorMessage("There already exists a company under this name.")
+                        displayErrorMessage();
                     }
                 })
         } else {
-            alert("Missing fields");
+            setErrorMessage("Please provide a name for your company.")
+            displayErrorMessage();
         };
     };
 
+    const onSignupClick = e => {
+        e.preventDefault();
+
+        callSignup(state.email, state.username, state.password, company[0], state.role);
+    };
+
     return (
-        <User
+        <Settings
             user={user}
             onNewCompanyClick={onNewCompanyClick}
             company={company}
+            onSignupClick={onSignupClick}
+            email={state.email}
+            username={state.username}
+            password={state.password}
+            role={state.role}
             handleChange={handleChange}
             companyName={state.companyName}
             complete={complete}
             saveOnClick={saveOnClick}
+            error={error}
+            errorMessage={errorMessage}
+            removeErrorMessage={removeErrorMessage}
         />);
 };
 
-export default UserContainer;
+export default SettingsContainer;
