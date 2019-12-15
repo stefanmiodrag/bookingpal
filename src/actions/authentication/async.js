@@ -5,8 +5,7 @@ import { init } from '../app';
 import { setLoggedIn, setLoggedOut } from './sync';
 
 export const logIn = (email, password) => dispatch =>
-    callLogIn(email, password).then(() => dispatch(setLoggedIn()));
-
+    callLogIn(email, password).then(() => dispatch(init()).then(() => dispatch(setLoggedIn())));
 
 export const logOut = () => dispatch =>
     callLogOut().then(() => dispatch(setLoggedOut()));
