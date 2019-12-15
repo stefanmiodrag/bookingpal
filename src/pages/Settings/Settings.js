@@ -31,6 +31,8 @@ const User = ({
     onLogoutCLick,
 }) => {
     if (user && company) {
+        const isAdmin = user.role.toUpperCase() === "ADMIN";
+
         return (
             <>
                 <Toaster
@@ -46,23 +48,24 @@ const User = ({
 
                     <style.CardWrapper>
                         <Card space={true}>
-                            <style.Divider>
-                                <h5 className="semibold">Users</h5>
-                                <p>An overview of all the users that have access to this company.
+                            {isAdmin &&
+                                <style.Divider>
+                                    <h5 className="semibold">Users</h5>
+                                    <p>An overview of all the users that have access to this company.
                                     You are the owner of this workspace, and only you can add, edit &amp; delete the users beneath.</p>
-                            </style.Divider>
+                                </style.Divider>}
 
                             <style.Users>
                                 <p>{user.username} ({user.email})</p>
                                 <style.Tags>
-                                    <Tag label="YOU" />
+                                    {isAdmin && <Tag label="YOU" />}
                                     <Tag label={user.role.toUpperCase()} />
                                 </style.Tags>
                             </style.Users>
                         </Card>
                     </style.CardWrapper>
 
-                    {company.length === 0 &&
+                    {company.length === 0 && isAdmin &&
                         <Card bar={true} space={true}>
                             <h5 className="semibold">Connect your company</h5>
                             <p>You haven't connected your company yet.</p>
@@ -84,10 +87,10 @@ const User = ({
                             </style.Form>
                         </Card>}
 
-                    {company.length !== 0 && user.role.toUpperCase() === "ADMIN" &&
+                    {company.length !== 0 && isAdmin &&
                         <Card bar={true} space={true}>
                             <style.Divider>
-                                <h5 className="semibold">Create users your employees</h5>
+                                <h5 className="semibold">Create users for your employees</h5>
                                 <p>Create users for your employees to login.</p>
                             </style.Divider>
 

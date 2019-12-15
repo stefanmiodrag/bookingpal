@@ -1,51 +1,68 @@
 import styled from "styled-components";
 
 export const SideNav = styled.nav`
-background-color: #182D4A;
+background-color: #323232;
 position: fixed;
 left: 0;
 height: 100vh;
-width: ${props => props.toggle ? "76px" : "250px"};
+width: ${props => props.toggle ? "52px" : "180px"};
 transition: width, ease-in-out 200ms;
 
 .name {
     display: ${props => props.toggle ? "none" : "block"};
-    margin-left: 10px;
+    margin-left: 5px;
+}
+
+.icon {
+    display: flex;
+    width: 32px;
+    height: 32px;
+    justify-content: center;
+    align-items: center;
 }
 
 li {
+    padding: 0 10px;
+    list-style: none;
+    margin-bottom: 8px;
+
+    &:last-child {
+        margin-bottom: 18px;
+    }
+
     a {
         display: flex;
         align-items: center;
         justify-content:  ${props => props.toggle ? "center" : "left"};
-        color: #E7E9EB;
+        color: white;
+        white-space: nowrap;
+        text-overflow: ellipsis;
         text-decoration: none;
-        padding: 20px;
-        border-left: 3px solid;
-        border-left-color: transparent;
+        height: 32px;
+        padding: 0 2px;
+        border-radius: ${props => props.toggle ? "8px" : "3px"};
+        opacity: 0.8;
 
         svg {
+            opacity: 0.64;
             padding-right: 3px;
-            fill: #E7E9EB;
+            fill: white;
         }
 
         &:hover {
-            background-color: #1d3556;
-            color: white;
+            opacity: 1;
             
             svg {
-                fill: white;
+               opacity: 1;
             }
         }
         
         &.active {
-            background-color: #0c1b2f;
-            border-left: 3px solid;
-            border-left-color: #6BD1FF;
-            color: white;
+            background-color: #494949;
+            opacity: 1;
             
             svg {
-                fill: white;
+               opacity: 1;
             }
         }
     }
@@ -61,8 +78,20 @@ height: 100%;
 `
 
 export const List = styled.ul`
-border-bottom: 1px solid;
-border-bottom-color: #253852;
+border-bottom: ${props => props.toggle ? "1px solid" : "none"};
+border-bottom-color: #424242;
+margin-bottom: ${props => props.toggle ? "18px" : "0px"};
+`
+
+export const Title = styled.span`
+display: ${props => props.toggle ? "none" : "block"};
+font-size: 11px;
+font-weight: 500;
+text-transform: uppercase;
+color: #7b7b7b;
+letter-spacing: 0.4px;
+margin-bottom: 8px;
+padding: 0 18px;
 `
 
 export const Toggle = styled.div`
@@ -73,9 +102,11 @@ bottom: 20px;
 button {
     all: unset;
     cursor: pointer;
-    width: ${props => props.toggle ? "76px" : "40px"};
-    height: 40px;
-    text-align: ${props => props.toggle ? "center" : "inherit"};
+    width: ${props => props.toggle ? "52px" : "30px"};
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     
     svg {
         fill: #E7E9EB;
@@ -85,9 +116,7 @@ button {
 
 export const Header = styled.div`
 color: white;
-border-bottom: 1px solid;
-border-bottom-color: #2a4354;
-padding: 0 20px;
+padding: 0 15px;
 min-height: 70px;
 display: ${props => props.toggle ? "none" : "flex"};
 align-items: center;
@@ -129,4 +158,15 @@ span {
     font-weight: 700;
     margin-right: 10px;
 }
+`
+
+export const User = styled.button`
+all: unset;
+cursor: pointer;
+bottom: 23px;
+position: absolute;
+padding: 0 10px;
+overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;
 `

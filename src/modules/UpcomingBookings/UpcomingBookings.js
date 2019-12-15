@@ -26,6 +26,7 @@ const UpcomingBookings = props => {
                                 return (
                                     <>
                                         <p>{item.startTime}</p>
+                                        <p>{item.user.username}</p>
                                     </>
                                 );
                             })}

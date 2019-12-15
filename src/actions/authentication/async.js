@@ -15,10 +15,10 @@ export const logOut = () => dispatch =>
 export const checkIfAuthenticated = () => dispatch => {
     const token = cookie.get('token')
     // checking if token is valid...
-    if (token !== undefined) {
+    if (token !== undefined) { /* TODO: setLoggedOut if token isn't valid */
         return dispatch(init()).then(() => dispatch(setLoggedIn()));
     }
 
     // if token doesn't exist we are not logged in.
     dispatch(setLoggedOut());
-}
+};

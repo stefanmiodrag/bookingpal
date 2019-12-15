@@ -12,15 +12,15 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background-color: #F6FAFD;
-    color: #25354a;
+    background-color: #f5f5f5;
+    color: #222;
     font-family: "Roboto", sans-serif;
     font-weight: 400;
     line-height: 1.45;
   }
 
   #page {
-    margin-left: 250px;
+    margin-left: 180px;
     transition: margin-left 0.2s ease;
   }
 

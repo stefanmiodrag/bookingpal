@@ -7,7 +7,7 @@ const BUTTON_BACKGROUND = theme => {
         case "disabled":
             return "#CBD1DB";
         case "success":
-            return "#2D9BF3";
+            return "#4bc800";
         default:
             return "transparent";
     }
@@ -33,7 +33,7 @@ const BUTTON_HOVER_BACKGROUND = theme => {
         case "disabled":
             return "#CBD1DB";
         case "success":
-            return "#1e8ae0";
+            return "#4cb50d";
         default:
             return "transparent";
     }
@@ -46,7 +46,7 @@ const BUTTON_ACTIVE_BACKGROUND = theme => {
         case "disabled":
             return "#CBD1DB";
         case "success":
-            return "#0c70c1";
+            return "#3c9804";
         default:
             return "transparent";
     }

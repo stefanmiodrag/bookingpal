@@ -30,7 +30,7 @@ const NewBookingContainer = props => {
 
         const { service, customer } = state;
 
-        if (service && customer && startTime && endTime) {
+        if (customer && startTime) {
             callNewBooking(service, customer, startTime, endTime)
                 .then(alert("complete!"))
                 .catch(err => {
@@ -44,9 +44,9 @@ const NewBookingContainer = props => {
     };
 
     const isFormValid = () => {
-        const { customer } = state;
+        const { customer, startTimeHour, startTimeMinutes } = state;
 
-        if (customer && startTime && endTime) {
+        if (customer && startTimeHour && startTimeMinutes) {
             return false;
         } return true;
     };

@@ -6,7 +6,7 @@ import { Tag } from "../../components";
 
 import * as style from "./SideNav.style";
 
-const SideNav = ({ isLoggedIn, toggle, closeNav, openNav }) => {
+const SideNav = ({ isLoggedIn, user, toggle, closeNav, openNav }) => {
     if (isLoggedIn) {
         return (
             <style.SideNav toggle={toggle}>
@@ -18,57 +18,98 @@ const SideNav = ({ isLoggedIn, toggle, closeNav, openNav }) => {
                         </style.Mark>
                     </style.Header>
 
-                    <style.List>
+                    <style.List toggle={toggle}>
                         <li>
                             <NavLink to="/" exact activeClassName="active">
-                                <Icon icon="dashboard" iconSize={20} title="dashboard" />
+                                <Icon className="icon" icon="dashboard" iconSize={16} title="dashboard" />
                                 <span className="name">Dashboard</span>
                             </NavLink>
                         </li>
 
                         <li>
                             <NavLink to="/calendar" exact>
-                                <Icon icon="calendar" iconSize={20} title="calendar" />
+                                <Icon className="icon" icon="calendar" iconSize={16} title="calendar" />
                                 <span className="name">Calendar</span>
+                            </NavLink>
+                        </li>
+                    </style.List>
+
+                    <style.List toggle={toggle}>
+                        <style.Title toggle={toggle}>Analyze</style.Title>
+
+                        <li>
+                            <NavLink to="/reports" exact activeClassName="active">
+                                <Icon className="icon" icon="clipboard" iconSize={16} title="clipboard" />
+                                <span className="name">Reports</span>
                             </NavLink>
                         </li>
 
                         <li>
-                            <NavLink to="/catalog">
-                                <Icon icon="layers" iconSize={20} title="catalog" />
-                                <span className="name">Catalog</span>
+                            <NavLink to="/insights" exact activeClassName="active">
+                                <Icon className="icon" icon="timeline-bar-chart" iconSize={16} title="timeline-bar-chart" />
+                                <span className="name">Insights</span>
+                            </NavLink>
+                        </li>
+
+                        <li>
+                            <NavLink to="/bookmarks" exact activeClassName="active">
+                                <Icon className="icon" icon="star" iconSize={16} title="star" />
+                                <span className="name">Saved Reports</span>
+                            </NavLink>
+                        </li>
+                    </style.List>
+
+                    <style.List toggle={toggle}>
+                        <style.Title toggle={toggle}>Manage</style.Title>
+
+                        <li>
+                            <NavLink to="/booking">
+                                <Icon className="icon" icon="folder-close" iconSize={16} title="folder-close" />
+                                <span className="name">Bookings</span>
                             </NavLink>
                         </li>
 
                         <li>
                             <NavLink to="/customers" exact>
-                                <Icon icon="people" iconSize={20} title="customers" />
+                                <Icon className="icon" icon="mugshot" iconSize={16} title="mugshot" />
                                 <span className="name">Customers</span>
                             </NavLink>
                         </li>
 
                         <li>
-                            <NavLink to="/booking">
-                                <Icon icon="inbox" iconSize={20} title="bookings" />
-                                <span className="name">Bookings</span>
+                            <NavLink to="/catalog">
+                                <Icon className="icon" icon="tag" iconSize={16} title="tag" />
+                                <span className="name">Catalog</span>
                             </NavLink>
                         </li>
-                    </style.List>
 
-                    <style.List>
                         <li>
                             <NavLink to="/settings" exact>
-                                <Icon icon="cog" iconSize={20} title="settings" />
+                                <Icon className="icon" icon="cog" iconSize={16} title="settings" />
                                 <span className="name">Settings</span>
                             </NavLink>
                         </li>
+
+                        <li>
+                            <NavLink to="/subscription" exact>
+                                <Icon className="icon" icon="credit-card" iconSize={16} title="credit-card" />
+                                <span className="name">Subscription</span>
+                            </NavLink>
+                        </li>
                     </style.List>
 
+                    {/* 
                     <style.Toggle toggle={toggle}>
                         <button onClick={toggle ? closeNav : openNav}>
-                            <Icon icon={toggle ? "menu-open" : "menu-closed"} iconSize={20} title="toggle-menu" />
+                            <Icon className="icon" icon={toggle ? "menu-open" : "menu-closed"} iconSize={16} title="toggle-menu" />
                         </button>
-                    </style.Toggle>
+                    </style.Toggle> */}
+
+                    {/* TODO:    
+                    <style.User title="More Options">
+                        <p>{user.username}</p>
+                        <p>{user.email}</p>
+                    </style.User> */}
                 </style.Container>
             </style.SideNav>
         );
