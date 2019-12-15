@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const SideNav = styled.nav`
-background-color: #323232;
+background-color: #333;
 position: fixed;
 left: 0;
 height: 100vh;

@@ -10,7 +10,7 @@ import GlobalStyle from "./GlobalStyle";
 
 import store from "./store";
 import { init } from "./actions";
-import { Nav, SideNav, Container, Page, LoginWrap } from "./modules";
+import { SideNav, LoginWrap } from "./modules";
 
 function App() {
   // Fetch all data from API endpoints
@@ -23,8 +23,6 @@ function App() {
           <GlobalStyle />
 
           <SideNav />
-
-          <Nav />
 
           <LoginWrap />
 

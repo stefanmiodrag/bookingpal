@@ -2,38 +2,52 @@ import React, { useEffect } from "react";
 
 import * as style from "./Service.style";
 
-import { Card, ButtonLink, Tag } from "../../components";
+import { Card, Spinner, ButtonLink, Tag } from "../../components";
+import { Nav, Container } from "../../modules";
 
 const Service = ({ props, getServices, services }) => {
     useEffect(() => {
         getServices();
     }, []);
 
-    return (
-        <>
-            <style.FullColumn>
-                <h3 className="semibold">Catalog</h3>
-                <p>Lorum ipsum dolor itsum</p>
+    if (services) {
+        return (
+            <>
+                <Nav
+                    title="Catalog"
+                    breadcrumbs={[
+                        {
+                            label: "Catalog",
+                            path: "/catalog"
+                        }
+                    ]}
+                />
 
-                <ButtonLink path="/catalog/new" label="New service" theme="success" />
-            </style.FullColumn>
+                <Container>
+                    <style.FullColumn>
+                        <p>Lorum ipsum dolor itsum</p>
 
-            {services &&
-                <style.SmallColumn>
-                    {services.map(service => (
-                        <Card key={service.id} space={true}>
-                            <style.Item>
-                                <style.ItemHeader>
-                                    <strong>{service.name}</strong><Tag label={`DURATION ${service.duration}`} />
-                                </style.ItemHeader>
+                        <ButtonLink path="/catalog/new" label="New service" theme="success" />
+                    </style.FullColumn>
 
-                                <p>{service.price} {service.currency}</p>
-                            </style.Item>
-                        </Card>
-                    ))}
-                </style.SmallColumn>}
-        </>
-    );
+                    {services &&
+                        <style.SmallColumn>
+                            {services.map(service => (
+                                <Card key={service.id} space={true}>
+                                    <style.Item>
+                                        <style.ItemHeader>
+                                            <strong>{service.name}</strong><Tag label={`DURATION ${service.duration}`} />
+                                        </style.ItemHeader>
+
+                                        <p>{service.price} {service.currency}</p>
+                                    </style.Item>
+                                </Card>
+                            ))}
+                        </style.SmallColumn>}
+                </Container>
+            </>
+        );
+    } return <Spinner delay={750} />
 };
 
 export default Service;

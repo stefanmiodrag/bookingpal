@@ -5,6 +5,7 @@ import Label from "./Label";
 import Notice from "./Notice";
 import Input from "./Input";
 import Select from "./Select";
+import Spinner from "./Spinner";
 import Button from "./Button"
 import ButtonLink from "./ButtonLink";
 import Card from "./Card";
@@ -17,6 +18,7 @@ export {
     Notice,
     Input,
     Select,
+    Spinner,
     Button,
     ButtonLink,
     Card

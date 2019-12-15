@@ -6,6 +6,8 @@ import { selectIsLoggedIn, selectIsAppLoading } from '../../selectors';
 
 import Routes from "../../Routes";
 
+import * as style from "./LoginWrap.style";
+
 const LoginWrap = () => {
   const dispatch = useDispatch();
   const isLoggedIn = useSelector(selectIsLoggedIn);
@@ -15,17 +17,17 @@ const LoginWrap = () => {
     dispatch(checkIfAuthenticated());
   }, [dispatch]);
 
-  console.log(isLoading)
+  console.log(isLoggedIn)
 
   if (isLoading) {
     return (
-      <div id="page">
-        LOADING...
-      </div>
+      <style.Loading id="loading">
+        <style.Spinner />
+      </style.Loading>
     );
   }
 
-  // If we are not logged in we pass the login page
+  // Pass isLoggedIn flag to routes
   return <Routes isLoggedIn={isLoggedIn} />;
 };
 

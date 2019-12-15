@@ -12,7 +12,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background-color: #f5f5f5;
+    background-color: #fafbfc;
     color: #222;
     font-family: "Roboto", sans-serif;
     font-weight: 400;
@@ -61,7 +61,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   a {
-    color: #2D9BF3;
+    color: #4cc600;
   }
 
   .bold {
