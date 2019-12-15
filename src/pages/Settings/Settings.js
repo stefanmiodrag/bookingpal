@@ -3,6 +3,7 @@ import React from "react";
 import {
     Tag,
     Card,
+    Column,
     Toaster,
     Input,
     Label,
@@ -10,7 +11,7 @@ import {
     Button
 } from "../../components";
 
-import { Container } from "../../modules";
+import { Nav, Container } from "../../modules";
 
 import * as style from "./Settings.style";
 
@@ -44,20 +45,22 @@ const User = ({
                     theme="danger"
                 />
 
+                <Nav title={`Manage ${company.length !== 0 ?
+                    company[0].name : "your profile"}`} />
+
                 <Container>
-                    <style.SmallColumn>
-                        <h3 className="semibold">Manage {company.length !== 0 ? company[0].name : "your profile"}</h3>
-                        <p>Save your BookingPal settings here. </p>
+                    <Column width="small">
+                        <style.Buttons>
+                            <Button icon="cog"></Button>
+                            <Button theme="success" icon="small-tick" label="Done" onClick={saveOnClick} />
+                        </style.Buttons>
+
+                        {isAdmin &&
+                            <p>An overview of all the users that have access to this company.
+                            You are the owner of this workspace, and only you can add, edit &amp; delete the users beneath.</p>}
 
                         <style.CardWrapper>
                             <Card space={true}>
-                                {isAdmin &&
-                                    <style.Divider>
-                                        <h5 className="semibold">Users</h5>
-                                        <p>An overview of all the users that have access to this company.
-                                    You are the owner of this workspace, and only you can add, edit &amp; delete the users beneath.</p>
-                                    </style.Divider>}
-
                                 <style.Users>
                                     <p>{user.username} ({user.email})</p>
                                     <style.Tags>
@@ -69,7 +72,7 @@ const User = ({
                         </style.CardWrapper>
 
                         {company.length === 0 && isAdmin &&
-                            <Card bar={true} space={true}>
+                            <Card space={true}>
                                 <h5 className="semibold">Connect your company</h5>
                                 <p>You haven't connected your company yet.</p>
 
@@ -91,7 +94,7 @@ const User = ({
                             </Card>}
 
                         {company.length !== 0 && isAdmin &&
-                            <Card bar={true} space={true}>
+                            <Card space={true}>
                                 <style.Divider>
                                     <h5 className="semibold">Create users for your employees</h5>
                                     <p>Create users for your employees to login.</p>
@@ -151,14 +154,9 @@ const User = ({
                                     <Button onClick={onSignupClick} type="submit" label="Invite user" />
                                 </style.Form>
                             </Card>}
-                    </style.SmallColumn>
 
-                    <style.SmallColumn>
-                        <style.Buttons>
-                            <Button label="Logout" onClick={onLogoutCLick} />
-                            <Button theme="success" label="Save changes" onClick={saveOnClick} />
-                        </style.Buttons>
-                    </style.SmallColumn>
+                        <Button label="Logout" onClick={onLogoutCLick} />
+                    </Column>
                 </Container>
             </>
         );

@@ -1,29 +1,5 @@
 import styled from "styled-components";
 
-export const FullColumn = styled.div`
-width: 100%;
-`
-
-export const MediumColumn = styled.div`
-width: 70%;
-
-@media (max-width: 961px) {
-    width: 100%;
-}
-`
-
-export const SmallColumn = styled.div`
-width: 40%;
-
-@media (max-width: 1381px) {
-    width: 60%;
-}
-
-@media (max-width: 961px) {
-    width: 100%;
-}
-`
-
 export const Divider = styled.div`
 border-bottom: 1px solid;
 border-bottom-color: #E1E8ED;

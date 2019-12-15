@@ -9,6 +9,7 @@ import Spinner from "./Spinner";
 import Button from "./Button"
 import ButtonLink from "./ButtonLink";
 import Card from "./Card";
+import Column from "./Column";
 
 export {
     Tag,
@@ -21,5 +22,6 @@ export {
     Spinner,
     Button,
     ButtonLink,
-    Card
+    Card,
+    Column
 };

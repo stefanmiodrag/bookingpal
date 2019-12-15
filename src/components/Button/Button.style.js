@@ -55,6 +55,7 @@ const BUTTON_ACTIVE_BACKGROUND = theme => {
 export const Button = styled.button`
 all: unset;
 cursor: pointer;
+vertical-align: bottom;
 text-align: center;
 color: ${({ theme }) => BUTTON_COLOR(theme)};
 background-color: ${({ theme }) => BUTTON_BACKGROUND(theme)};
@@ -91,6 +92,10 @@ align-items: center;
 span {
     display: flex;
     align-items: center;
-    margin-left: 4px;
+    margin-left: ${props => props.label ? "4px" : "0px"};
+
+    svg {
+        fill: ${({ theme }) => BUTTON_COLOR(theme)};
+    }
 }
 `

@@ -8,6 +8,8 @@ import * as style from "./SideNav.style";
 
 const SideNav = ({ isLoggedIn, user, toggle, closeNav, openNav }) => {
     if (isLoggedIn) {
+        const isAdmin = user.role.toUpperCase() === "ADMIN";
+
         return (
             <style.SideNav toggle={toggle}>
                 <style.Container>
@@ -37,21 +39,21 @@ const SideNav = ({ isLoggedIn, user, toggle, closeNav, openNav }) => {
                     <style.List toggle={toggle}>
                         <style.Title toggle={toggle}>Analyze</style.Title>
 
-                        <li>
+                        <li className={isAdmin ? "" : "disabled"}>
                             <NavLink to="/reports" exact activeClassName="active">
                                 <Icon className="icon" icon="clipboard" iconSize={16} title="clipboard" />
                                 <span className="name">Reports</span>
                             </NavLink>
                         </li>
 
-                        <li>
+                        <li className={isAdmin ? "" : "disabled"}>
                             <NavLink to="/insights" exact activeClassName="active">
                                 <Icon className="icon" icon="timeline-bar-chart" iconSize={16} title="timeline-bar-chart" />
                                 <span className="name">Insights</span>
                             </NavLink>
                         </li>
 
-                        <li>
+                        <li className={isAdmin ? "" : "disabled"}>
                             <NavLink to="/bookmarks" exact activeClassName="active">
                                 <Icon className="icon" icon="star" iconSize={16} title="star" />
                                 <span className="name">Saved Reports</span>
@@ -90,7 +92,7 @@ const SideNav = ({ isLoggedIn, user, toggle, closeNav, openNav }) => {
                             </NavLink>
                         </li>
 
-                        <li>
+                        <li className={isAdmin ? "" : "disabled"}>
                             <NavLink to="/subscription" exact>
                                 <Icon className="icon" icon="credit-card" iconSize={16} title="credit-card" />
                                 <span className="name">Subscription</span>

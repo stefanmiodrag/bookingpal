@@ -1,17 +1,18 @@
 import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
-
 import * as style from "./NewBooking.style";
 
 import {
     Card,
-    Select,
+    Column,
+    Spinner,
     TimePicker,
+    Select,
     Label,
-    Notice,
     Input,
     Button,
 } from "../../components";
+
+import { Nav, Container } from "../../modules";
 
 const NewBooking = ({
     handleChange,
@@ -27,73 +28,79 @@ const NewBooking = ({
         getServices();
     }, []);
 
-    return (
-        <>
-            <div>
-                <h3 className="semibold">New Booking</h3>
-                <p>Saturday, 7 Dec 2019</p>
-            </div>
+    if (services) {
+        return (
+            <>
+                <Nav
+                    title="New Booking"
+                    breadcrumbs={[
+                        {
+                            label: "Bookings",
+                            path: "/booking"
+                        },
+                        {
+                            label: "New Booking",
+                            path: "/booking/new"
+                        }
+                    ]}
+                />
 
-            {services.length !== 1 &&
-                <Notice>
-                    <h5 className="semibold">You haven't created any services.</h5>
-                    <p>Before you're able to create a booking you need to {' '}
-                        <Link href="/">create a service.</Link></p>
-                </Notice>}
+                <Container>
+                    <Column width="small">
+                        <Card space={true}>
+                            <form onSubmit={onNewBookingClick}>
+                                <style.Fieldset>
+                                    {services &&
+                                        <Label label="Service">
+                                            <Select
+                                                name="service"
+                                                value={service}
+                                                onChange={handleChange}
+                                                options={
+                                                    services.map(service => {
+                                                        return {
+                                                            value: service.slug,
+                                                            label: service.name
+                                                        }
+                                                    })}
+                                            />
+                                        </Label>}
 
-            <Card space={true}>
-                <form onSubmit={onNewBookingClick}>
-                    <style.Fieldset>
-                        {services &&
-                            <Label label="Service">
-                                <Select
-                                    name="service"
-                                    value={service}
-                                    onChange={handleChange}
-                                    options={
-                                        services.map(service => {
-                                            return {
-                                                value: service.slug,
-                                                label: service.name
-                                            }
-                                        })}
-                                />
-                            </Label>}
+                                    <Label label="Customer">
+                                        <Input
+                                            type="text"
+                                            name="customer"
+                                            placeholder="Customer"
+                                            onChange={handleChange}
+                                            value={customer}
+                                        />
+                                    </Label>
 
-                        <Label label="Customer">
-                            <Input
-                                type="text"
-                                name="customer"
-                                placeholder="Customer"
-                                onChange={handleChange}
-                                value={customer}
-                            />
-                        </Label>
-                    </style.Fieldset>
+                                    <Label label="Start time">
+                                        <TimePicker
+                                            name="startTime"
+                                            onChange={handleChange}
+                                            value={startTime}
+                                        />
+                                    </Label>
+                                </style.Fieldset>
 
-                    <style.Fieldset>
-                        <Label label="Start time">
-                            <TimePicker
-                                name="startTime"
-                                onChange={handleChange}
-                                value={startTime}
-                            />
-                        </Label>
-                    </style.Fieldset>
-
-                    <style.ButtonWrapper>
-                        <Button
-                            type="submit"
-                            label="Save booking"
-                            disabled={isFormValid()}
-                            theme={isFormValid() ? "disabled" : "success"}
-                            onClick={onNewBookingClick}
-                        />
-                    </style.ButtonWrapper>
-                </form>
-            </Card>
-        </>
-    );
+                                <style.ButtonWrapper>
+                                    <Button
+                                        type="submit"
+                                        label="Save booking"
+                                        disabled={isFormValid()}
+                                        theme={isFormValid() ? "disabled" : "success"}
+                                        onClick={onNewBookingClick}
+                                    />
+                                </style.ButtonWrapper>
+                            </form>
+                        </Card>
+                    </Column>
+                </Container>
+            </>
+        );
+    } return <Spinner delay={750} />;
 };
 
 export default NewBooking;

@@ -26,6 +26,11 @@ li {
     list-style: none;
     margin-bottom: 8px;
 
+    &.disabled {
+        opacity: 0.64;
+        pointer-events: none;
+    }
+
     &:last-child {
         margin-bottom: 18px;
     }

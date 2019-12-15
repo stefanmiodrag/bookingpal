@@ -25,25 +25,20 @@ const NewService = ({
 }) => (
         <>
             <Nav
-                title="Catalog"
+                title="New Service"
                 breadcrumbs={[
                     {
                         label: "Catalog",
                         path: "/catalog"
                     },
                     {
-                        label: "New Catalog",
+                        label: "New Service",
                         path: "/catalog/new"
                     }
                 ]}
             />
 
             <Container>
-                <div>
-                    <h3>New Catalog</h3>
-                    <p>Lorum ipsum dolor</p>
-                </div>
-
                 <Card space={true}>
                     <form onSubmit>
                         <style.Fieldset>

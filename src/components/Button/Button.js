@@ -11,7 +11,7 @@ const Button = props => (
         theme={props.theme}
         minimal={props.minimal}
     >
-        <style.Label>
+        <style.Label label={props.label} theme={props.theme}>
             {props.label}
             {props.icon && <Icon icon={props.icon} />}
         </style.Label>

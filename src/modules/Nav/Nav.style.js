@@ -19,7 +19,7 @@ export const Title = styled.h5`
 
 export const Breadcrumb = styled.div`
 background-color: white;
-padding: 20px;
+padding: 14px 20px;
 border-bottom: 1px solid;
 border-bottom-color: #D9DEE4;
 
@@ -34,7 +34,7 @@ li {
         color: #a3a3a3;
         text-decoration: none;
 
-        &:hover, &.active {
+        &:hover {
             color: #4cc600;
             text-decoration: underline;
         }
