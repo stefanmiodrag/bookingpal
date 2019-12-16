@@ -9,12 +9,12 @@ import {
 import GlobalStyle from "./GlobalStyle";
 
 import store from "./store";
-import { init } from "./actions";
+import { init, checkIfAuthenticated } from "./actions";
 import { SideNav, LoginWrap } from "./modules";
 
 function App() {
-  // Fetch all data from API endpoints
-  store.dispatch(init());
+  store.dispatch(checkIfAuthenticated()); // Check if user is authenticated
+  store.dispatch(init()); // Fetch all data from API endpoints
 
   return (
     <Provider store={store}>

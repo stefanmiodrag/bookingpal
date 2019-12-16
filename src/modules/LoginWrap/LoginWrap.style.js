@@ -7,11 +7,22 @@ width: 100%;
 height: 100vh;
 `
 
-export const Spinner = styled.div`
+export const Container = styled.div`
+display: flex;
+align-items: center;
+flex-direction: column;
 position: fixed;
 top: 50%;
 left: 50%;
+color: white;
 transform: translate(-50%,-50%);
+
+span {
+    margin-top: 14px;
+}
+`
+
+export const Spinner = styled.div`
 width: 18px;
 height: 18px;
 box-sizing: border-box;

@@ -1,7 +1,7 @@
-import { fetchUser, fetchUsers } from '../user';
-import { fetchBookings } from '../booking';
-import { fetchCompany } from '../company';
-import { setInitializing } from './sync';
+import { fetchUser, fetchUsers } from "../user";
+import { fetchCompany } from "../company";
+import { fetchBookings } from "../booking";
+import { setInitializing } from "./sync";
 
 export const init = () => dispatch => {
     dispatch(setInitializing(true));

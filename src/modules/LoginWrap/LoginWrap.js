@@ -22,7 +22,10 @@ const LoginWrap = () => {
   if (isLoading) {
     return (
       <style.Loading id="loading">
-        <style.Spinner />
+        <style.Container>
+          <style.Spinner />
+          <span>Getting everything ready...</span>
+        </style.Container>
       </style.Loading>
     );
   }
