@@ -13,6 +13,11 @@ export const loggedInRoutes = [
     },
     {
         exact: true,
+        path: "/booking",
+        component: pages.Bookings,
+    },
+    {
+        exact: true,
         path: "/catalog/new",
         component: pages.NewService,
     },

@@ -1,4 +1,5 @@
 import { fetchUser, fetchUsers } from '../user';
+import { fetchBookings } from '../booking';
 import { fetchCompany } from '../company';
 import { setInitializing } from './sync';
 
@@ -7,8 +8,9 @@ export const init = () => dispatch => {
 
     return Promise.all([
         dispatch(fetchUser()),
-        dispatch(fetchUsers()),
         dispatch(fetchCompany()),
+        dispatch(fetchUsers()),
+        dispatch(fetchBookings())
     ])
         .catch(err => (err.message))
         .finally(() => dispatch(setInitializing(false)));

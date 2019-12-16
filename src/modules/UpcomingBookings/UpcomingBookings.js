@@ -3,13 +3,10 @@ import React from "react";
 import SimpleBar from 'simplebar-react';
 import 'simplebar/dist/simplebar.min.css';
 
-import { Card } from "../../components";
-
 import * as style from "./UpcomingBookings.style";
 
 const UpcomingBookings = props => {
     if (props) {
-        console.log(props.bookings)
         return (
             <>
                 <style.Container>

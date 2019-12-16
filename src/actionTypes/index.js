@@ -6,3 +6,5 @@ export const SET_LOGGED_OUT = "SET_LOGGED_OUT";
 
 export const SET_COMPANY = "SET_COMPANY";
 export const SET_COMPANY_USERS = "SET_COMPANY_USERS";
+
+export const SET_BOOKINGS = "SET_BOOKINGS";

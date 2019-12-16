@@ -1,5 +1,8 @@
 import React from "react";
 
+import SimpleBar from 'simplebar-react';
+import 'simplebar/dist/simplebar.min.css';
+
 import {
     Tag,
     Card,
@@ -63,25 +66,26 @@ const User = ({
                         </style.Header>
 
                         <style.CardWrapper>
-                            <Card space={true}>
-                                <style.UserHeader>
-                                    <span>NAME</span>
+                            <style.UserHeader>
+                                <span>NAME</span>
 
-                                    <span>ACCESS</span>
-                                </style.UserHeader>
+                                <span>ACCESS</span>
+                            </style.UserHeader>
+                            <style.Users>
+                                <SimpleBar style={{ maxHeight: 200 }}>
+                                    <ul>
+                                        {allUsers.map(user => (
+                                            <style.User key={user._id}>
+                                                <span>{`${user.username} (${user.email})`}</span>
 
-                                <ul>
-                                    {allUsers.map(user => (
-                                        <style.User key={user._id}>
-                                            <span>{`${user.username} (${user.email})`}</span>
-
-                                            <style.Tags>
-                                                <Tag label={user.role.toUpperCase()} />
-                                            </style.Tags>
-                                        </style.User>
-                                    ))}
-                                </ul>
-                            </Card>
+                                                <style.Tags>
+                                                    <Tag label={user.role.toUpperCase()} />
+                                                </style.Tags>
+                                            </style.User>
+                                        ))}
+                                    </ul>
+                                </SimpleBar>
+                            </style.Users>
                         </style.CardWrapper>
 
                         {company.length === 0 && isAdmin &&

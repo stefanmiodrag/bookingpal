@@ -12,7 +12,7 @@ export const callNewBooking = (service, customer, startTime, endTime) =>
     })
         .then(checkOkAndJSON);
 
-export const callFindBooking = () =>
+export const callFindBookings = () =>
     fetch('http://localhost:3000/api/v1/booking', {
         method: 'GET',
         credentials: 'include',

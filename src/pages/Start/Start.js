@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 import { dayOfTheWeek } from "../../helpers";
 import { Nav, Container, UpcomingBookings } from "../../modules";
@@ -6,12 +6,8 @@ import { Column, ButtonLink } from "../../components";
 
 import * as style from "./Start.style";
 
-const Start = ({ user, getBookings, bookings }) => {
-    useEffect(() => {
-        getBookings();
-    }, []);
-
-    if (user) {
+const Start = ({ user, bookings }) => {
+    if (user && bookings) {
         return (
             <>
                 <Nav title="Dashboard" />

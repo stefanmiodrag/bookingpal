@@ -60,12 +60,14 @@ div {
 `
 
 export const UserHeader = styled.div`
+background-color: white;
+border-radius: 3px 3px 0 0;
 display: flex;
 justify-content: space-between;
 align-items: center;
-border-bottom: 1px solid;
-border-bottom-color: #E1E8ED;
-margin-bottom: 20px;
+box-shadow: 0 0 0 1px rgba(16,22,26,.15), 
+    0 0 0 rgba(16,22,26,0), 0 0 0 rgba(16,22,26,0);
+padding: 24px;
 
 span {
     display: block;
@@ -75,6 +77,13 @@ span {
     letter-spacing: 0.4px;    
     color: #7e8a96;
 }
+`
+
+export const Users = styled.div`
+background-color: white;
+padding: 24px;
+box-shadow: 0 0 0 1px rgba(16,22,26,.15), 
+    0 0 0 rgba(16,22,26,0), 0 0 0 rgba(16,22,26,0);
 `
 
 export const User = styled.li`
