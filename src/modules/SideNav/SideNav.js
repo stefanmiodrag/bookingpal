@@ -102,19 +102,19 @@ const SideNav = ({ isLoggedIn, user, toggle, closeNav, openNav }) => {
                         </li>
                     </style.List>
 
-                    {/* 
-                    <style.Toggle toggle={toggle}>
-                        <button onClick={toggle ? closeNav : openNav}>
-                            <Icon className="icon" icon={toggle ? "menu-open" : "menu-closed"} iconSize={16} title="toggle-menu" />
-                        </button>
-                    </style.Toggle> */}
-
                     {/* TODO:    
                     <style.User title="More Options">
                         <p>{user.username}</p>
                         <p>{user.email}</p>
                     </style.User> */}
                 </style.Container>
+
+                <style.SlideOut
+                    role="button"
+                    title="Show More / Show Less"
+                    onClick={toggle ? closeNav : openNav}
+                    active={toggle}
+                />
             </style.SideNav>
         );
     } return null;

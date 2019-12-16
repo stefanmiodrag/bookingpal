@@ -25,7 +25,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   #App.small-nav #page {
-    margin-left: 76px;
+    margin-left: 52px;
   }
   
   h1, h2, h3, h4, h5 {

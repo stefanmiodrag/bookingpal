@@ -4,6 +4,7 @@ export const Bar = styled.div`
 height: 2px;
 width: 100%;
 background: linear-gradient(264.11deg, #FF16FF 0%, #FFE500 51.04%, #00FFFF 100%);
+margin-bottom: 18px;
 `
 
 export const SideNav = styled.nav`
@@ -127,9 +128,8 @@ button {
 
 export const Header = styled.div`
 color: white;
-margin-bottom: 8px;
+margin-bottom: 18px;
 padding: 0 15px;
-min-height: 66px;
 display: ${props => props.toggle ? "none" : "flex"};
 align-items: center;
 justify-content: space-between;
@@ -181,4 +181,44 @@ padding: 0 10px;
 overflow: hidden;
 text-overflow: ellipsis;
 white-space: nowrap;
+`
+
+export const SlideOut = styled.div`
+position: absolute;
+right: -25px;
+top: 50%;
+height: 50px;
+margin-top: -25px;
+cursor: pointer;
+padding: 15px;
+
+&:hover  {
+    &:before {
+        transform: ${props => props.active ? "rotate(-25deg) translate3d(0px, 1px, 0px)"
+        : "rotate(25deg) translate3d(0px, 1px, 0px)"};
+    }
+    
+    &:after {
+        transform: ${props => props.active ? "rotate(25deg) translate3d(0px, -1px, 0px)"
+        : "rotate(-25deg) translate3d(0px, -1px, 0px)"};
+    }
+}
+
+&:before {
+    display: flex;
+    content: "";
+    height: 10px;
+    width: 2px;
+    transition: transform 0.3s ease 0s;
+    background-color: #93a2b1;
+}
+
+&:after {
+    display: flex;
+    content: "";
+    height: 10px;
+    width: 2px;
+    transition: transform 0.3s ease 0s;
+    background-color: #93a2b1;
+}
 `
