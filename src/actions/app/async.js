@@ -1,5 +1,7 @@
 import { fetchUser, fetchUsers } from "../user";
 import { fetchCompany } from "../company";
+import { fetchCatalogs } from "../catalog";
+import { fetchServices } from "../service";
 import { fetchBookings } from "../booking";
 import { setInitializing } from "./sync";
 
@@ -10,6 +12,8 @@ export const init = () => dispatch => {
         dispatch(fetchUser()),
         dispatch(fetchCompany()),
         dispatch(fetchUsers()),
+        dispatch(fetchCatalogs()),
+        dispatch(fetchServices()),
         dispatch(fetchBookings())
     ])
         .catch(err => (err.message))

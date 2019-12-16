@@ -1,6 +1,6 @@
 import { SET_SERVICES } from '../../actionTypes';
 
-export const setServices = (services) => ({
+export const setService = (services) => ({
     type: SET_SERVICES,
     ...services
 });

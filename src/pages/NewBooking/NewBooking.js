@@ -51,7 +51,7 @@ const NewBooking = ({
                         <Card space={true}>
                             <form onSubmit={onNewBookingClick}>
                                 <style.Fieldset>
-                                    {services &&
+                                    {services.length !== 0 &&
                                         <Label label="Service">
                                             <Select
                                                 name="service"

@@ -1,14 +1,11 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 import * as style from "./Service.style";
 
 import { Card, Spinner, Button, ButtonLink, Tag } from "../../components";
 import { Nav, Container } from "../../modules";
 
-const Service = ({ props, removeService, getServices, services }) => {
-    useEffect(() => {
-        getServices();
-    }, []);
+const Service = ({ props, removeService, services }) => {
 
     if (services) {
         return (

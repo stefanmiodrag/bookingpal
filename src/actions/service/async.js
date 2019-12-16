@@ -1,6 +1,6 @@
-import { callFindServices } from '../../api/service';
-import { setServices } from './sync';
+import { callFindService } from '../../api/service';
+import { setService } from './sync';
 
-export const fetchBookings = () => dispatch =>
-    callFindServices().then(data => dispatch(setServices(data)));
+export const fetchServices = () => dispatch =>
+    callFindService().then(data => dispatch(setService(data)));
 

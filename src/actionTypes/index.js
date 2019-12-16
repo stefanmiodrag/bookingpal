@@ -8,4 +8,5 @@ export const SET_COMPANY = "SET_COMPANY";
 export const SET_COMPANY_USERS = "SET_COMPANY_USERS";
 
 export const SET_BOOKINGS = "SET_BOOKINGS";
+export const SET_CATALOGS = "SET_CATALOGS";
 export const SET_SERVICES = "SET_SERVICES";
