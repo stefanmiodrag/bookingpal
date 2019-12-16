@@ -17,6 +17,7 @@ import * as style from "./Settings.style";
 
 const User = ({
     user,
+    allUsers,
     companyName,
     handleChange,
     onNewCompanyClick,
@@ -49,25 +50,37 @@ const User = ({
                     company[0].name : "your profile"}`} />
 
                 <Container>
-                    <Column width="small">
-                        <style.Buttons>
-                            <Button icon="cog"></Button>
-                            <Button theme="success" icon="small-tick" label="Done" onClick={saveOnClick} />
-                        </style.Buttons>
-
-                        {isAdmin &&
-                            <p>An overview of all the users that have access to this company.
+                    <Column width="medium">
+                        <style.Header>
+                            {isAdmin &&
+                                <p className="light-color">An overview of all the users that have access to this company.
                             You are the owner of this workspace, and only you can add, edit &amp; delete the users beneath.</p>}
+
+                            <style.Buttons>
+                                <Button icon="cog"></Button>
+                                <Button theme="success" icon="small-tick" label="Done" onClick={saveOnClick} />
+                            </style.Buttons>
+                        </style.Header>
 
                         <style.CardWrapper>
                             <Card space={true}>
-                                <style.Users>
-                                    <p>{user.username} ({user.email})</p>
-                                    <style.Tags>
-                                        {isAdmin && <Tag label="YOU" />}
-                                        <Tag label={user.role.toUpperCase()} />
-                                    </style.Tags>
-                                </style.Users>
+                                <style.UserHeader>
+                                    <span>NAME</span>
+
+                                    <span>ACCESS</span>
+                                </style.UserHeader>
+
+                                <ul>
+                                    {allUsers.map(user => (
+                                        <style.User key={user._id}>
+                                            <span>{`${user.username} (${user.email})`}</span>
+
+                                            <style.Tags>
+                                                <Tag label={user.role.toUpperCase()} />
+                                            </style.Tags>
+                                        </style.User>
+                                    ))}
+                                </ul>
                             </Card>
                         </style.CardWrapper>
 

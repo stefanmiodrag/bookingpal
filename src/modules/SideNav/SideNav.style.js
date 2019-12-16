@@ -1,7 +1,13 @@
 import styled from "styled-components";
 
+export const Bar = styled.div`
+height: 2px;
+width: 100%;
+background: linear-gradient(264.11deg, #FF16FF 0%, #FFE500 51.04%, #00FFFF 100%);
+`
+
 export const SideNav = styled.nav`
-background-color: #333;
+background-color: #1D1D2E;
 position: fixed;
 left: 0;
 height: 100vh;
@@ -63,7 +69,7 @@ li {
         }
         
         &.active {
-            background-color: #494949;
+            background-color: #303050;
             opacity: 1;
             
             svg {
@@ -93,7 +99,7 @@ display: ${props => props.toggle ? "none" : "block"};
 font-size: 11px;
 font-weight: 500;
 text-transform: uppercase;
-color: #7b7b7b;
+color: #8f8fa7;
 letter-spacing: 0.4px;
 margin-bottom: 8px;
 padding: 0 18px;
@@ -121,8 +127,9 @@ button {
 
 export const Header = styled.div`
 color: white;
+margin-bottom: 8px;
 padding: 0 15px;
-min-height: 70px;
+min-height: 66px;
 display: ${props => props.toggle ? "none" : "flex"};
 align-items: center;
 justify-content: space-between;

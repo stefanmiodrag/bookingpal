@@ -4,6 +4,7 @@ import * as style from "./NewBooking.style";
 import {
     Card,
     Column,
+    DayPicker,
     Spinner,
     TimePicker,
     Select,
@@ -47,6 +48,10 @@ const NewBooking = ({
 
                 <Container>
                     <Column width="small">
+                        <style.Container>
+                            <DayPicker />
+                        </style.Container>
+
                         <Card space={true}>
                             <form onSubmit={onNewBookingClick}>
                                 <style.Fieldset>

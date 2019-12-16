@@ -5,12 +5,8 @@ border: none;
 vertical-align: baseline;
 cursor: pointer;
 text-align: left;
-box-shadow: inset 0 0 0 1px rgba(16,22,26,.2), 
-   inset 0 -1px 0 rgba(16,22,26,.1);
-background-color: #f5f8fa;
-background-image: linear-gradient(180deg,
-   hsla(0,0%,100%,.8), hsla(0,0%,100%,0));
-color: #182026;
+box-shadow: rgb(230, 230, 230) 0px 0px 0px 1px inset;
+background-color: white;
 border-radius: 3px;
 height: 40px;
 padding: 5px 14px;

@@ -1,27 +1,29 @@
+import moment from "moment";
+
 const dayOfTheWeek = () => {
     let day;
 
-    switch (new Date().getDay()) {
+    switch (moment().day()) {
         case 0:
-            day = "sunday";
+            day = "Sunday";
             break;
         case 1:
-            day = "monday";
+            day = "Monday";
             break;
         case 2:
-            day = "tuesday";
+            day = "Tuesday";
             break;
         case 3:
-            day = "wednesday";
+            day = "Wednesday";
             break;
         case 4:
-            day = "thursday";
+            day = "Thursday";
             break;
         case 5:
-            day = "friday";
+            day = "Friday";
             break;
         case 6:
-            day = "saturday";
+            day = "Saturday";
             break;
         default:
             day = null;

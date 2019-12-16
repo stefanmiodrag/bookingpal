@@ -10,7 +10,7 @@ import { callNewCompany, } from "../../api/company";
 import store from "../../store";
 import { init, logOut } from "../../actions";
 
-import { selectUser } from "../../selectors/user";
+import { selectUser, selectUsers } from "../../selectors/user";
 import { selectCompany } from "../../selectors/company";
 
 const SettingsContainer = () => {
@@ -29,6 +29,7 @@ const SettingsContainer = () => {
     });
 
     const user = useSelector(selectUser);
+    const allUsers = useSelector(selectUsers);
     const company = useSelector(selectCompany);
 
     const handleChange = (evt) => {
@@ -87,6 +88,7 @@ const SettingsContainer = () => {
     return (
         <Settings
             user={user}
+            allUsers={allUsers}
             onNewCompanyClick={onNewCompanyClick}
             company={company}
             onSignupClick={onSignupClick}

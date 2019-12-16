@@ -5,7 +5,7 @@ const GlobalStyle = createGlobalStyle`
   ${reset} 
 
   @import url('https://fonts.googleapis.com/css?family=Exo:700&display=swap');
-  @import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap');
+  @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap');
 
   html {
     font-size: 14px;
@@ -66,6 +66,14 @@ const GlobalStyle = createGlobalStyle`
 
   .bold {
     font-weight: 700;
+  }
+
+  .thin {
+    font-weight: 300;
+  }
+
+  .light-color {
+    color: #6f6e6e;
   }
 
   .semibold, strong {

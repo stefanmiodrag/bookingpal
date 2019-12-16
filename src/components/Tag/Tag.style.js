@@ -5,7 +5,7 @@ const TAG_BORDER = theme => {
         case "primary":
             return "#CED9E0";
         case "secondary":
-            return "#6f6f6f";
+            return "#5C5C75";
         default:
             return "#CED9E0";
     }
@@ -16,7 +16,7 @@ const TAG_COLOR = theme => {
         case "primary":
             return "#5C7080";
         case "secondary":
-            return "#dedddd";
+            return "#aeaece";
         default:
             return "#5C7080";
     }

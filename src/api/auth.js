@@ -48,6 +48,16 @@ export const callFindUser = () =>
     })
         .then(checkOkAndJSON);
 
+export const callFindUsers = () =>
+    fetch('http://localhost:3000/api/v1/users', {
+        method: 'GET',
+        credentials: 'include',
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    })
+        .then(checkOkAndJSON);
+
 export const callUpdateUser = (company, role) =>
     fetch('http://localhost:3000/api/v1/user', {
         method: 'PUT',

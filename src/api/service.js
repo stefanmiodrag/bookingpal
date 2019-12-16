@@ -11,6 +11,16 @@ export const callNewService = (name, slug, duration, price, currency) =>
     })
         .then(checkOkAndJSON);
 
+export const callRemoveService = (id) =>
+    fetch(`http://localhost:3000/api/v1/service/${id}`, {
+        method: 'DELETE',
+        credentials: 'include',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    })
+        .then(checkOkAndJSON);
+
 export const callFindService = () =>
     fetch('http://localhost:3000/api/v1/service', {
         method: 'GET',

@@ -10,6 +10,7 @@ import Button from "./Button"
 import ButtonLink from "./ButtonLink";
 import Card from "./Card";
 import Column from "./Column";
+import DayPicker from "./DayPicker";
 
 export {
     Tag,
@@ -23,5 +24,6 @@ export {
     Button,
     ButtonLink,
     Card,
-    Column
+    Column,
+    DayPicker,
 };

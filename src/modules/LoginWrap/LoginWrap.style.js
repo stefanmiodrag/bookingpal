@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Loading = styled.div`
 position: absolute;
-background-color: #333;
+background-color: #1D1D33;
 width: 100%;
 height: 100vh;
 `
@@ -16,8 +16,8 @@ width: 18px;
 height: 18px;
 box-sizing: border-box;
 border: solid 2px transparent;
-border-top-color: #ea4c89;
-border-left-color: #ea4c89;
+border-top-color: #00FFFF;
+border-left-color: #00FFFF;
 border-radius: 50%;
 animation: spinner .4s linear infinite;
 

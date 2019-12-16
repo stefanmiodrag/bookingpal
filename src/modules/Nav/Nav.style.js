@@ -4,7 +4,7 @@ export const Nav = styled.nav`
 display: flex;
 align-items: center;
 background-color: white;
-min-height: 70px;
+min-height: 66px;
 border-bottom: 1px solid;
 border-bottom-color: #D9DEE4;
 `
@@ -13,8 +13,9 @@ export const Container = styled.div`
 margin: 0 20px;
 `
 
-export const Title = styled.h5`
-    margin-bottom: 4px;
+export const Title = styled.h1`
+font-size: 1.15em;
+margin-bottom: 4px;
 `
 
 export const Breadcrumb = styled.div`

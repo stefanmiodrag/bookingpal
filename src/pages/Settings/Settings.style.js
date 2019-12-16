@@ -15,6 +15,18 @@ button + button {
 }
 `
 
+export const Header = styled.div`
+display: flex;
+justify-content: space-between;
+flex-wrap: wrap;
+align-items: center;
+
+p {
+    margin: 0;
+    max-width: 600px;
+}
+`
+
 export const CardWrapper = styled.div`
 margin-bottom: 20px;
 `
@@ -37,17 +49,6 @@ export const Fieldset = styled.fieldset`
 margin-bottom: 20px;
 `
 
-export const Users = styled.div`
-display: flex;
-justify-content: space-between;
-flex-wrap: wrap;
-align-items: center;
-
-p {
-    margin: 0;
-}
-`
-
 export const Tags = styled.div`
 div {
     margin-right: 8px;
@@ -55,5 +56,36 @@ div {
     &:last-child {
         margin-right: 0;
     }
+}
+`
+
+export const UserHeader = styled.div`
+display: flex;
+justify-content: space-between;
+align-items: center;
+border-bottom: 1px solid;
+border-bottom-color: #E1E8ED;
+margin-bottom: 20px;
+
+span {
+    display: block;
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;    
+    color: #7e8a96;
+}
+`
+
+export const User = styled.li`
+display: flex;
+justify-content: space-between;
+align-items: center;
+
+&:not(:last-child) {
+    border-bottom: 1px solid;
+    border-bottom-color: #E1E8ED;
+    margin-bottom: 14px;
+    padding-bottom: 14px;
 }
 `
