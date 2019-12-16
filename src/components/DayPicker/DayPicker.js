@@ -1,10 +1,9 @@
 import React from "react";
 import { Icon } from "@blueprintjs/core";
-import moment from "moment";
 
 import * as style from "./DayPicker.style";
 
-const DayPicker = () => {
+const DayPicker = ({ tomorrow }) => {
 
     return (
         <>

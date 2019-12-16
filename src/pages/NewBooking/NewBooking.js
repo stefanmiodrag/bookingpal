@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import * as style from "./NewBooking.style";
 
 import {
@@ -23,11 +23,7 @@ const NewBooking = ({
     customer,
     startTime,
     services,
-    getServices,
 }) => {
-    useEffect(() => {
-        getServices();
-    }, []);
 
     if (services) {
         return (

@@ -1,9 +1,9 @@
-import moment from "moment";
+import getDay from "date-fns/getDay";
 
 const dayOfTheWeek = () => {
     let day;
 
-    switch (moment().day()) {
+    switch (getDay(new Date())) {
         case 0:
             day = "Sunday";
             break;

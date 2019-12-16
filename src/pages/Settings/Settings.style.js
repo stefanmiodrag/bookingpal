@@ -3,11 +3,15 @@ import styled from "styled-components";
 export const Divider = styled.div`
 border-bottom: 1px solid;
 border-bottom-color: #E1E8ED;
-margin-bottom: 20px;
+padding-bottom: 24px;
+margin-bottom: 24px;
+
+h5 {
+    margin: 0;
+}
 `
 
 export const Buttons = styled.div`
-margin: 20px 0;
 text-align: right;
 
 button + button {
@@ -19,7 +23,8 @@ export const Header = styled.div`
 display: flex;
 justify-content: space-between;
 flex-wrap: wrap;
-align-items: center;
+align-items: flex-start;
+margin-bottom: 30px;
 
 p {
     margin: 0;

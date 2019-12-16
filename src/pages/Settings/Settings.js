@@ -113,8 +113,7 @@ const User = ({
                         {company.length !== 0 && isAdmin &&
                             <Card space={true}>
                                 <style.Divider>
-                                    <h5 className="semibold">Create users for your employees</h5>
-                                    <p>Create users for your employees to login.</p>
+                                    <h5 className="light">Invite teammates</h5>
                                 </style.Divider>
 
                                 <style.Form onSubmit={onSignupClick}>

@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 
-import { callFindService } from "../../api/service";
+import { useSelector } from "react-redux";
 import { callNewBooking } from "../../api/booking";
+import { selectServices } from "../../selectors";
 
 import NewBooking from "./NewBooking";
 
 const NewBookingContainer = props => {
-    const [services, setServices] = useState("");
+    const services = useSelector(selectServices);
+
     const [state, setState] = useState({
         service: "", // TODO: Set default if select hasn't triggered onChange event
         customer: "",
@@ -51,10 +53,6 @@ const NewBookingContainer = props => {
         } return true;
     };
 
-    const getServices = () => {
-        callFindService().then(data => setServices(data));
-    };
-
     return (
         <NewBooking
             service={state.service}
@@ -65,7 +63,6 @@ const NewBookingContainer = props => {
             onNewBookingClick={onNewBookingClick}
             isFormValid={isFormValid}
             services={services}
-            getServices={getServices}
         />);
 };
 
