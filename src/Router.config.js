@@ -33,7 +33,12 @@ export const loggedInRoutes = [
     },
     {
         exact: true,
-        path: "/settings",
+        path: "/customer",
+        component: pages.Customers,
+    },
+    {
+        exact: true,
+        path: "/setting",
         component: pages.Settings,
     },
     {

@@ -14,9 +14,9 @@ const Start = ({ user, bookings }) => {
 
                 <Container>
                     <Column width="large">
-                        <h3 className="semibold">Hi {user.username}, happy {dayOfTheWeek()}! {' '}
-                            <span role="img" aria-label="wave">👋</span></h3>
-                        <p>Here's what's happening today.</p>
+                        <h4 className="light">Hi {user.username}, happy {dayOfTheWeek()}! {' '}
+                            <span role="img" aria-label="wave">👋</span></h4>
+                        <p className="light-color">Here's what's happening today.</p>
 
                         <ButtonLink path="/booking/new" label="New booking" theme="success" />
                     </Column>

@@ -12,7 +12,7 @@ h5 {
 `
 
 export const Buttons = styled.div`
-text-align: right;
+margin-left: auto;
 
 button + button {
     margin-left: 14px;
