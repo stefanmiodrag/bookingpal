@@ -5,6 +5,7 @@ border: none;
 vertical-align: baseline;
 cursor: pointer;
 text-align: left;
+font-size: inherit;
 box-shadow: rgb(230, 230, 230) 0px 0px 0px 1px inset;
 background-color: white;
 border-radius: 3px;

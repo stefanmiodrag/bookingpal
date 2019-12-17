@@ -25,6 +25,7 @@ input {
     height: 40px;
     padding: 0;
     text-align: center;
+    font-size: inherit;
     color: #343C47;
     transition: box-shadow .1s cubic-bezier(.4,1,.75,.9);
 
