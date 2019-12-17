@@ -18,13 +18,18 @@ export const loggedInRoutes = [
     },
     {
         exact: true,
-        path: "/catalog/new",
-        component: pages.NewService,
+        path: "/catalog/new-product",
+        component: pages.NewProduct,
+    },
+    {
+        exact: true,
+        path: "/catalog/new-catalog",
+        component: pages.NewCatalog,
     },
     {
         exact: true,
         path: "/catalog",
-        component: pages.Service,
+        component: pages.Catalog,
     },
     {
         exact: true,

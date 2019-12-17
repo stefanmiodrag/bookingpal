@@ -16,6 +16,7 @@ const SET_WIDTH = width => {
 
 export const Column = styled.div`
 width:  ${({ width }) => SET_WIDTH(width)};
+margin-bottom: ${props => `${props.mb}px`};
 
 @media (max-width: 1381px) {
     width: 70%;

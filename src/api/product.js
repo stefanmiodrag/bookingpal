@@ -1,7 +1,7 @@
 import { checkOkAndJSON } from './utils';
 
-export const callNewService = (name, slug, duration, price, currency) =>
-    fetch('http://localhost:3000/api/v1/service', {
+export const callNewProduct = (name, slug, duration, price, currency) =>
+    fetch('http://localhost:3000/api/v1/product', {
         method: 'POST',
         credentials: 'include',
         headers: {
@@ -11,8 +11,8 @@ export const callNewService = (name, slug, duration, price, currency) =>
     })
         .then(checkOkAndJSON);
 
-export const callRemoveService = (id) =>
-    fetch(`http://localhost:3000/api/v1/service/${id}`, {
+export const callRemoveProduct = (id) =>
+    fetch(`http://localhost:3000/api/v1/product/${id}`, {
         method: 'DELETE',
         credentials: 'include',
         headers: {
@@ -21,8 +21,8 @@ export const callRemoveService = (id) =>
     })
         .then(checkOkAndJSON);
 
-export const callFindService = () =>
-    fetch('http://localhost:3000/api/v1/service', {
+export const callFindProduct = () =>
+    fetch('http://localhost:3000/api/v1/product', {
         method: 'GET',
         credentials: 'include',
         headers: {

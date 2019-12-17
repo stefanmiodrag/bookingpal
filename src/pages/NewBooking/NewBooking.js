@@ -22,10 +22,10 @@ const NewBooking = ({
     service,
     customer,
     startTime,
-    services,
+    products,
 }) => {
 
-    if (services) {
+    if (products) {
         return (
             <>
                 <Nav
@@ -51,14 +51,14 @@ const NewBooking = ({
                         <Card space={true}>
                             <form onSubmit={onNewBookingClick}>
                                 <style.Fieldset>
-                                    {services.length !== 0 &&
+                                    {products.length !== 0 &&
                                         <Label label="Service">
                                             <Select
                                                 name="service"
                                                 value={service}
                                                 onChange={handleChange}
                                                 options={
-                                                    services.map(service => {
+                                                    products.map(service => {
                                                         return {
                                                             value: service.slug,
                                                             label: service.name

@@ -1,20 +1,14 @@
 import React, { useState } from "react";
 
 import { stringToSlug } from "../../helpers";
-import { callNewService } from "../../api/service"
+import { callNewCatalog } from "../../api/catalog"
 
-import NewService from "./NewService";
+import NewCatalog from "./NewCatalog";
 
-const NewServiceContainer = props => {
+const NewCatalogContainer = () => {
     const [state, setState] = useState({
         name: "",
-        durationHour: "",
-        durationMinutes: "",
-        price: "",
-        currency: "sek",
     });
-
-    const duration = state.durationHour + ':' + state.durationMinutes;
 
     const handleChange = (evt) => {
         const value = evt.target.value;
@@ -24,13 +18,13 @@ const NewServiceContainer = props => {
         });
     };
 
-    const onNewServiceClick = e => {
+    const onNewCatalogClick = e => {
         e.preventDefault();
 
-        const { name, price, currency } = state;
+        const { name } = state;
 
-        if (name && duration && price && currency) {
-            callNewService(name, stringToSlug(name), duration, price, currency)
+        if (name) {
+            callNewCatalog(name, stringToSlug(name))
                 .then(alert("complete!"))
                 .catch(err => {
                     if (err.status === 401) {
@@ -43,23 +37,20 @@ const NewServiceContainer = props => {
     };
 
     const isFormValid = () => {
-        const { name, price } = state;
+        const { name } = state;
 
-        if (name && duration && price) {
+        if (name) {
             return false;
         } return true;
     };
 
     return (
-        <NewService
+        <NewCatalog
             handleChange={handleChange}
-            onNewServiceClick={onNewServiceClick}
+            onNewCatalogClick={onNewCatalogClick}
             name={state.name}
-            duration={state.duration}
-            price={state.price}
-            currency={state.currency}
             isFormValid={isFormValid}
         />);
 };
 
-export default NewServiceContainer;
+export default NewCatalogContainer;

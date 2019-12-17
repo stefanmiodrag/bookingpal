@@ -1,6 +1,6 @@
 import React from "react";
 
-import * as style from "./NewService.style";
+import * as style from "./NewProduct.style";
 
 import {
     Label,
@@ -13,27 +13,26 @@ import {
 
 import { Nav, Container } from "../../modules";
 
-const NewService = ({
-    props,
+const NewProduct = ({
     handleChange,
     name,
     duration,
     price,
     currency,
-    onNewServiceClick,
+    onNewProductClick,
     isFormValid
 }) => (
         <>
             <Nav
-                title="New Service"
+                title="New Product"
                 breadcrumbs={[
                     {
                         label: "Catalog",
                         path: "/catalog"
                     },
                     {
-                        label: "New Service",
-                        path: "/catalog/new"
+                        label: "New Product",
+                        path: "/catalog/new-product"
                     }
                 ]}
             />
@@ -96,7 +95,7 @@ const NewService = ({
                                 label="Save service"
                                 disabled={isFormValid()}
                                 theme={isFormValid() ? "disabled" : "success"}
-                                onClick={onNewServiceClick}
+                                onClick={onNewProductClick}
                             />
                         </style.ButtonWrapper>
                     </form>
@@ -105,4 +104,4 @@ const NewService = ({
         </>
     );
 
-export default NewService;
+export default NewProduct;

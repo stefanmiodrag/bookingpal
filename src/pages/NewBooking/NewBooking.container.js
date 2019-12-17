@@ -2,12 +2,12 @@ import React, { useState } from "react";
 
 import { useSelector } from "react-redux";
 import { callNewBooking } from "../../api/booking";
-import { selectServices } from "../../selectors";
+import { selectProducts } from "../../selectors";
 
 import NewBooking from "./NewBooking";
 
 const NewBookingContainer = props => {
-    const services = useSelector(selectServices);
+    const products = useSelector(selectProducts);
 
     const [state, setState] = useState({
         service: "", // TODO: Set default if select hasn't triggered onChange event
@@ -62,7 +62,7 @@ const NewBookingContainer = props => {
             handleChange={handleChange}
             onNewBookingClick={onNewBookingClick}
             isFormValid={isFormValid}
-            services={services}
+            products={products}
         />);
 };
 

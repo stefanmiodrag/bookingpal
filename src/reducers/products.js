@@ -1,15 +1,15 @@
-import { SET_SERVICES } from "../actionTypes";
+import { SET_PRODUCTS } from "../actionTypes";
 
 const initialState = {
-    services: null
+    products: null
 };
 
 export default (state = initialState, action) => {
     switch (action.type) {
-        case SET_SERVICES:
+        case SET_PRODUCTS:
             return {
                 ...state,
-                services: action.services
+                products: action.products
             }
         default:
             break;
