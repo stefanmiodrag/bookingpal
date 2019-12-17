@@ -17,7 +17,32 @@ const NewBookingContainer = props => {
     });
 
     const startTime = state.startTimeHour + ':' + state.startTimeMinutes;
-    const endTime = "";
+
+    const calculateDuration = () => {
+        if (products === undefined) {
+            return;
+        }
+
+        const allProducts = products.map(product => (product));
+        const matchingProduct = allProducts.filter(x => x.slug === state.service.value)
+
+        const { startTimeHour, startTimeMinutes } = state;
+
+        const hour = startTimeHour;
+        const minutes = startTimeMinutes;
+
+        const endHour = matchingProduct[0] && matchingProduct[0].duration.hour;
+        const endMinutes = matchingProduct[0] && matchingProduct[0].duration.minutes;
+
+        const endTime = {
+            hour: Number(hour) + Number(endHour),
+            minutes: Number(minutes) + Number(endMinutes),
+
+            /* PROPERLY CALCULATE DURATION WITH A HELPER FUNCTION */
+        }
+
+        return endTime;
+    }
 
     const handleChange = (evt) => {
         const value = evt.target.value;
@@ -27,13 +52,20 @@ const NewBookingContainer = props => {
         });
     };
 
+    const handleSelect = (selected) => {
+        setState({
+            ...state,
+            service: selected
+        })
+    }
+
     const onNewBookingClick = e => {
         e.preventDefault();
 
         const { service, customer } = state;
 
         if (customer && startTime) {
-            callNewBooking(service, customer, startTime, endTime)
+            callNewBooking(service, customer, startTime, calculateDuration())
                 .then(alert("complete!"))
                 .catch(err => {
                     if (err.status === 401) {
@@ -46,9 +78,9 @@ const NewBookingContainer = props => {
     };
 
     const isFormValid = () => {
-        const { customer, startTimeHour, startTimeMinutes } = state;
+        const { customer, service, startTimeHour, startTimeMinutes } = state;
 
-        if (customer && startTimeHour && startTimeMinutes) {
+        if (customer && service && startTimeHour && startTimeMinutes) {
             return false;
         } return true;
     };
@@ -59,6 +91,7 @@ const NewBookingContainer = props => {
             customer={state.customer}
             startTime={state.startTime}
             endTime={state.endTime}
+            handleSelect={handleSelect}
             handleChange={handleChange}
             onNewBookingClick={onNewBookingClick}
             isFormValid={isFormValid}

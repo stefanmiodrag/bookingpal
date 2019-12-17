@@ -1,5 +1,5 @@
 import React from "react";
-import * as style from "./NewBooking.style";
+import Select from 'react-select'
 
 import {
     Card,
@@ -7,7 +7,6 @@ import {
     DayPicker,
     Spinner,
     TimePicker,
-    Select,
     Label,
     Input,
     Button,
@@ -15,7 +14,10 @@ import {
 
 import { Nav, Container } from "../../modules";
 
+import * as style from "./NewBooking.style";
+
 const NewBooking = ({
+    handleSelect,
     handleChange,
     onNewBookingClick,
     isFormValid,
@@ -43,7 +45,7 @@ const NewBooking = ({
                 />
 
                 <Container>
-                    <Column width="small">
+                    <Column width="medium">
                         <style.Container>
                             <DayPicker />
                         </style.Container>
@@ -52,20 +54,17 @@ const NewBooking = ({
                             <form onSubmit={onNewBookingClick}>
                                 <style.Fieldset>
                                     {products.length !== 0 &&
-                                        <Label label="Service">
-                                            <Select
-                                                name="service"
-                                                value={service}
-                                                onChange={handleChange}
-                                                options={
-                                                    products.map(service => {
-                                                        return {
-                                                            value: service.slug,
-                                                            label: service.name
-                                                        }
-                                                    })}
-                                            />
-                                        </Label>}
+                                        <Select
+                                            value={service}
+                                            onChange={handleSelect}
+                                            options={
+                                                products.map(service => {
+                                                    return {
+                                                        value: service.slug,
+                                                        label: service.name
+                                                    }
+                                                })}
+                                        />}
 
                                     <Label label="Customer">
                                         <Input

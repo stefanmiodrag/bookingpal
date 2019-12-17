@@ -34,14 +34,17 @@ const NewProductContainer = props => {
         })
     }
 
-    const duration = state.durationHour + ':' + state.durationMinutes;
-
     const onNewProductClick = e => {
         e.preventDefault();
 
-        const { name, price, catalog, currency } = state;
+        const { name, price, durationHour, durationMinutes, catalog, currency } = state;
 
-        if (name && duration && catalog && price && currency) {
+        const duration = {
+            hour: durationHour,
+            minutes: durationMinutes
+        };
+
+        if (name && durationHour && durationMinutes && catalog && price && currency) {
             callNewProduct(name, stringToSlug(name), duration, catalog, price, currency)
                 .then(alert("complete!"))
                 .catch(err => {
@@ -55,9 +58,9 @@ const NewProductContainer = props => {
     };
 
     const isFormValid = () => {
-        const { name, price } = state;
+        const { name, durationHour, durationMinutes, price } = state;
 
-        if (name && duration && price) {
+        if (name && durationHour && durationMinutes && price) {
             return false;
         } return true;
     };
