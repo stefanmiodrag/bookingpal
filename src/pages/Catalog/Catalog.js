@@ -5,8 +5,14 @@ import * as style from "./Catalog.style";
 import { Card, Column, Spinner, Button, ButtonLink, Tag } from "../../components";
 import { Nav, Container } from "../../modules";
 
-const Catalog = ({ removeProduct, catalogs, products }) => {
-
+const Catalog = ({
+    removeProduct,
+    catalogs,
+    products,
+    filteredItems,
+    handleChange,
+    search
+}) => {
     if (catalogs && products) {
         return (
             <>
@@ -18,6 +24,8 @@ const Catalog = ({ removeProduct, catalogs, products }) => {
                             path: "/catalog"
                         }
                     ]}
+                    onSearch={handleChange}
+                    searchValue={search}
                 />
 
                 <Container>
@@ -37,7 +45,7 @@ const Catalog = ({ removeProduct, catalogs, products }) => {
 
                     {products.length !== 0 ?
                         <Column width="small">
-                            {products.map((product, i) => (
+                            {filteredItems.map((product, i) => (
                                 <Card key={i} space={true}>
                                     <Button onClick={() => removeProduct(product._id)} label="Remove" />
 

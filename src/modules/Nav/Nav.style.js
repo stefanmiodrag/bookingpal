@@ -10,11 +10,14 @@ border-bottom-color: #D9DEE4;
 `
 
 export const Container = styled.div`
+display: flex;
+align-items: center;
 margin: 0 20px;
 `
 
 export const Title = styled.h1`
 font-size: 1.15em;
+margin-right: 14px;
 margin-bottom: 4px;
 `
 

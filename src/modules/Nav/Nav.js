@@ -5,6 +5,8 @@ import { Icon } from "@blueprintjs/core";
 import { useSelector } from 'react-redux';
 import { selectIsLoggedIn } from '../../selectors/authentication';
 
+import { Input } from "../../components";
+
 import * as style from "./Nav.style";
 
 const Nav = (props) => {
@@ -16,6 +18,15 @@ const Nav = (props) => {
                 <style.Nav>
                     <style.Container>
                         <style.Title>{props.title}</style.Title>
+
+                        {props.onSearch &&
+                            <Input
+                                name="search"
+                                type="text"
+                                value={props.searchValue}
+                                placeholder="Search..."
+                                onChange={props.onSearch}
+                            />}
                     </style.Container>
                 </style.Nav>
 
@@ -24,7 +35,11 @@ const Nav = (props) => {
                         <ul>
                             {props.breadcrumbs.map(breadcrumb => (
                                 <li>
-                                    <NavLink exact="true" activeClassName="active" to={breadcrumb.path}>
+                                    <NavLink
+                                        exact="true"
+                                        activeClassName="active"
+                                        to={breadcrumb.path}
+                                    >
                                         {breadcrumb.label}
                                     </NavLink>
                                     <Icon icon="chevron-right" />
