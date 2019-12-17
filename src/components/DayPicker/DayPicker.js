@@ -1,16 +1,24 @@
 import React from "react";
 import { Icon } from "@blueprintjs/core";
 
+import { dayOfTheWeek } from "../../helpers";
+
 import * as style from "./DayPicker.style";
 
-const DayPicker = ({ tomorrow }) => {
+const DayPicker = ({ today, increment, decrement, day }) => {
 
     return (
         <>
             <style.Container>
-                <style.Button><Icon icon="chevron-left" /></style.Button>
-                <style.Button>Today</style.Button>
-                <style.Button><Icon icon="chevron-right" /></style.Button>
+                <style.Button onClick={decrement}>
+                    <Icon icon="chevron-left" />
+                </style.Button>
+
+                <style.Button data-value={today}>{dayOfTheWeek(day)}</style.Button>
+
+                <style.Button onClick={increment}>
+                    <Icon icon="chevron-right" />
+                </style.Button>
             </style.Container>
         </>
     );

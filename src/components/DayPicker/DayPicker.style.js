@@ -13,6 +13,8 @@ padding: 0 10px;
 background-color: white;
 
 &:nth-child(2) {
+    min-width: 80px;
+    text-align: center;
     border-top: 1px solid rgb(230, 230, 230);
     border-bottom: 1px solid rgb(230, 230, 230);
     box-shadow: none;

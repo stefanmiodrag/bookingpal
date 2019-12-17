@@ -1,9 +1,7 @@
-import getDay from "date-fns/getDay";
-
-const dayOfTheWeek = () => {
+const dayOfTheWeek = (currentDay) => {
     let day;
 
-    switch (getDay(new Date())) {
+    switch (currentDay) {
         case 0:
             day = "Sunday";
             break;
