@@ -1,15 +1,27 @@
-import cookie from "js-cookie";
+import cookie from 'js-cookie';
 
+import history from '../../store/history';
 import { callLogIn, callLogOut } from '../../api/auth';
 import { init } from '../app';
 import { setLoggedIn, setLoggedOut } from './sync';
 
-export const logIn = (email, password) => dispatch =>
-    callLogIn(email, password).then(() => dispatch(init()).then(() => dispatch(setLoggedIn())));
+export const logIn = (email, password) => dispatch => {
+    const onPostLogin = () => {
+        history.push('/');
+        return dispatch(setLoggedIn());
+    }
 
-export const logOut = () => dispatch =>
-    callLogOut().then(() => dispatch(setLoggedOut()));
+    return callLogIn(email, password).then(onPostLogin);
+}
 
+export const logOut = () => dispatch => {
+    const onPostLogout = () => {
+        history.push('/login');
+        return dispatch(setLoggedOut());
+    };
+
+    return callLogOut().then(onPostLogout);
+};
 
 export const checkIfAuthenticated = () => dispatch => {
     const token = cookie.get('token')

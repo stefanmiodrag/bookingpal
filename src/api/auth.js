@@ -1,21 +1,15 @@
 import { checkOkAndJSON } from './utils';
 
-export const callLogIn = (email, password) => {
-    if (!email || !password) {
-        Promise.reject('Missing email or password');
-    }
-
-    return fetch('http://localhost:3000/api/v1/login', {
+export const callLogIn = (email, password) =>
+    fetch('http://localhost:3000/api/v1/login', {
         method: 'POST',
         credentials: 'include',
         headers: {
             'Content-Type': 'application/json'
         },
-
         body: JSON.stringify({ email, password })
     })
         .then(checkOkAndJSON)
-};
 
 export const callLogOut = () =>
     fetch('http://localhost:3000/api/v1/logout', {
@@ -65,7 +59,6 @@ export const callUpdateUser = (company, role) =>
         headers: {
             'Content-Type': 'application/json',
         },
-
         body: JSON.stringify({ company, role })
     })
         .then(checkOkAndJSON);

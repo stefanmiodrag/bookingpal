@@ -1,14 +1,11 @@
 import React from 'react';
 import { Provider } from "react-redux";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route
-} from "react-router-dom";
+import { Router } from "react-router-dom";
 
 import GlobalStyle from "./GlobalStyle";
 
 import store from "./store";
+import history from "./store/history";
 import { init, checkIfAuthenticated } from "./actions";
 import { SideNav, LoginWrap } from "./modules";
 
@@ -18,7 +15,7 @@ function App() {
 
   return (
     <Provider store={store}>
-      <Router>
+      <Router history={history}>
         <div id="App">
           <GlobalStyle />
 

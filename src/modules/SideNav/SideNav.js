@@ -97,7 +97,12 @@ const SideNav = ({ isLoggedIn, user, toggle, closeNav, openNav }) => {
 
                         <li className={isAdmin ? "" : "disabled"}>
                             <NavLink to="/subscription" exact>
-                                <Icon className="icon" icon="credit-card" iconSize={16} title="credit-card" />
+                                <Icon 
+                                    className="icon" 
+                                    icon="credit-card" 
+                                    iconSize={16} 
+                                    title="credit-card" 
+                                />
                                 <span className="name">Subscription</span>
                             </NavLink>
                         </li>

@@ -51,7 +51,7 @@ export const loggedInRoutes = [
 export const loggedOutRoutes = [
     {
         exact: false,
-        path: "*",
+        path: "/login",
         component: pages.Login,
     },
 ];
