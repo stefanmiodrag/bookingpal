@@ -37,20 +37,20 @@ const Catalog = ({ removeProduct, catalogs, products }) => {
 
                     {products.length !== 0 ?
                         <Column width="small">
-                            {products.map((service, i) => (
+                            {products.map((product, i) => (
                                 <Card key={i} space={true}>
-                                    <Button onClick={() => removeProduct(service._id)} label="Remove" />
+                                    <Button onClick={() => removeProduct(product._id)} label="Remove" />
 
                                     <style.Item>
                                         <style.ItemHeader>
-                                            <strong>{service.name}</strong><Tag label={`DURATION ${service.duration}`} />
+                                            <strong>{product.name}</strong><Tag label={`DURATION ${`${product.duration.hour}:${product.duration.minutes}`}`} />
                                         </style.ItemHeader>
 
-                                        {service.catalog.map(catalog => (
+                                        {product.catalog.map(catalog => (
                                             <p>{catalog.label}</p>
                                         ))}
-                                        
-                                        <p>{service.price} {service.currency}</p>
+
+                                        <p>{product.price} {product.currency}</p>
                                     </style.Item>
                                 </Card>
                             ))}

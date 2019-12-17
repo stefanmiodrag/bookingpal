@@ -6,7 +6,7 @@ import { selectProducts } from "../../selectors";
 
 import NewBooking from "./NewBooking";
 
-const NewBookingContainer = props => {
+const NewBookingContainer = () => {
     const products = useSelector(selectProducts);
 
     const [state, setState] = useState({
@@ -16,12 +16,13 @@ const NewBookingContainer = props => {
         startTimeMinutes: "",
     });
 
-    const startTime = state.startTimeHour + ':' + state.startTimeMinutes;
+    const startTime = {
+        hour: state.startTimeHour,
+        minutes: state.startTimeMinutes,
+    };
 
     const calculateDuration = () => {
-        if (products === undefined) {
-            return;
-        }
+        if (products === undefined) { return };
 
         const allProducts = products.map(product => (product));
         const matchingProduct = allProducts.filter(x => x.slug === state.service.value)
@@ -41,8 +42,12 @@ const NewBookingContainer = props => {
             /* PROPERLY CALCULATE DURATION WITH A HELPER FUNCTION */
         }
 
+        console.log(endTime)
+
         return endTime;
-    }
+    };
+
+    calculateDuration();
 
     const handleChange = (evt) => {
         const value = evt.target.value;
