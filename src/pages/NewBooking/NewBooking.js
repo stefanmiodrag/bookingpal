@@ -26,6 +26,29 @@ const NewBooking = ({
     startTime,
     products,
 }) => {
+    const customStyles = {
+        option: (state) => ({
+            color: state.isSelected ? '#4cc600' : '#222',
+            height: "40px",
+            padding: "0px 14px",
+            display: "flex",
+            alignItems: "center",
+            cursor: "pointer",
+        }),
+
+        control: () => ({
+            display: "flex",
+            borderRadius: "3px",
+            boxShadow: "rgb(230,230,230) 0px 0px 0px 1px inset",
+            height: "40px",
+            padding: "0px 6px",
+        }),
+
+        placeholder: () => ({
+            fontSize: "inherit",
+            color: "#828282"
+        }),
+    }
 
     if (products) {
         return (
@@ -55,6 +78,7 @@ const NewBooking = ({
                                 <style.Fieldset>
                                     {products.length !== 0 &&
                                         <Select
+                                            styles={customStyles}
                                             value={service}
                                             onChange={handleSelect}
                                             options={

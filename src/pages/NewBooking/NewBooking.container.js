@@ -21,6 +21,14 @@ const NewBookingContainer = () => {
         minutes: state.startTimeMinutes,
     };
 
+    const calculateTime = (startHour, startMinutes, endHour, endMinutes) => {
+        const start = startHour + startMinutes;
+        const end = endHour + endMinutes;
+        const sum = Number(start) + Number(end);
+
+        console.log(sum);
+    };
+
     const calculateDuration = () => {
         if (products === undefined) { return };
 
@@ -34,6 +42,8 @@ const NewBookingContainer = () => {
 
         const endHour = matchingProduct[0] && matchingProduct[0].duration.hour;
         const endMinutes = matchingProduct[0] && matchingProduct[0].duration.minutes;
+
+        calculateTime(hour, minutes, endHour, endMinutes);
 
         const endTime = {
             hour: Number(hour) + Number(endHour),

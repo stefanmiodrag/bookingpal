@@ -12,8 +12,8 @@ background-color: #1D1D2E;
 position: fixed;
 left: 0;
 height: 100vh;
-width: ${props => props.toggle ? "70px" : "200px"};
-transition: width, ease-in-out 200ms;
+width: ${props => props.toggle ? "60px" : "200px"};
+transition: width 0.2s ease;
 
 .name {
     display: ${props => props.toggle ? "none" : "block"};
@@ -57,7 +57,7 @@ li {
 
         svg {
             opacity: 0.64;
-            padding-right: 3px;
+            padding-right: ${props => props.toggle ? "0px" : "3px"};
             fill: white;
         }
 
