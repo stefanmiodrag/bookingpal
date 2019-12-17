@@ -1,13 +1,13 @@
 import { checkOkAndJSON } from './utils';
 
-export const callNewProduct = (name, slug, duration, price, currency) =>
+export const callNewProduct = (name, slug, duration, catalog, price, currency) =>
     fetch('http://localhost:3000/api/v1/product', {
         method: 'POST',
         credentials: 'include',
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ name, slug, duration, price, currency })
+        body: JSON.stringify({ name, slug, duration, catalog, price, currency })
     })
         .then(checkOkAndJSON);
 

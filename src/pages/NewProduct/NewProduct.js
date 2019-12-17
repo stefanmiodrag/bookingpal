@@ -1,11 +1,11 @@
 import React from "react";
+import Select from 'react-select'
 
 import * as style from "./NewProduct.style";
 
 import {
     Label,
     Input,
-    Select,
     Button,
     Card,
     TimePicker
@@ -14,14 +14,25 @@ import {
 import { Nav, Container } from "../../modules";
 
 const NewProduct = ({
+    catalogs,
     handleChange,
+    handleSelect,
     name,
     duration,
+    catalog,
     price,
     currency,
     onNewProductClick,
     isFormValid
-}) => (
+}) => {
+    const options = catalogs.map(catalog => {
+        return {
+            value: catalog.slug,
+            label: catalog.name
+        }
+    })
+
+    return (
         <>
             <Nav
                 title="New Product"
@@ -41,6 +52,13 @@ const NewProduct = ({
                 <Card space={true}>
                     <form onSubmit>
                         <style.Fieldset>
+                            <Select
+                                value={catalog}
+                                onChange={handleSelect}
+                                isMulti
+                                options={options}
+                            />
+
                             <Label label="Name">
                                 <Input
                                     type="text"
@@ -72,7 +90,7 @@ const NewProduct = ({
                                 />
                             </Label>
 
-                            <Select
+                            {/* <Select
                                 name="currency"
                                 value={currency}
                                 onChange={handleChange}
@@ -86,7 +104,7 @@ const NewProduct = ({
                                         label: "USD"
                                     }
                                 ]}
-                            />
+                            /> */}
                         </style.Fieldset>
 
                         <style.ButtonWrapper>
@@ -103,5 +121,6 @@ const NewProduct = ({
             </Container>
         </>
     );
+};
 
 export default NewProduct;

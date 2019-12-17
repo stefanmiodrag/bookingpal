@@ -46,6 +46,10 @@ const Catalog = ({ removeProduct, catalogs, products }) => {
                                             <strong>{service.name}</strong><Tag label={`DURATION ${service.duration}`} />
                                         </style.ItemHeader>
 
+                                        {service.catalog.map(catalog => (
+                                            <p>{catalog.label}</p>
+                                        ))}
+                                        
                                         <p>{service.price} {service.currency}</p>
                                     </style.Item>
                                 </Card>

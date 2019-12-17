@@ -20,12 +20,12 @@ const GlobalStyle = createGlobalStyle`
   }
 
   #page {
-    margin-left: 180px;
+    margin-left: 200px;
     transition: margin-left 0.2s ease;
   }
 
   #App.small-nav #page {
-    margin-left: 52px;
+    margin-left: 70px;
   }
   
   h1, h2, h3, h4, h5 {

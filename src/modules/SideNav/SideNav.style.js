@@ -12,7 +12,7 @@ background-color: #1D1D2E;
 position: fixed;
 left: 0;
 height: 100vh;
-width: ${props => props.toggle ? "52px" : "180px"};
+width: ${props => props.toggle ? "70px" : "200px"};
 transition: width, ease-in-out 200ms;
 
 .name {
@@ -45,12 +45,12 @@ li {
     a {
         display: flex;
         align-items: center;
-        justify-content:  ${props => props.toggle ? "center" : "left"};
+        justify-content: ${props => props.toggle ? "center" : "left"};
         color: white;
         white-space: nowrap;
         text-overflow: ellipsis;
         text-decoration: none;
-        height: 32px;
+        height: ${props => props.toggle ? "40px" : "32px"};
         padding: 0 2px;
         border-radius: ${props => props.toggle ? "8px" : "3px"};
         opacity: 0.8;
@@ -65,7 +65,7 @@ li {
             opacity: 1;
             
             svg {
-               opacity: 1;
+                opacity: 1;
             }
         }
         
@@ -74,7 +74,7 @@ li {
             opacity: 1;
             
             svg {
-               opacity: 1;
+                opacity: 1;
             }
         }
     }
