@@ -3,7 +3,7 @@ import getDay from "date-fns/getDay";
 
 import { dayOfTheWeek } from "../../helpers";
 import { Nav, Container, UpcomingBookings } from "../../modules";
-import { Column, ButtonLink } from "../../components";
+import { Column, ButtonLink, Notice } from "../../components";
 
 import * as style from "./Start.style";
 
@@ -16,6 +16,12 @@ const Start = ({ user, bookings }) => {
                 <Nav title="Dashboard" />
 
                 <Container>
+                    <Column width="small">
+                        <Notice>
+                            <p>Upgrade to an annual plan before January 17th - get an extra 20% off!</p>
+                        </Notice>
+                    </Column>
+
                     <Column width="large">
                         <h4 className="light">Hi {user.username}, happy {dayOfTheWeek(today)}! {' '}
                             <span role="img" aria-label="wave">👋</span></h4>

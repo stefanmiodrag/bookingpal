@@ -45,8 +45,14 @@ const NewBooking = ({
         }),
 
         placeholder: () => ({
+            position: "absolute",
+            top: "50%",
+            marginLeft: "2px",
+            marginRight: "2px",
+            boxSizing: "border-box",
             fontSize: "inherit",
-            color: "#828282"
+            color: "#828282",
+            transform: "translateY(-50%)",
         }),
     }
 
