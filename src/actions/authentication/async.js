@@ -8,7 +8,7 @@ import { setLoggedIn, setLoggedOut } from './sync';
 export const logIn = (email, password) => dispatch => {
     const onPostLogin = () => {
         history.push('/');
-        return dispatch(setLoggedIn());
+        return dispatch(init()).then(dispatch(setLoggedIn()));
     }
 
     return callLogIn(email, password).then(onPostLogin);
