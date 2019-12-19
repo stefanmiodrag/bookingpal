@@ -1,1 +1,1 @@
-export { default } from "./DayPicker.container";
+export { default } from "./DayPicker";

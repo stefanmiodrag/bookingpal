@@ -32,7 +32,7 @@ const NewBookingContainer = () => {
             ...state,
             service: selected
         })
-    }
+    };
 
     const calculateDuration = () => {
         if (products === undefined) { return };

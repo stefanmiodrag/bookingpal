@@ -1,7 +1,9 @@
 import React from "react";
 
-import { Spinner, ButtonLink } from "../../components";
+import { Card, Spinner, ButtonLink } from "../../components";
 import { Nav, Container } from "../../modules";
+
+import * as style from "./Bookings.style";
 
 const Bookings = ({ bookings }) => {
 
@@ -19,14 +21,22 @@ const Bookings = ({ bookings }) => {
                 />
 
                 <Container>
-                    <ButtonLink path="/booking/new" label="New Booking" theme="success" />
+                    <style.Container>
+                        <ButtonLink
+                            theme="success"
+                            path="/booking/new"
+                            label="New Booking"
+                        />
+                    </style.Container>
 
                     {bookings.length !== 0 ?
                         bookings.map(booking => (
-                            <>
-                                {booking.startTime}
-                                {booking.customer}
-                            </>
+                            <Card space={true} key={booking._id}>
+                                <p>STATUS: {booking.status}</p>
+
+                                <p>START TIME: {booking.startTime}</p>
+                                <p>{booking.customer}</p>
+                            </Card>
                         )) :
                         <>
                             <h4 className="thin">Just some empty boxes here...</h4>

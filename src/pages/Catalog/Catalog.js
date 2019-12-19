@@ -43,9 +43,11 @@ const Catalog = ({
                             </>
                         ))}
 
+                    {console.log(filteredItems)}
+
                     {products.length !== 0 ?
                         <Column width="small">
-                            {filteredItems.map((product, i) => (
+                            {filteredItems.length !== 0 ? filteredItems.map((product, i) => (
                                 <Card key={i} space={true}>
                                     <Button onClick={() => removeProduct(product._id)} label="Remove" />
 
@@ -61,7 +63,7 @@ const Catalog = ({
                                         <p>{product.price} {product.currency}</p>
                                     </style.Item>
                                 </Card>
-                            ))}
+                            )) : <p>Nothing's here, try a different searching term.</p>}
                         </Column> :
                         <>
                             <h4 className="thin">Just some empty boxes here...</h4>

@@ -5,23 +5,18 @@ import { dayOfTheWeek } from "../../helpers";
 
 import * as style from "./DayPicker.style";
 
-const DayPicker = ({ today, increment, decrement, day }) => {
+const DayPicker = (props) => (
+    <style.Container>
+        <style.Button onClick={props.decrement}>
+            <Icon icon="chevron-left" />
+        </style.Button>
 
-    return (
-        <>
-            <style.Container>
-                <style.Button onClick={decrement}>
-                    <Icon icon="chevron-left" />
-                </style.Button>
+        <style.Button>{dayOfTheWeek(props.today)}</style.Button>
 
-                <style.Button data-value={today}>{dayOfTheWeek(day)}</style.Button>
-
-                <style.Button onClick={increment}>
-                    <Icon icon="chevron-right" />
-                </style.Button>
-            </style.Container>
-        </>
-    );
-};
+        <style.Button onClick={props.increment}>
+            <Icon icon="chevron-right" />
+        </style.Button>
+    </style.Container>
+);
 
 export default DayPicker;
