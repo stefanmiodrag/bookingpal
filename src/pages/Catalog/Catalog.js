@@ -43,8 +43,6 @@ const Catalog = ({
                             </>
                         ))}
 
-                    {console.log(filteredItems)}
-
                     {products.length !== 0 ?
                         <Column width="small">
                             {filteredItems.length !== 0 ? filteredItems.map((product, i) => (

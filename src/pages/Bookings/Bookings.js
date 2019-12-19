@@ -1,11 +1,11 @@
 import React from "react";
 
-import { Card, Spinner, ButtonLink } from "../../components";
+import { Card, Column, Spinner, Tag, ButtonLink } from "../../components";
 import { Nav, Container } from "../../modules";
 
 import * as style from "./Bookings.style";
 
-const Bookings = ({ bookings }) => {
+const Bookings = ({ bookings, search, handleChange, filteredItems }) => {
 
     if (bookings) {
         return (
@@ -18,6 +18,8 @@ const Bookings = ({ bookings }) => {
                             path: "/booking"
                         }
                     ]}
+                    onSearch={handleChange}
+                    searchValue={search}
                 />
 
                 <Container>
@@ -30,14 +32,17 @@ const Bookings = ({ bookings }) => {
                     </style.Container>
 
                     {bookings.length !== 0 ?
-                        bookings.map(booking => (
-                            <Card space={true} key={booking._id}>
-                                <p>STATUS: {booking.status}</p>
+                        <Column width="small">
+                            {filteredItems.length !== 0 ? filteredItems.map(booking => (
+                                <Card space={true} key={booking._id}>
 
-                                <p>START TIME: {booking.startTime}</p>
-                                <p>{booking.customer}</p>
-                            </Card>
-                        )) :
+                                    <Tag label={booking.service.label.toUpperCase()} />
+                                    <p>START TIME: {booking.startTime}</p>
+                                    <p>{booking.customer}</p>
+
+                                </Card>
+                            )) : <p>Nothing's here, try a different searching term.</p>}
+                        </Column> :
                         <>
                             <h4 className="thin">Just some empty boxes here...</h4>
                             <p className="light-color">Fill your catalog with services.</p>
