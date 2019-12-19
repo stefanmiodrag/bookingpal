@@ -1,4 +1,5 @@
 import React from "react";
+import moment from "moment";
 import getDay from "date-fns/getDay";
 
 import { dayOfTheWeek } from "../../helpers";
@@ -23,15 +24,20 @@ const Start = ({ user, bookings }) => {
                     </Column>
 
                     <Column width="large">
-                        <h4 className="light">Hi {user.username}, happy {dayOfTheWeek(today)}! {' '}
-                            <span role="img" aria-label="wave">👋</span></h4>
-                        <p className="light-color">Here's what's happening today.</p>
+                        <style.Container>
+                            <h4 className="light">Hi {user.username}, happy {dayOfTheWeek(today)}! {' '}
+                                <span role="img" aria-label="wave">👋</span></h4>
+                            <p className="light-color">Here's what's happening today.</p>
 
-                        <ButtonLink path="/booking/new" label="New booking" theme="success" />
+                            <ButtonLink path="/booking/new" label="New booking" theme="success" />
+                        </style.Container>
                     </Column>
 
                     <Column width="small">
-                        <UpcomingBookings bookings={bookings} />
+                        <UpcomingBookings
+                            date={moment('2010-01-01').isSame(new Date(), 'day')}
+                            bookings={bookings}
+                        />
                     </Column>
                 </Container>
             </>

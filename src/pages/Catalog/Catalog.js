@@ -51,10 +51,10 @@ const Catalog = ({
 
                                     <style.Item>
                                         <style.ItemHeader>
-                                            <strong>{product.name}</strong><Tag label={`DURATION ${`${product.duration.hour}:${product.duration.minutes}`}`} />
+                                            <strong>{product.name}</strong><Tag label={`DURATION ${product.duration}`} />
                                         </style.ItemHeader>
 
-                                        {product.catalog.map(catalog => (
+                                        {product.catalog && product.catalog.map(catalog => (
                                             <p>{catalog.label}</p>
                                         ))}
 

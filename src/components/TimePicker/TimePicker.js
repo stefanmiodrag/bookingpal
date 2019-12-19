@@ -17,7 +17,7 @@ const TimePicker = props => (
             name={`${props.name}Hour`}
             onKeyUp={onKeyUp}
             onChange={props.onChange}
-            placeholder={props.duration ? "0" : "00"}
+            placeholder="00"
             value={props.value}
         />
         <span>:</span>

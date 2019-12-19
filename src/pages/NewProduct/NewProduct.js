@@ -72,7 +72,6 @@ const NewProduct = ({
                             <Label label="Duration">
                                 <TimePicker
                                     name="duration"
-                                    duration={true}
                                     onChange={handleChange}
                                     value={duration}
                                 />

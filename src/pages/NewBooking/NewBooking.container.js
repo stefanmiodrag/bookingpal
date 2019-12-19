@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import moment from "moment";
 
 import { useSelector } from "react-redux";
 import { callNewBooking } from "../../api/booking";
@@ -16,48 +17,7 @@ const NewBookingContainer = () => {
         startTimeMinutes: "",
     });
 
-    const startTime = {
-        hour: state.startTimeHour,
-        minutes: state.startTimeMinutes,
-    };
-
-    const calculateTime = (startHour, startMinutes, endHour, endMinutes) => {
-        const start = startHour + startMinutes;
-        const end = endHour + endMinutes;
-        const sum = Number(start) + Number(end);
-
-        console.log(sum);
-    };
-
-    const calculateDuration = () => {
-        if (products === undefined) { return };
-
-        const allProducts = products.map(product => (product));
-        const matchingProduct = allProducts.filter(x => x.slug === state.service.value)
-
-        const { startTimeHour, startTimeMinutes } = state;
-
-        const hour = startTimeHour;
-        const minutes = startTimeMinutes;
-
-        const endHour = matchingProduct[0] && matchingProduct[0].duration.hour;
-        const endMinutes = matchingProduct[0] && matchingProduct[0].duration.minutes;
-
-        calculateTime(hour, minutes, endHour, endMinutes);
-
-        const endTime = {
-            hour: Number(hour) + Number(endHour),
-            minutes: Number(minutes) + Number(endMinutes),
-
-            /* PROPERLY CALCULATE DURATION WITH A HELPER FUNCTION */
-        }
-
-        console.log(endTime)
-
-        return endTime;
-    };
-
-    calculateDuration();
+    const startTime = state.startTimeHour + ':' + state.startTimeMinutes;
 
     const handleChange = (evt) => {
         const value = evt.target.value;
@@ -74,13 +34,27 @@ const NewBookingContainer = () => {
         })
     }
 
+    const calculateDuration = () => {
+        if (products === undefined) { return };
+
+        const allProducts = products.map(product => (product));
+        const matchingProduct = allProducts.filter(x => x.slug === state.service.value)
+
+        const time = matchingProduct[0] && matchingProduct[0].duration.split(':');
+
+        const endTime = time && moment().hour(String(state.startTimeHour)).minute(String(state.startTimeMinutes))
+            .add(String(time[0]), 'hours').add(String(time[1]), 'minutes').format("HH:mm");
+
+        return endTime;
+    };
+
     const onNewBookingClick = e => {
         e.preventDefault();
 
         const { service, customer } = state;
 
         if (customer && startTime) {
-            callNewBooking(service, customer, startTime, calculateDuration())
+            callNewBooking(service, customer, startTime, String(calculateDuration()))
                 .then(alert("complete!"))
                 .catch(err => {
                     if (err.status === 401) {

@@ -39,12 +39,9 @@ const NewProductContainer = props => {
 
         const { name, price, durationHour, durationMinutes, catalog, currency } = state;
 
-        const duration = {
-            hour: durationHour,
-            minutes: durationMinutes
-        };
+        const duration = durationHour + ':' + durationMinutes;
 
-        if (name && durationHour && durationMinutes && catalog && price && currency) {
+        if (name && durationHour && durationMinutes && price && currency) {
             callNewProduct(name, stringToSlug(name), duration, catalog, price, currency)
                 .then(alert("complete!"))
                 .catch(err => {
