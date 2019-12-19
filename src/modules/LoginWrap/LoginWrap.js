@@ -17,8 +17,6 @@ const LoginWrap = () => {
     dispatch(checkIfAuthenticated());
   }, [dispatch]);
 
-  console.log(isLoggedIn)
-
   if (isLoading) {
     return (
       <style.Loading id="loading">

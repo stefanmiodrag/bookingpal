@@ -1,5 +1,14 @@
 import styled from "styled-components";
 
+export const Page = styled.div`
+position: absolute;
+width: 100%;
+height: 100%;
+left: 0;
+color: white;
+background-color: #1D1D2E;
+`
+
 export const Container = styled.div`
 margin-left: 10%;
 width: 90%;
@@ -8,6 +17,21 @@ position: absolute;
 left: 50%;
 top: 50%;
 transform: translate(-50%, -50%);
+`
+
+export const Bar = styled.div`
+height: 6px;
+width: 100%;
+background: linear-gradient(264.11deg, #FF16FF 0%, #FFE500 51.04%, #00FFFF 100%);
+border-radius: 8px 8px 0 0;
+`
+
+export const Card = styled.div`
+border-radius: 0 0 8px 8px;
+box-sizing: border-box;
+padding: 24px;
+width: 100%;
+background-color: white;
 `
 
 export const Form = styled.div`
@@ -26,6 +50,10 @@ margin-bottom: 24px;
 
 export const Content = styled.div`
 margin-bottom: 24px;
+
+p {
+    color: #7c7c94;
+}
 `
 
 export const Fieldset = styled.fieldset`
@@ -65,16 +93,17 @@ cursor: pointer;
 display: flex;
 justify-content: space-between;
 align-items: center;
-padding: 8px 14px;
 width: 100%;
-text-decoration: none;
 border-radius: 3px;
-color: inherit;
-background-color: #edf1f5;
 margin-top: 24px;
+text-decoration: none;
+color: inherit;
+background-color: #303046;
+padding: 8px 14px;
 
 span {
     display: flex;
+    fill: white;
 }
 
 p {

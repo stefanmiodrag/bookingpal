@@ -73,7 +73,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   .light-color {
-    color: #79828e;
+    color: #505a67;
   }
 
   .semibold, strong {

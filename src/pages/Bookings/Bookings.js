@@ -41,7 +41,7 @@ const Bookings = ({ bookings, search, handleChange, filteredItems }) => {
                                     <p>{booking.customer}</p>
 
                                 </Card>
-                            )) : <p>Nothing's here, try a different searching term.</p>}
+                            )) : <p className="light-color">Nothing's here, try a different searching term.</p>}
                         </Column> :
                         <>
                             <h4 className="thin">Just some empty boxes here...</h4>
