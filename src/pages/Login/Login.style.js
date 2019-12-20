@@ -19,19 +19,16 @@ top: 50%;
 transform: translate(-50%, -50%);
 `
 
-export const Bar = styled.div`
-height: 6px;
-width: 100%;
-background: linear-gradient(264.11deg, #FF16FF 0%, #FFE500 51.04%, #00FFFF 100%);
-border-radius: 8px 8px 0 0;
-`
-
 export const Card = styled.div`
-border-radius: 0 0 8px 8px;
+border-radius: 8px;
+box-shadow: 0 0 0 1px rgba(16,22,26,.15), 
+    0 0 0 rgba(16,22,26,0), 0 0 0 rgba(16,22,26,0);
 box-sizing: border-box;
+background-color: white;
 padding: 24px;
 width: 100%;
-background-color: white;
+border-top: none;
+border-top: 6px solid #ffa400;
 `
 
 export const Form = styled.div`

@@ -35,7 +35,7 @@ li {
     display: inline-flex;
 
     a {
-        color: #a3a3a3;
+        color: #667584;
         text-decoration: none;
 
         &:hover {

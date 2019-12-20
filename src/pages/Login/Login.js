@@ -44,7 +44,6 @@ const Login = ({
                             <p>Let's get back to it, just sign in below and we'll take you straight to your dashboard.</p>
                         </style.Content>
 
-                        <style.Bar />
                         <style.Card>
                             <form onSubmit={signup ? onSignupClick : onLoginClick}>
                                 <style.Fieldset>
