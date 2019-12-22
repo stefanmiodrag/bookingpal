@@ -51,7 +51,12 @@ export const loggedInRoutes = [
 export const loggedOutRoutes = [
     {
         exact: false,
-        path: "/login",
+        path: "/auth/login",
         component: pages.Login,
+    },
+    {
+        exact: false,
+        path: "/auth/signup",
+        component: pages.Register,
     },
 ];

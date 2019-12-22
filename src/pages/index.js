@@ -8,6 +8,7 @@ import Catalog from "./Catalog";
 import Customers from "./Customers";
 import Settings from "./Settings";
 import NotFound from "./NotFound";
+import Register from "./Register";
 
 export {
     Start,
@@ -19,5 +20,6 @@ export {
     Catalog,
     Customers,
     Settings,
-    NotFound
+    NotFound,
+    Register
 };

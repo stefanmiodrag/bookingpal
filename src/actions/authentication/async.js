@@ -16,7 +16,7 @@ export const logIn = (email, password) => dispatch => {
 
 export const logOut = () => dispatch => {
     const onPostLogout = () => {
-        history.push('/login');
+        history.push('/auth/login');
         return dispatch(setLoggedOut());
     };
 

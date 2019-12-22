@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useDispatch } from 'react-redux';
 
 import { logIn } from '../../actions';
-import { callSignup } from "../../api/auth";
 
 import Login from "./Login";
 
@@ -13,12 +12,10 @@ const LoginContainer = () => {
     const [errorMessage, setErrorMessage] = useState("");
     const [showPassword, setShowPassword] = useState(false);
     const [loading, setLoading] = useState(false);
-    const [signup, setSignup] = useState(false);
 
     const [state, setState] = useState({
         password: "",
         email: "",
-        username: "",
     })
 
     const handleChange = (evt) => {
@@ -60,28 +57,16 @@ const LoginContainer = () => {
         displayErrorMessage();
     };
 
-    const toggleSignup = () => setSignup(!signup);
-
-    const onSignupClick = e => {
-        e.preventDefault();
-
-        callSignup(state.email, state.username, state.password, null, "admin");
-    };
-
     return (
         <Login
             error={error}
             removeErrorMessage={removeErrorMessage}
             onLoginClick={onLoginClick}
-            onSignupClick={onSignupClick}
             handleChange={handleChange}
-            username={state.username}
             password={state.password}
             email={state.email}
             showPassword={showPassword}
             toggleShowPassword={toggleShowPassword}
-            signup={signup}
-            toggleSignup={toggleSignup}
             errorMessage={errorMessage}
         // loading={loading}
         />

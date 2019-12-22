@@ -77,7 +77,9 @@ svg {
 
 export const Footer = styled.div`
 box-sizing: border-box;
-cursor: pointer;
+display: flex;
+justify-content: space-between;
+align-items: center;
 width: 100%;
 border-radius: 3px;
 margin-top: 24px;
