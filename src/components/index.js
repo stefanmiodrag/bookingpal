@@ -1,5 +1,4 @@
 import Tag from "./Tag";
-import TimePicker from "./TimePicker";
 import Toaster from "./Toaster";
 import Label from "./Label";
 import Notice from "./Notice";
@@ -14,7 +13,6 @@ import DayPicker from "./DayPicker";
 
 export {
     Tag,
-    TimePicker,
     Toaster,
     Label,
     Notice,

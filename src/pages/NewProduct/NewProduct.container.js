@@ -10,8 +10,7 @@ import NewProduct from "./NewProduct";
 const NewProductContainer = props => {
     const [state, setState] = useState({
         name: "",
-        durationHour: "",
-        durationMinutes: "",
+        duration: "",
         catalog: null,
         price: "",
         currency: "sek",
@@ -37,11 +36,9 @@ const NewProductContainer = props => {
     const onNewProductClick = e => {
         e.preventDefault();
 
-        const { name, price, durationHour, durationMinutes, catalog, currency } = state;
+        const { name, price, duration, catalog, currency } = state;
 
-        const duration = durationHour + ':' + durationMinutes;
-
-        if (name && durationHour && durationMinutes && price && currency) {
+        if (name && duration && price && currency) {
             callNewProduct(name, stringToSlug(name), duration, catalog, price, currency)
                 .then(alert("complete!"))
                 .catch(err => {
@@ -55,9 +52,9 @@ const NewProductContainer = props => {
     };
 
     const isFormValid = () => {
-        const { name, durationHour, durationMinutes, price } = state;
+        const { name, duration, price } = state;
 
-        if (name && durationHour && durationMinutes && price) {
+        if (name && duration && price) {
             return false;
         } return true;
     };

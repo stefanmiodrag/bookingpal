@@ -7,19 +7,18 @@ import * as style from "./UpcomingBookings.style";
 
 const UpcomingBookings = props => {
     if (props) {
-        console.log("test", props.date)
         return (
             <>
                 <style.Container>
                     <style.Header>
                         <h5 className="semibold">Today's Schedule</h5>
-                        {props.date && props.bookings.length >= 0 ?
+                        {props.bookings.length >= 0 ?
                             <p>{`You have (${props.bookings.length})
                                 ${props.bookings.length !== 1 ? "bookings" : "booking"} today.`}</p>
                             : <p>You have no bookings today.</p>}
                     </style.Header>
 
-                    {props.date && props.bookings.length >= 0 ?
+                    {props.bookings.length >= 0 ?
                         <SimpleBar style={{ maxHeight: 700 }}>
                             {props.bookings.map(item => {
                                 return (

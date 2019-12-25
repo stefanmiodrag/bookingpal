@@ -1,4 +1,5 @@
 import React from "react";
+import Cleave from 'cleave.js/react';
 import Select from 'react-select'
 
 import * as style from "./NewProduct.style";
@@ -8,7 +9,6 @@ import {
     Input,
     Button,
     Card,
-    TimePicker
 } from "../../components";
 
 import { Nav, Container } from "../../modules";
@@ -70,8 +70,13 @@ const NewProduct = ({
                             </Label>
 
                             <Label label="Duration">
-                                <TimePicker
+                                <Cleave
                                     name="duration"
+                                    placeholder="00:00"
+                                    options={{
+                                        time: true,
+                                        timePattern: ['h', 'm']
+                                    }}
                                     onChange={handleChange}
                                     value={duration}
                                 />
@@ -80,10 +85,13 @@ const NewProduct = ({
 
                         <style.Fieldset>
                             <Label label="Price">
-                                <Input
-                                    type="number"
+                                <Cleave
+                                    type="text"
                                     name="price"
                                     placeholder="Price of your service..."
+                                    options={{
+                                        numeral: true
+                                    }}
                                     onChange={handleChange}
                                     value={price}
                                 />

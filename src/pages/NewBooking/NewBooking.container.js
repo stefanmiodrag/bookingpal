@@ -13,11 +13,8 @@ const NewBookingContainer = () => {
     const [state, setState] = useState({
         service: "", // TODO: Set default if select hasn't triggered onChange event
         customer: "",
-        startTimeHour: "",
-        startTimeMinutes: "",
+        startTime: "",
     });
-
-    const startTime = state.startTimeHour + ':' + state.startTimeMinutes;
 
     const handleChange = (evt) => {
         const value = evt.target.value;
@@ -41,8 +38,9 @@ const NewBookingContainer = () => {
         const matchingProduct = allProducts.filter(x => x.slug === state.service.value)
 
         const time = matchingProduct[0] && matchingProduct[0].duration.split(':');
+        const startTime = state.startTime.split(':');
 
-        const endTime = time && moment().hour(String(state.startTimeHour)).minute(String(state.startTimeMinutes))
+        const endTime = time && moment().hour(String(startTime[0])).minute(String(startTime[1]))
             .add(String(time[0]), 'hours').add(String(time[1]), 'minutes').format("HH:mm");
 
         return endTime;
@@ -51,7 +49,7 @@ const NewBookingContainer = () => {
     const onNewBookingClick = e => {
         e.preventDefault();
 
-        const { service, customer } = state;
+        const { service, customer, startTime } = state;
 
         if (customer && startTime) {
             callNewBooking(service, customer, startTime, String(calculateDuration()))
@@ -67,9 +65,9 @@ const NewBookingContainer = () => {
     };
 
     const isFormValid = () => {
-        const { customer, service, startTimeHour, startTimeMinutes } = state;
+        const { customer, service, startTime } = state;
 
-        if (customer && service && startTimeHour && startTimeMinutes) {
+        if (customer && service && startTime) {
             return false;
         } return true;
     };

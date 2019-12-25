@@ -1,4 +1,5 @@
 import React from "react";
+import Cleave from 'cleave.js/react';
 import Select from 'react-select'
 
 import {
@@ -6,7 +7,6 @@ import {
     Column,
     DayPicker,
     Spinner,
-    TimePicker,
     Label,
     Input,
     Button,
@@ -26,36 +26,6 @@ const NewBooking = ({
     startTime,
     products,
 }) => {
-    const customStyles = {
-        option: (state) => ({
-            color: state.isSelected ? '#4cc600' : '#222',
-            height: "40px",
-            padding: "0px 14px",
-            display: "flex",
-            alignItems: "center",
-            cursor: "pointer",
-        }),
-
-        control: () => ({
-            display: "flex",
-            borderRadius: "3px",
-            boxShadow: "rgb(230,230,230) 0px 0px 0px 1px inset",
-            height: "40px",
-            padding: "0px 6px",
-        }),
-
-        placeholder: () => ({
-            position: "absolute",
-            top: "50%",
-            marginLeft: "2px",
-            marginRight: "2px",
-            boxSizing: "border-box",
-            fontSize: "inherit",
-            color: "#828282",
-            transform: "translateY(-50%)",
-        }),
-    }
-
     if (products) {
         return (
             <>
@@ -84,7 +54,6 @@ const NewBooking = ({
                                 <style.Fieldset>
                                     {products.length !== 0 &&
                                         <Select
-                                            styles={customStyles}
                                             value={service}
                                             onChange={handleSelect}
                                             options={
@@ -107,8 +76,13 @@ const NewBooking = ({
                                     </Label>
 
                                     <Label label="Start time">
-                                        <TimePicker
+                                        <Cleave
                                             name="startTime"
+                                            placeholder="00:00"
+                                            options={{
+                                                time: true,
+                                                timePattern: ['h', 'm']
+                                            }}
                                             onChange={handleChange}
                                             value={startTime}
                                         />
