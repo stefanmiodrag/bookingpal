@@ -1,14 +1,15 @@
 import React from "react";
-import Cleave from 'cleave.js/react';
+import 'react-day-picker/lib/style.css';
 import Select from 'react-select'
+import Cleave from 'cleave.js/react';
 
 import {
     Card,
     Column,
-    DayPicker,
     Spinner,
     Label,
     Input,
+    DateInput,
     Button,
 } from "../../components";
 
@@ -18,6 +19,8 @@ import * as style from "./NewBooking.style";
 
 const NewBooking = ({
     handleSelect,
+    handleDayClick,
+    selectedDay,
     handleChange,
     onNewBookingClick,
     isFormValid,
@@ -45,13 +48,19 @@ const NewBooking = ({
 
                 <Container>
                     <Column width="medium">
-                        <style.Container>
-                            <DayPicker />
-                        </style.Container>
-
                         <Card space={true}>
                             <form onSubmit={onNewBookingClick}>
                                 <style.Fieldset>
+                                    <Label label="Customer">
+                                        <Input
+                                            type="text"
+                                            name="customer"
+                                            placeholder="Customer"
+                                            onChange={handleChange}
+                                            value={customer}
+                                        />
+                                    </Label>
+
                                     {products.length !== 0 &&
                                         <Select
                                             value={service}
@@ -64,19 +73,20 @@ const NewBooking = ({
                                                     }
                                                 })}
                                         />}
+                                </style.Fieldset>
 
-                                    <Label label="Customer">
-                                        <Input
-                                            type="text"
-                                            name="customer"
-                                            placeholder="Customer"
-                                            onChange={handleChange}
-                                            value={customer}
+                                <style.Fieldset>
+                                    <Label label="Date">
+                                        <DateInput
+                                            handleChange={handleDayClick}
+                                            selected={selectedDay}
                                         />
                                     </Label>
 
                                     <Label label="Start time">
                                         <Cleave
+                                            type="text"
+                                            className="input"
                                             name="startTime"
                                             placeholder="00:00"
                                             options={{

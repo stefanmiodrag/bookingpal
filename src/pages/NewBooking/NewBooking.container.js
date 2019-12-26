@@ -13,6 +13,7 @@ const NewBookingContainer = () => {
     const [state, setState] = useState({
         service: "", // TODO: Set default if select hasn't triggered onChange event
         customer: "",
+        selectedDay: new Date(),
         startTime: "",
     });
 
@@ -28,6 +29,12 @@ const NewBookingContainer = () => {
         setState({
             ...state,
             service: selected
+        })
+    };
+
+    const handleDayClick = (selected) => {
+        setState({
+            selectedDay: selected
         })
     };
 
@@ -49,10 +56,10 @@ const NewBookingContainer = () => {
     const onNewBookingClick = e => {
         e.preventDefault();
 
-        const { service, customer, startTime } = state;
+        const { service, customer, selectedDay, startTime } = state;
 
-        if (customer && startTime) {
-            callNewBooking(service, customer, startTime, String(calculateDuration()))
+        if (customer) {
+            callNewBooking(service, customer, selectedDay, startTime, String(calculateDuration()))
                 .then(alert("complete!"))
                 .catch(err => {
                     if (err.status === 401) {
@@ -65,11 +72,7 @@ const NewBookingContainer = () => {
     };
 
     const isFormValid = () => {
-        const { customer, service, startTime } = state;
-
-        if (customer && service && startTime) {
-            return false;
-        } return true;
+        return false;
     };
 
     return (
@@ -79,6 +82,8 @@ const NewBookingContainer = () => {
             startTime={state.startTime}
             endTime={state.endTime}
             handleSelect={handleSelect}
+            handleDayClick={handleDayClick}
+            selectedDay={state.selectedDay}
             handleChange={handleChange}
             onNewBookingClick={onNewBookingClick}
             isFormValid={isFormValid}

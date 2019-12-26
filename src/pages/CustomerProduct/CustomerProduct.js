@@ -35,7 +35,7 @@ const CustomerProduct = ({ init, products, company }) => {
 
                         <SimpleBar style={{ maxHeight: 600 }}>
                             <style.Card>
-                                {products && products.map(product => (
+                                {products.length !== 0 ? products.map(product => (
                                     <style.Item key={product._id}>
                                         <div>
                                             <h5 className="semibold">{product.name}</h5>
@@ -50,7 +50,10 @@ const CustomerProduct = ({ init, products, company }) => {
 
                                         <ButtonLink path={`/${company[0].slug}/booking/${product.slug}`} theme="success" label="Book Now" />
                                     </style.Item>
-                                ))}
+                                )) :
+                                    <>
+                                        <span>No products available right now...</span>
+                                    </>}
                             </style.Card>
                         </SimpleBar>
                     </> :

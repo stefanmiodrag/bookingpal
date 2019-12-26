@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
 export const Bar = styled.div`
-height: 2px;
+height: 4px;
 width: 100%;
-background: linear-gradient(264.11deg, #FF16FF 0%, #FFE500 51.04%, #00FFFF 100%);
+background: #8282f5;
 margin-bottom: 18px;
 `
 
@@ -128,7 +128,7 @@ button {
 
 export const Header = styled.div`
 color: white;
-margin-bottom: 18px;
+margin-bottom: 25px;
 padding: 0 15px;
 display: ${props => props.toggle ? "none" : "flex"};
 align-items: center;

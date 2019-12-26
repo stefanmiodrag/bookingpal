@@ -71,7 +71,9 @@ const NewProduct = ({
 
                             <Label label="Duration">
                                 <Cleave
+                                    type="text"
                                     name="duration"
+                                    className="input"
                                     placeholder="00:00"
                                     options={{
                                         time: true,
@@ -87,6 +89,7 @@ const NewProduct = ({
                             <Label label="Price">
                                 <Cleave
                                     type="text"
+                                    className="input"
                                     name="price"
                                     placeholder="Price of your service..."
                                     options={{

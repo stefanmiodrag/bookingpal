@@ -96,6 +96,8 @@ const User = ({
                                 </style.Divider>
 
                                 <Cleave
+                                    type="text"
+                                    className="input"
                                     placeholder="Theme color..."
                                     options={{
                                         uppercase: true

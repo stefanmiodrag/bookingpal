@@ -1,6 +1,6 @@
 import { checkOkAndJSON } from './utils';
 
-export const callNewBooking = (service, customer, startTime, endTime) =>
+export const callNewBooking = (service, customer, startDate, startTime, endTime) =>
     fetch('http://localhost:3000/api/v1/booking', {
         method: 'POST',
         credentials: 'include',
@@ -8,7 +8,7 @@ export const callNewBooking = (service, customer, startTime, endTime) =>
             'Content-Type': 'application/json',
         },
 
-        body: JSON.stringify({ service, customer, startTime, endTime })
+        body: JSON.stringify({ service, customer, startDate, startTime, endTime })
     })
         .then(checkOkAndJSON);
 

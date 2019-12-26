@@ -92,8 +92,8 @@ const GlobalStyle = createGlobalStyle`
   small, .text_small {
     font-size: 0.8em;
   }
-
-  input[type="text"] {
+  
+  .input, .DayPickerInput input {
     outline: none;
     vertical-align: baseline;
     border: none;

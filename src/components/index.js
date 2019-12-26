@@ -9,6 +9,7 @@ import Button from "./Button"
 import ButtonLink from "./ButtonLink";
 import Card from "./Card";
 import Column from "./Column";
+import DateInput from "./DateInput";
 import DayPicker from "./DayPicker";
 
 export {
@@ -23,5 +24,6 @@ export {
     ButtonLink,
     Card,
     Column,
+    DateInput,
     DayPicker,
 };
