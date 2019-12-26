@@ -12,6 +12,7 @@ import * as style from "./Register.style";
 const Register = ({
     handleChange,
     username,
+    company,
     password,
     email,
     showPassword,
@@ -35,6 +36,14 @@ const Register = ({
                                         name="email"
                                         placeholder="Email..."
                                         value={email}
+                                        onChange={handleChange}
+                                    />
+
+                                    <Input
+                                        type="text"
+                                        name="company"
+                                        placeholder="Business name..."
+                                        value={company}
                                         onChange={handleChange}
                                     />
 

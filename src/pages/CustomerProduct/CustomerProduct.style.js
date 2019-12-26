@@ -30,10 +30,6 @@ border-left: 1px solid #D9DEE4;
 border-right: 1px solid #D9DEE4;
 `
 
-export const CardWrapper = styled.div`
-margin-bottom: 30px;
-`
-
 export const Title = styled.div`
 background-color: white;
 color: #667584;

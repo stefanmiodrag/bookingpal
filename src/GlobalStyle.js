@@ -70,7 +70,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   a {
-    color: #7048ec;
+    color: #4cc600;
   }
 
   .bold {

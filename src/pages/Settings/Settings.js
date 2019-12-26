@@ -66,7 +66,7 @@ const User = ({
                             </style.Buttons>
                         </style.Header>
 
-                        <style.CardWrapper>
+                        {/* <style.CardWrapper>
                             <style.UserHeader>
                                 <span>NAME</span>
 
@@ -87,7 +87,7 @@ const User = ({
                                     </ul>
                                 </SimpleBar>
                             </style.Users>
-                        </style.CardWrapper>
+                        </style.CardWrapper> */}
 
                         <style.CardWrapper>
                             <Card space={true}>
@@ -103,28 +103,6 @@ const User = ({
                                 />
                             </Card>
                         </style.CardWrapper>
-
-                        {company.length === 0 && isAdmin &&
-                            <Card space={true}>
-                                <h5 className="semibold">Connect your company</h5>
-                                <p>You haven't connected your company yet.</p>
-
-                                <style.Form onSubmit={onNewCompanyClick}>
-                                    <Input
-                                        type="text"
-                                        name="companyName"
-                                        onChange={handleChange}
-                                        placeholder="Company name..."
-                                        value={companyName}
-                                    />
-                                    <Button
-                                        type="submit"
-                                        icon={complete && "small-tick"}
-                                        label={complete ? "Activated" : "Activate your company"}
-                                        onClick={onNewCompanyClick}
-                                    />
-                                </style.Form>
-                            </Card>}
 
                         {company.length !== 0 && isAdmin &&
                             <Card space={true}>

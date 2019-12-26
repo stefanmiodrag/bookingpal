@@ -1,14 +1,16 @@
 import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
 import SimpleBar from 'simplebar-react';
+import Cleave from 'cleave.js/react';
 import 'simplebar/dist/simplebar.min.css';
 
-import { ButtonLink, Tag, Card } from "../../components";
+import { Button, Input, Tag, Card } from "../../components";
 
 import * as style from "./CustomerBooking.style";
 
-const CustomerBooking = ({ init, products, company }) => {
+const CustomerBooking = ({ init, products, company, customer, startTime, handleChange, onNewBookingClick }) => {
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -20,39 +22,49 @@ const CustomerBooking = ({ init, products, company }) => {
             <style.Container>
                 {company.length !== 0 ?
                     <>
-                        <style.Header>
-                            <div>
-                                {company[0] &&
-                                    <h4>{company[0].name}</h4>}
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                        <style.CardWrapper>
+                            <style.Header>
+                                <div>
+                                    {company[0] &&
+                                        <h4>{company[0].name}</h4>}
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                                 sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                            </div>
-                        </style.Header>
+                                </div>
+                            </style.Header>
 
-                        <style.Title>
-                            <small>SERVICES:</small>
-                        </style.Title>
+                            <style.Title>
+                                <small>SCHEDULE A TIME</small>
+                            </style.Title>
 
-                        <SimpleBar style={{ maxHeight: 600 }}>
-                            <style.Card>
-                                {products && products.map(product => (
-                                    <style.Item key={product._id}>
-                                        <div>
-                                            <h5 className="semibold">{product.name}</h5>
-                                            <style.Details>
-                                                <span>Duration:{' '}{product.duration}</span>
-                                                <span>Price:{' '}{`${product.price} ${product.currency.toUpperCase()}`}</span>
-                                            </style.Details>
+                            <SimpleBar style={{ maxHeight: 600 }}>
+                                <style.Card>
+                                    <form onSubmit={onNewBookingClick}>
+                                        <Input
+                                            type="text"
+                                            name="customer"
+                                            placeholder="First and last name..."
+                                            value={customer}
+                                            onChange={handleChange}
+                                        />
 
-                                            <p className="light-color">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                        </div>
+                                        <Cleave
+                                            name="startTime"
+                                            placeholder="00:00"
+                                            options={{
+                                                time: true,
+                                                timePattern: ['h', 'm']
+                                            }}
+                                            value={startTime}
+                                            onChange={handleChange}
+                                        />
 
-                                        <ButtonLink label="Book Now" />
-                                    </style.Item>
-                                ))}
-                            </style.Card>
-                        </SimpleBar>
+                                        <Button type="submit" theme="success" onClick={onNewBookingClick} label="Confirm booking" />
+                                    </form>
+                                </style.Card>
+                            </SimpleBar>
+                        </style.CardWrapper>
+
+                        <Link to={`/${company[0].slug}/booking`}>Return to products</Link>
                     </> :
                     <>
                         <p className="light-color">No company found</p>

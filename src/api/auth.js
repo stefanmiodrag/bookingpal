@@ -21,14 +21,14 @@ export const callLogOut = () =>
     })
         .then(checkOkAndJSON)
 
-export const callSignup = (email, username, password, company, role) =>
+export const callSignup = (email, username, password, companyName, companySlug, role) =>
     fetch('http://localhost:3000/api/v1/register', {
         method: 'POST',
         credentials: 'include',
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ email, username, password, company, role })
+        body: JSON.stringify({ email, username, password, companyName, companySlug, role })
     })
         .then(checkOkAndJSON)
 

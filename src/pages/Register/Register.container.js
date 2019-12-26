@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch } from 'react-redux';
 
+import { stringToSlug } from "../../helpers";
+
 import { callSignup } from "../../api/auth";
 
 import Register from "./Register";
@@ -14,6 +16,7 @@ const RegisterContainer = () => {
         password: "",
         email: "",
         username: "",
+        company: "",
     })
 
     const handleChange = (evt) => {
@@ -29,7 +32,7 @@ const RegisterContainer = () => {
     const onSignupClick = e => {
         e.preventDefault();
 
-        callSignup(state.email, state.username, state.password, null, "admin");
+        callSignup(state.email, state.username, state.password, state.company, stringToSlug(state.company), "admin");
     };
 
     return (
@@ -37,6 +40,7 @@ const RegisterContainer = () => {
             onSignupClick={onSignupClick}
             handleChange={handleChange}
             username={state.username}
+            company={state.company}
             password={state.password}
             email={state.email}
             showPassword={showPassword}

@@ -50,18 +50,23 @@ export const loggedInRoutes = [
 
 export const loggedOutRoutes = [
     {
-        exact: false,
+        exact: true,
         path: "/auth/login",
         component: pages.Login,
     },
     {
-        exact: false,
+        exact: true,
         path: "/auth/signup",
         component: pages.Register,
     },
     {
-        exact: false,
+        exact: true,
         path: "/:slug/booking",
+        component: pages.CustomerProduct,
+    },
+    {
+        exact: true,
+        path: "/:slug/booking/:product",
         component: pages.CustomerBooking,
     },
 ];

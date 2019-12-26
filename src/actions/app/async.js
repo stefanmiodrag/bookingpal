@@ -11,7 +11,7 @@ export const init = () => dispatch => {
     return Promise.all([
         dispatch(fetchUser()),
         dispatch(fetchCompany()),
-        dispatch(fetchUsers()),
+        // dispatch(fetchUsers()),
         dispatch(fetchCatalogs()),
         dispatch(fetchProducts()),
         dispatch(fetchBookings())
