@@ -7,7 +7,7 @@ import { Page } from "./modules";
 
 export default ({ isLoggedIn }) => {
     return (
-        <Page>
+        <Page isLoggedIn={isLoggedIn}>
             <Switch>
                 {(isLoggedIn ? loggedInRoutes : loggedOutRoutes)
                     .map((route, i) => (

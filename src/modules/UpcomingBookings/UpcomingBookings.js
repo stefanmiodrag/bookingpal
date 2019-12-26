@@ -23,9 +23,9 @@ const UpcomingBookings = props => {
                             {props.bookings.map(item => {
                                 return (
                                     <>
-                                        <p>START TIME: {item.startTime}</p>
+                                        <p>START TIME: {item.start_time}</p>
                                         <p>{item.user.username}</p>
-                                        <p>END TIME: {item.endTime}</p>
+                                        <p>END TIME: {item.end_time}</p>
                                     </>
                                 );
                             })}

@@ -12,7 +12,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background-color: #fafbfc;
+    background-color: #F4F5F8;
     color: #222;
     font-family: "Roboto", sans-serif;
     font-weight: 400;
@@ -20,8 +20,17 @@ const GlobalStyle = createGlobalStyle`
   }
 
   #page {
-    margin-left: 200px;
     transition: margin-left 0.2s ease;
+
+    &.is-auth {
+      margin-left: 200px;
+    }
+
+    &.not-auth {
+      max-width: 900px;
+      width: 90%;
+      margin: 0 auto;
+    }
   }
 
   #App.small-nav #page {
@@ -61,7 +70,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   a {
-    color: #4cc600;
+    color: #7048ec;
   }
 
   .bold {
@@ -73,7 +82,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   .light-color {
-    color: #667584;
+    color: #555d75;
   }
 
   .semibold, strong {

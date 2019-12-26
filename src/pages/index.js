@@ -5,6 +5,7 @@ import NewBooking from "./NewBooking";
 import NewCatalog from "./NewCatalog";
 import NewProduct from "./NewProduct";
 import Catalog from "./Catalog";
+import CustomerBooking from "./CustomerBooking";
 import Customers from "./Customers";
 import Settings from "./Settings";
 import NotFound from "./NotFound";
@@ -18,6 +19,7 @@ export {
     NewCatalog,
     NewProduct,
     Catalog,
+    CustomerBooking,
     Customers,
     Settings,
     NotFound,

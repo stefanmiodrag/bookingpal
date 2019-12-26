@@ -12,6 +12,19 @@ export const callNewBooking = (service, customer, startTime, endTime) =>
     })
         .then(checkOkAndJSON);
 
+export const callNewBookingByCustomer = (service, customer, startTime, endTime, slug) =>
+    fetch(`http://localhost:3000/api/v1/public/booking/${slug}`, {
+        method: 'POST',
+        credentials: 'include',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+
+        body: JSON.stringify({ service, customer, startTime, endTime })
+    })
+        .then(checkOkAndJSON);
+
+
 export const callFindBookings = () =>
     fetch('http://localhost:3000/api/v1/booking', {
         method: 'GET',

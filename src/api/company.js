@@ -12,6 +12,15 @@ export const callNewCompany = (name, slug, users) =>
     })
         .then(checkOkAndJSON)
 
+export const callFindCompanyAsCustomer = (slug) =>
+    fetch(`http://localhost:3000/api/v1/public/company/${slug}`, {
+        method: 'GET',
+        credentials: 'include',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+    })
+        .then(checkOkAndJSON);
 
 export const callFindCompany = () =>
     fetch('http://localhost:3000/api/v1/company', {

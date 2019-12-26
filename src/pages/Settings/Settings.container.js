@@ -5,7 +5,7 @@ import Settings from "./Settings";
 
 import { stringToSlug } from "../../helpers";
 import { callSignup, callUpdateUser } from "../../api/auth";
-import { callNewCompany, } from "../../api/company";
+import { callNewCompany } from "../../api/company";
 
 import store from "../../store";
 import { init, logOut } from "../../actions";

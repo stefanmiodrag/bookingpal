@@ -66,7 +66,7 @@ div {
 
 export const UserHeader = styled.div`
 background-color: white;
-border-radius: 8px 8px 0 0;
+border-radius: 2px 2px 0 0;
 display: flex;
 justify-content: space-between;
 align-items: center;
@@ -89,7 +89,7 @@ background-color: white;
 padding: 24px;
 box-shadow: 0 0 0 1px rgba(16,22,26,.15), 
     0 0 0 rgba(16,22,26,0), 0 0 0 rgba(16,22,26,0);
-border-radius: 0 0 8px 8px;
+border-radius: 0 0 2px 2px;
 `
 
 export const User = styled.li`

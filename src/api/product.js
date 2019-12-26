@@ -21,6 +21,17 @@ export const callRemoveProduct = (id) =>
     })
         .then(checkOkAndJSON);
 
+
+export const callFindProductByCompany = (slug) =>
+    fetch(`http://localhost:3000/api/v1/public/product/${slug}`, {
+        method: 'GET',
+        credentials: 'include',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    })
+        .then(checkOkAndJSON);
+
 export const callFindProduct = () =>
     fetch('http://localhost:3000/api/v1/product', {
         method: 'GET',

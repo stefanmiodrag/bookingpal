@@ -37,7 +37,7 @@ const Bookings = ({ bookings, search, handleChange, filteredItems }) => {
                                 <Card space={true} key={booking._id}>
 
                                     <Tag label={booking.service.label.toUpperCase()} />
-                                    <p>START TIME: {booking.startTime}</p>
+                                    <p>START TIME: {booking.start_time}</p>
                                     <p>{booking.customer}</p>
 
                                 </Card>

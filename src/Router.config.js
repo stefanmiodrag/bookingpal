@@ -59,4 +59,9 @@ export const loggedOutRoutes = [
         path: "/auth/signup",
         component: pages.Register,
     },
+    {
+        exact: false,
+        path: "/:slug/booking",
+        component: pages.CustomerBooking,
+    },
 ];

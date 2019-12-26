@@ -17,15 +17,15 @@ const Start = ({ user, bookings }) => {
                 <Nav title="Dashboard" />
 
                 <Container>
-                    <Column width="small">
+                    {/*<Column width="small">
                         <Notice>
                             <p>Upgrade to an annual plan before January 17th - get an extra 20% off!</p>
                         </Notice>
-                    </Column>
+                    </Column>*/}
 
                     <Column width="large">
                         <style.Container>
-                            <h4 className="light">Hi {user.username}, happy {dayOfTheWeek(today)}! {' '}
+                            <h4>Hi {user.username}, happy {dayOfTheWeek(today)}! {' '}
                                 <span role="img" aria-label="wave">👋</span></h4>
                             <p className="light-color">Here's what's happening today.</p>
 

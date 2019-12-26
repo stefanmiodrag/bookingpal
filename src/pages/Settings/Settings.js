@@ -1,4 +1,5 @@
 import React from "react";
+import Cleave from 'cleave.js/react';
 
 import SimpleBar from 'simplebar-react';
 import 'simplebar/dist/simplebar.min.css';
@@ -86,6 +87,21 @@ const User = ({
                                     </ul>
                                 </SimpleBar>
                             </style.Users>
+                        </style.CardWrapper>
+
+                        <style.CardWrapper>
+                            <Card space={true}>
+                                <style.Divider>
+                                    <h5>Customize</h5>
+                                </style.Divider>
+
+                                <Cleave
+                                    placeholder="Theme color..."
+                                    options={{
+                                        uppercase: true
+                                    }}
+                                />
+                            </Card>
                         </style.CardWrapper>
 
                         {company.length === 0 && isAdmin &&
