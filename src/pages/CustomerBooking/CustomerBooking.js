@@ -17,9 +17,9 @@ const CustomerBooking = ({ init, products, company }) => {
 
     if (company && products) {
         return (
-            company.length !== 0 ?
-                <>
-                    <style.Container>
+            <style.Container>
+                {company.length !== 0 ?
+                    <>
                         <style.Header>
                             <div>
                                 {company[0] &&
@@ -38,10 +38,10 @@ const CustomerBooking = ({ init, products, company }) => {
                                 {products && products.map(product => (
                                     <style.Item key={product._id}>
                                         <div>
-                                            <h5>{product.name}</h5>
-                                            <style.Details className="light-color">
-                                                <span><strong>Duration:</strong>{' '}{product.duration}</span>
-                                                <span><strong>Price:</strong>{' '}{`${product.price} ${product.currency.toUpperCase()}`}</span>
+                                            <h5 className="semibold">{product.name}</h5>
+                                            <style.Details>
+                                                <span>Duration:{' '}{product.duration}</span>
+                                                <span>Price:{' '}{`${product.price} ${product.currency.toUpperCase()}`}</span>
                                             </style.Details>
 
                                             <p className="light-color">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
@@ -53,11 +53,11 @@ const CustomerBooking = ({ init, products, company }) => {
                                 ))}
                             </style.Card>
                         </SimpleBar>
-                    </style.Container>
-                </> :
-                <>
-                    <p className="light-color">No company found</p>
-                </>
+                    </> :
+                    <>
+                        <p className="light-color">No company found</p>
+                    </>}
+            </style.Container>
         );
     } return null;
 };
