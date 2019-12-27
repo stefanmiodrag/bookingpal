@@ -32,7 +32,9 @@ const RegisterContainer = () => {
     const onSignupClick = e => {
         e.preventDefault();
 
-        callSignup(state.email, state.username, state.password, state.company, stringToSlug(state.company), "admin");
+        const { email, username, password, company } = state;
+
+        callSignup(email, username, password, company, stringToSlug(company), "admin")
     };
 
     return (

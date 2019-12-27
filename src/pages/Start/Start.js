@@ -1,5 +1,4 @@
 import React from "react";
-import moment from "moment";
 import getDay from "date-fns/getDay";
 
 import { dayOfTheWeek } from "../../helpers";
@@ -35,7 +34,6 @@ const Start = ({ user, bookings }) => {
 
                     <Column width="small">
                         <UpcomingBookings
-                            date={moment('2010-01-01').isSame(new Date(), 'day')}
                             bookings={bookings}
                         />
                     </Column>

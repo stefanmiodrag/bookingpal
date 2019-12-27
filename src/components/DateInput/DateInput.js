@@ -19,9 +19,12 @@ const DateInput = (props) => {
                 placeholder={`${formatDate(today)}`}
                 onDayChange={props.handleChange}
                 selectedDays={props.selected}
+                inputProps={{ name: props.name }}
                 dayPickerProps={{
-                    disabledDays: { before: today },
-                    showOutsideDays: true
+                    showOutsideDays: true,
+                    disabledDays: {
+                        before: today
+                    },
                 }}
             />
         </style.DatePicker>

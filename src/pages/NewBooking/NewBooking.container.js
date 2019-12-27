@@ -13,7 +13,7 @@ const NewBookingContainer = () => {
     const [state, setState] = useState({
         service: "", // TODO: Set default if select hasn't triggered onChange event
         customer: "",
-        selectedDay: new Date(),
+        selectedDay: "",
         startTime: "",
     });
 
@@ -34,6 +34,7 @@ const NewBookingContainer = () => {
 
     const handleDayClick = (selected) => {
         setState({
+            ...state,
             selectedDay: selected
         })
     };
@@ -58,17 +59,13 @@ const NewBookingContainer = () => {
 
         const { service, customer, selectedDay, startTime } = state;
 
-        if (customer) {
-            callNewBooking(service, customer, selectedDay, startTime, String(calculateDuration()))
-                .then(alert("complete!"))
-                .catch(err => {
-                    if (err.status === 401) {
-                        alert("401")
-                    }
-                })
-        } else {
-            alert("Missing fields");
-        };
+        callNewBooking(service, customer, selectedDay, startTime, calculateDuration())
+            .then(alert("complete!"))
+            .catch(err => {
+                if (err.status === 401) {
+                    alert("401")
+                }
+            })
     };
 
     const isFormValid = () => {

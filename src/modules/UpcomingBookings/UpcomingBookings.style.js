@@ -14,7 +14,6 @@ p {
 
 export const Container = styled.div`
 border: 1px solid;
-border-radius: 3px;
 border-color: #D9DEE4;
 height: 100%;
 `

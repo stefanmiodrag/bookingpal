@@ -78,6 +78,7 @@ const NewBooking = ({
                                 <style.Fieldset>
                                     <Label label="Date">
                                         <DateInput
+                                            name="startDate"
                                             handleChange={handleDayClick}
                                             selected={selectedDay}
                                         />

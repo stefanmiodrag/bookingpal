@@ -30,10 +30,6 @@ export const DatePicker = styled.div`
 
 .DayPicker-NavButton {
     border-radius: 3px;
-
-    &:hover {
-       
-    }
 }
 
 .DayPicker-Month {
