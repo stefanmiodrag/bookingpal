@@ -113,8 +113,8 @@ export const DatePicker = styled.div`
     border: 1px solid #e6e6e6;
     background-color: white;
 
-    &[aria-disabled="true"] {
-        opacity: 0.2;
+    &[aria-disabled="true"], &.DayPicker-Day--outside {
+        color: #DCE0E0;
     }
 }
 
