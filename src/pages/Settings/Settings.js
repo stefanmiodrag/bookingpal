@@ -22,9 +22,10 @@ import * as style from "./Settings.style";
 const User = ({
     user,
     allUsers,
-    companyName,
+    color,
+    message,
     handleChange,
-    onNewCompanyClick,
+    onUpdateCompanyClick,
     company,
     onSignupClick,
     username,
@@ -62,7 +63,7 @@ const User = ({
 
                             <style.Buttons>
                                 <Button icon="cog"></Button>
-                                <Button theme="success" icon="small-tick" label="Done" onClick={saveOnClick} />
+                                <Button label="Logout" onClick={onLogoutCLick} />
                             </style.Buttons>
                         </style.Header>
 
@@ -95,14 +96,36 @@ const User = ({
                                     <h5>Customize</h5>
                                 </style.Divider>
 
-                                <Cleave
-                                    type="text"
-                                    className="input"
-                                    placeholder="Theme color..."
-                                    options={{
-                                        uppercase: true
-                                    }}
-                                />
+                                <style.Form onSubmit={onUpdateCompanyClick}>
+                                    <style.Fieldset>
+                                        <Cleave
+                                            type="text"
+                                            name="color"
+                                            className="input"
+                                            placeholder={"Theme color..."}
+                                            value={color}
+                                            onChange={handleChange}
+                                            options={{
+                                                uppercase: true
+                                            }}
+                                        />
+
+                                        <Input
+                                            type="text"
+                                            name="message"
+                                            placeholder="Message..."
+                                            value={message}
+                                            onChange={handleChange}
+                                        />
+                                    </style.Fieldset>
+
+                                    <Button
+                                        type="submit"
+                                        onClick={onUpdateCompanyClick}
+                                        theme="success"
+                                        label="Save changes"
+                                    />
+                                </style.Form>
                             </Card>
                         </style.CardWrapper>
 
@@ -166,8 +189,6 @@ const User = ({
                                     <Button onClick={onSignupClick} type="submit" label="Invite user" />
                                 </style.Form>
                             </Card>}
-
-                        <Button label="Logout" onClick={onLogoutCLick} />
                     </Column>
                 </Container>
             </>

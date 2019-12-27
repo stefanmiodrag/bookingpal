@@ -20,12 +20,13 @@ const CustomerProduct = ({ init, products, company }) => {
             <style.Container>
                 {company.length !== 0 ?
                     <>
-                        <style.Header>
+                        <style.Header color={company[0].customize_settings.theme_color}>
                             <div>
                                 {company[0] &&
                                     <h4>{company[0].name}</h4>}
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+                                {company[0] &&
+                                    <p>{company[0].customize_settings.welcome_message}</p>}
                             </div>
                         </style.Header>
 

@@ -37,9 +37,6 @@ margin-bottom: 20px;
 `
 
 export const Form = styled.form`
-display: flex;
-flex-wrap: wrap;
-
 button {
     margin-bottom: 8px;
 }

@@ -31,3 +31,15 @@ export const callFindCompany = () =>
         },
     })
         .then(checkOkAndJSON);
+
+export const callUpdateCompany = (themeColor, welcomeMessage) =>
+    fetch('http://localhost:3000/api/v1/company', {
+        method: 'PUT',
+        credentials: 'include',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+
+        body: JSON.stringify({ themeColor, welcomeMessage })
+    })
+        .then(checkOkAndJSON);

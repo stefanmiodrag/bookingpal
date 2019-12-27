@@ -6,7 +6,7 @@ margin: 30px 0;
 
 export const Header = styled.div`
 color: white;
-background-color: #155778;
+background-color: ${props => props.color};
 border-radius: 2px 2px 0 0;
 padding: 24px;
 min-height: 100px;

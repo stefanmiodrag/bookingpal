@@ -5,7 +5,7 @@ import Settings from "./Settings";
 
 import { stringToSlug } from "../../helpers";
 import { callSignup, callUpdateUser } from "../../api/auth";
-import { callNewCompany } from "../../api/company";
+import { callUpdateCompany } from "../../api/company";
 
 import store from "../../store";
 import { init, logOut } from "../../actions";
@@ -20,17 +20,18 @@ const SettingsContainer = () => {
     const [errorMessage, setErrorMessage] = useState("");
     const [complete, setComplete] = useState(false);
 
+    const user = useSelector(selectUser);
+    const allUsers = useSelector(selectUsers);
+    const company = useSelector(selectCompany);
+
     const [state, setState] = useState({
-        companyName: "",
+        color: company[0].customize_settings ? company[0].customize_settings.theme_color : "",
+        message: company[0].customize_settings ? company[0].customize_settings.welcome_message : "",
         password: "",
         email: "",
         username: "",
         role: "user",
     });
-
-    const user = useSelector(selectUser);
-    const allUsers = useSelector(selectUsers);
-    const company = useSelector(selectCompany);
 
     const handleChange = (evt) => {
         const value = evt.target.value;
@@ -57,25 +58,22 @@ const SettingsContainer = () => {
         // window.location.reload(false);
     }
 
-    const onNewCompanyClick = e => {
+    const onUpdateCompanyClick = e => {
         e.preventDefault();
 
-        const { companyName } = state;
+        const { color, message } = state;
 
-        if (companyName) {
-            callNewCompany(companyName, stringToSlug(companyName), [user._id])
-                .then(setComplete(true))
-                .catch(err => {
-                    if (err.status === 400) {
-                        setErrorMessage("There already exists a company under this name.")
-                        displayErrorMessage();
-                    }
-                })
-        } else {
-            setErrorMessage("Please provide a name for your company.")
-            displayErrorMessage();
-        };
+        callUpdateCompany(color, message)
+            .then(setComplete(true))
+            .catch(err => {
+                if (err.status === 400) {
+                    setErrorMessage("Error")
+                    displayErrorMessage();
+                }
+            })
     };
+
+    console.log(state.message)
 
     const onSignupClick = e => {
         e.preventDefault();
@@ -89,7 +87,7 @@ const SettingsContainer = () => {
         <Settings
             user={user}
             allUsers={allUsers}
-            onNewCompanyClick={onNewCompanyClick}
+            onUpdateCompanyClick={onUpdateCompanyClick}
             company={company}
             onSignupClick={onSignupClick}
             email={state.email}
@@ -97,7 +95,8 @@ const SettingsContainer = () => {
             password={state.password}
             role={state.role}
             handleChange={handleChange}
-            companyName={state.companyName}
+            color={state.color}
+            message={state.message}
             complete={complete}
             saveOnClick={saveOnClick}
             error={error}

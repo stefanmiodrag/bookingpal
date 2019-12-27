@@ -23,12 +23,13 @@ const CustomerBooking = ({ init, products, company, customer, startTime, handleC
                 {company.length !== 0 ?
                     <>
                         <style.CardWrapper>
-                            <style.Header>
+                            <style.Header color={company[0].customize_settings.theme_color}>
                                 <div>
                                     {company[0] &&
                                         <h4>{company[0].name}</h4>}
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+                                    {company[0] &&
+                                        <p>{company[0].customize_settings.welcome_message}</p>}
                                 </div>
                             </style.Header>
 
@@ -50,6 +51,7 @@ const CustomerBooking = ({ init, products, company, customer, startTime, handleC
                                         <Cleave
                                             name="startTime"
                                             placeholder="00:00"
+                                            className="input"
                                             options={{
                                                 time: true,
                                                 timePattern: ['h', 'm']
@@ -58,7 +60,12 @@ const CustomerBooking = ({ init, products, company, customer, startTime, handleC
                                             onChange={handleChange}
                                         />
 
-                                        <Button type="submit" theme="success" onClick={onNewBookingClick} label="Confirm booking" />
+                                        <Button
+                                            type="submit"
+                                            theme="success"
+                                            onClick={onNewBookingClick}
+                                            label="Confirm booking"
+                                        />
                                     </form>
                                 </style.Card>
                             </SimpleBar>
