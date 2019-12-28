@@ -11,6 +11,7 @@ import {
     Card,
 } from "../../components";
 
+import { Column } from "../../components";
 import { Nav, Container } from "../../modules";
 
 const NewProduct = ({
@@ -49,58 +50,59 @@ const NewProduct = ({
             />
 
             <Container>
-                <Card space={true}>
-                    <form onSubmit>
-                        <style.Fieldset>
-                            <Select
-                                value={catalog}
-                                onChange={handleSelect}
-                                isMulti
-                                options={options}
-                            />
-
-                            <Label label="Name">
-                                <Input
-                                    type="text"
-                                    name="name"
-                                    placeholder="Name of your service..."
-                                    onChange={handleChange}
-                                    value={name}
+                <Column width="medium">
+                    <Card space={true}>
+                        <form onSubmit>
+                            <style.Fieldset>
+                                <Select
+                                    value={catalog}
+                                    onChange={handleSelect}
+                                    isMulti
+                                    options={options}
                                 />
-                            </Label>
 
-                            <Label label="Duration">
-                                <Cleave
-                                    type="text"
-                                    name="duration"
-                                    className="input"
-                                    placeholder="00:00"
-                                    options={{
-                                        time: true,
-                                        timePattern: ['h', 'm']
-                                    }}
-                                    onChange={handleChange}
-                                    value={duration}
-                                />
-                            </Label>
-                        </style.Fieldset>
+                                <Label label="Name">
+                                    <Input
+                                        type="text"
+                                        name="name"
+                                        placeholder="Name of your service..."
+                                        onChange={handleChange}
+                                        value={name}
+                                    />
+                                </Label>
 
-                        <style.Fieldset>
-                            <Label label="Price">
-                                <Cleave
-                                    type="text"
-                                    className="input"
-                                    name="price"
-                                    placeholder="Price of your service..."
-                                    options={{
-                                        numeral: true
-                                    }}
-                                    onChange={handleChange}
-                                    value={price}
-                                />
-                            </Label>
+                                <Label label="Duration">
+                                    <Cleave
+                                        type="text"
+                                        name="duration"
+                                        className="input"
+                                        placeholder="00:00"
+                                        options={{
+                                            time: true,
+                                            timePattern: ['h', 'm']
+                                        }}
+                                        onChange={handleChange}
+                                        value={duration}
+                                    />
+                                </Label>
+                            </style.Fieldset>
 
-                            {/* <Select
+                            <style.Fieldset>
+                                <Label label="Price">
+                                    <Cleave
+                                        type="text"
+                                        className="input"
+                                        name="price"
+                                        placeholder="Price of your service..."
+                                        options={{
+                                            numeral: true
+                                        }}
+                                        onChange={handleChange}
+                                        value={price}
+                                    />
+                                </Label>
+
+                                {/* <Select
                                 name="currency"
                                 value={currency}
                                 onChange={handleChange}
@@ -115,19 +117,20 @@ const NewProduct = ({
                                     }
                                 ]}
                             /> */}
-                        </style.Fieldset>
+                            </style.Fieldset>
 
-                        <style.ButtonWrapper>
-                            <Button
-                                type="submit"
-                                label="Save service"
-                                disabled={isFormValid()}
-                                theme={isFormValid() ? "disabled" : "success"}
-                                onClick={onNewProductClick}
-                            />
-                        </style.ButtonWrapper>
-                    </form>
-                </Card>
+                            <style.ButtonWrapper>
+                                <Button
+                                    type="submit"
+                                    label="Save service"
+                                    disabled={isFormValid()}
+                                    theme={isFormValid() ? "disabled" : "success"}
+                                    onClick={onNewProductClick}
+                                />
+                            </style.ButtonWrapper>
+                        </form>
+                    </Card>
+                </Column>
             </Container>
         </>
     );

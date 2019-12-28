@@ -30,7 +30,7 @@ const BUTTON_COLOR = theme => {
 const BUTTON_HOVER_BACKGROUND = theme => {
     switch (theme) {
         case "primary":
-            return "#ebf1f5";
+            return "#f5f9fb";
         case "disabled":
             return "#CBD1DB";
         case "success":

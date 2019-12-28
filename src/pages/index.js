@@ -1,5 +1,6 @@
 import Start from "./Start";
 import Bookings from "./Bookings";
+import Calendar from "./Calendar";
 import Login from "./Login";
 import NewBooking from "./NewBooking";
 import NewCatalog from "./NewCatalog";
@@ -15,6 +16,7 @@ import Register from "./Register";
 export {
     Start,
     Bookings,
+    Calendar,
     Login,
     NewBooking,
     NewCatalog,

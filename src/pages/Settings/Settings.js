@@ -21,21 +21,13 @@ import * as style from "./Settings.style";
 
 const User = ({
     user,
-    allUsers,
     color,
     message,
     handleChange,
     onUpdateCompanyClick,
     company,
-    onSignupClick,
-    username,
-    email,
-    password,
-    role,
-    saveOnClick,
-    complete,
-    error,
     errorMessage,
+    error,
     removeErrorMessage,
     onLogoutCLick,
 }) => {
@@ -62,33 +54,10 @@ const User = ({
                             You are the owner of this workspace, and only you can add, edit &amp; delete the users beneath.</p>}
 
                             <style.Buttons>
-                                <Button icon="cog"></Button>
-                                <Button label="Logout" onClick={onLogoutCLick} />
+                                <Button icon="cog" theme="primary"></Button>
+                                <Button label="Logout" theme="primary" onClick={onLogoutCLick} />
                             </style.Buttons>
                         </style.Header>
-
-                        {/* <style.CardWrapper>
-                            <style.UserHeader>
-                                <span>NAME</span>
-
-                                <span>ACCESS</span>
-                            </style.UserHeader>
-                            <style.Users>
-                                <SimpleBar style={{ maxHeight: 200 }}>
-                                    <ul>
-                                        {allUsers.map(user => (
-                                            <style.User key={user._id}>
-                                                <span>{`${user.username} (${user.email})`}</span>
-
-                                                <style.Tags>
-                                                    <Tag label={user.role.toUpperCase()} />
-                                                </style.Tags>
-                                            </style.User>
-                                        ))}
-                                    </ul>
-                                </SimpleBar>
-                            </style.Users>
-                        </style.CardWrapper> */}
 
                         <style.CardWrapper>
                             <Card space={true}>
@@ -128,67 +97,6 @@ const User = ({
                                 </style.Form>
                             </Card>
                         </style.CardWrapper>
-
-                        {company.length !== 0 && isAdmin &&
-                            <Card space={true}>
-                                <style.Divider>
-                                    <h5 className="light">Invite teammates</h5>
-                                </style.Divider>
-
-                                <style.Form onSubmit={onSignupClick}>
-                                    <style.Fieldset>
-                                        <Label label="Email">
-                                            <Input
-                                                type="text"
-                                                placeholder="Email..."
-                                                name="email"
-                                                value={email}
-                                                onChange={handleChange}
-                                            />
-                                        </Label>
-
-                                        <Label label="Username">
-                                            <Input
-                                                type="text"
-                                                placeholder="Username..."
-                                                name="username"
-                                                value={username}
-                                                onChange={handleChange}
-                                            />
-                                        </Label>
-
-                                        <Label label="Password">
-                                            <Input
-                                                type="password"
-                                                placeholder="Password..."
-                                                name="password"
-                                                value={password}
-                                                onChange={handleChange}
-                                            />
-                                        </Label>
-
-                                        <Label label="Roles">
-                                            <Select
-                                                name="role"
-                                                onChange={handleChange}
-                                                value={role}
-                                                options={[
-                                                    {
-                                                        value: "admin",
-                                                        label: "ADMIN"
-                                                    },
-                                                    {
-                                                        value: "user",
-                                                        label: "USER"
-                                                    }
-                                                ]}
-                                            />
-                                        </Label>
-                                    </style.Fieldset>
-
-                                    <Button onClick={onSignupClick} type="submit" label="Invite user" />
-                                </style.Form>
-                            </Card>}
                     </Column>
                 </Container>
             </>

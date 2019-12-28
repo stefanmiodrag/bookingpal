@@ -33,13 +33,14 @@ const Bookings = ({ bookings, search, handleChange, filteredItems }) => {
 
                     {bookings.length !== 0 ?
                         <Column width="small">
-                            {filteredItems.length !== 0 ? filteredItems.map(booking => (
-                                <Card space={true} key={booking._id}>
+                            {filteredItems.length !== 0 ? filteredItems.map(item => (
+                                <Card space={true} key={item._id}>
+                                    {item.service.map(service => (
+                                        <Tag label={service.label.toUpperCase()} />
+                                    ))}
 
-                                    <Tag label={booking.service.label.toUpperCase()} />
-                                    <p>START TIME: {booking.start_time}</p>
-                                    <p>{booking.customer}</p>
-
+                                    <p>{item.start_time} — {item.end_time}</p>
+                                    <p>{item.customer}</p>
                                 </Card>
                             )) : <p className="light-color">Nothing's here, try a different searching term.</p>}
                         </Column> :

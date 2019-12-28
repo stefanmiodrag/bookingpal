@@ -8,6 +8,11 @@ export const loggedInRoutes = [
     },
     {
         exact: true,
+        path: "/calendar",
+        component: pages.Calendar,
+    },
+    {
+        exact: true,
         path: "/booking/new",
         component: pages.NewBooking,
     },

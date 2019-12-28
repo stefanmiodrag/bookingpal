@@ -4,6 +4,8 @@ import moment from "moment";
 import SimpleBar from 'simplebar-react';
 import 'simplebar/dist/simplebar.min.css';
 
+import { Tag } from "../../components";
+
 import * as style from "./UpcomingBookings.style";
 
 const UpcomingBookings = props => {
@@ -15,26 +17,34 @@ const UpcomingBookings = props => {
             <>
                 <style.Container>
                     <style.Header>
-                        <h5 className="semibold">Today's Schedule</h5>
-                        {todaysBookings.length !== 0 ?
-                            <p>{`You have (${todaysBookings.length})
+                        <style.Title>
+                            <h5 className="semibold">Today's Schedule</h5>
+
+                            {todaysBookings.length !== 0 ?
+                                <p>{`You have (${todaysBookings.length}) 
                                 ${todaysBookings.length !== 1 ? "bookings" : "booking"} today.`}</p>
-                            : <p>You have no bookings today.</p>}
+                                : <p>You have no bookings today.</p>}
+                        </style.Title>
+
+                        <p>{moment(new Date()).format('MMMM Do YYYY')}</p>
                     </style.Header>
 
-                    {todaysBookings !== 0 ?
-                        <SimpleBar style={{ maxHeight: 700 }}>
+                    {todaysBookings.length !== 0 ?
+                        <SimpleBar style={{ maxHeight: 400 }}>
                             {props.bookings.map(item => {
                                 const date = moment(item.start_date).format('MM-DD-YYYY');
                                 const active = date === moment(new Date()).format('MM-DD-YYYY');
 
                                 if (active) {
                                     return (
-                                        <div key={item._id}>
-                                            <p>START TIME: {item.start_time}</p>
-                                            <p>{item.user.username}</p>
-                                            <p>END TIME: {item.end_time}</p>
-                                        </div>
+                                        <style.Item key={item._id}>
+                                            {item.service.map(service => (
+                                                <Tag theme="secondary" label={service.label.toUpperCase()} />
+                                            ))}
+
+                                            <p>{item.start_time} — {item.end_time}</p>
+                                            <p>{item.customer}</p>
+                                        </style.Item>
                                     );
                                 };
                             })}

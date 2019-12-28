@@ -9,6 +9,7 @@ import {
     Card,
 } from "../../components";
 
+import { Column } from "../../components";
 import { Nav, Container } from "../../modules";
 
 const NewCatalog = ({
@@ -33,31 +34,33 @@ const NewCatalog = ({
             />
 
             <Container>
-                <Card space={true}>
-                    <form onSubmit>
-                        <style.Fieldset>
-                            <Label label="Name">
-                                <Input
-                                    type="text"
-                                    name="name"
-                                    placeholder="Name of your service..."
-                                    onChange={handleChange}
-                                    value={name}
-                                />
-                            </Label>
-                        </style.Fieldset>
+                <Column width="medium">
+                    <Card space={true}>
+                        <form onSubmit>
+                            <style.Fieldset>
+                                <Label label="Name">
+                                    <Input
+                                        type="text"
+                                        name="name"
+                                        placeholder="Name of your service..."
+                                        onChange={handleChange}
+                                        value={name}
+                                    />
+                                </Label>
+                            </style.Fieldset>
 
-                        <style.ButtonWrapper>
-                            <Button
-                                type="submit"
-                                label="Save service"
-                                disabled={isFormValid()}
-                                theme={isFormValid() ? "disabled" : "success"}
-                                onClick={onNewCatalogClick}
-                            />
-                        </style.ButtonWrapper>
-                    </form>
-                </Card>
+                            <style.ButtonWrapper>
+                                <Button
+                                    type="submit"
+                                    label="Save service"
+                                    disabled={isFormValid()}
+                                    theme={isFormValid() ? "disabled" : "success"}
+                                    onClick={onNewCatalogClick}
+                                />
+                            </style.ButtonWrapper>
+                        </form>
+                    </Card>
+                </Column>
             </Container>
         </>
     );

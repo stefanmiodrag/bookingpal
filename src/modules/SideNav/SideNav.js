@@ -12,8 +12,6 @@ const SideNav = ({ isLoggedIn, user, toggle, closeNav, openNav }) => {
 
         return (
             <style.SideNav toggle={toggle}>
-                <style.Bar />
-
                 <style.Container>
                     <style.Header toggle={toggle}>
                         <style.Mark>

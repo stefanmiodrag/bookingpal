@@ -1,14 +1,7 @@
 import styled from "styled-components";
 
-export const Bar = styled.div`
-height: 4px;
-width: 100%;
-background: #8282f5;
-margin-bottom: 18px;
-`
-
 export const SideNav = styled.nav`
-background-color: #1D1D2E;
+background-color: #192231;
 position: fixed;
 left: 0;
 height: 100vh;
@@ -70,7 +63,7 @@ li {
         }
         
         &.active {
-            background-color: #303050;
+            background-color: #2f8fce;
             opacity: 1;
             
             svg {
@@ -91,8 +84,12 @@ height: 100%;
 
 export const List = styled.ul`
 border-bottom: ${props => props.toggle ? "1px solid" : "none"};
-border-bottom-color: #424242;
+border-bottom-color: #39404a;
 margin-bottom: ${props => props.toggle ? "18px" : "0px"};
+
+:first-of-type {
+    margin-top: ${props => props.toggle ? "18px" : "0px"};
+}
 `
 
 export const Title = styled.span`
@@ -100,7 +97,7 @@ display: ${props => props.toggle ? "none" : "block"};
 font-size: 11px;
 font-weight: 500;
 text-transform: uppercase;
-color: #8f8fa7;
+color: #9dabb5;
 letter-spacing: 0.4px;
 margin-bottom: 8px;
 padding: 0 18px;
@@ -128,7 +125,7 @@ button {
 
 export const Header = styled.div`
 color: white;
-margin-bottom: 25px;
+min-height: 66px;
 padding: 0 15px;
 display: ${props => props.toggle ? "none" : "flex"};
 align-items: center;

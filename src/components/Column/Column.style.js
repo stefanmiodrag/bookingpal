@@ -5,9 +5,9 @@ const SET_WIDTH = width => {
         case "large":
             return "100%";
         case "medium":
-            return "70%";
+            return "59%";
         case "small":
-            return "40%";
+            return "39%";
         default:
             return "100%";
     }
@@ -16,13 +16,9 @@ const SET_WIDTH = width => {
 
 export const Column = styled.div`
 width:  ${({ width }) => SET_WIDTH(width)};
-margin-bottom: ${props => `${props.mb}px`};
+margin-bottom: ${props => props.mb ? `${props.mb}px` : ""};
 
-@media (max-width: 1381px) {
-    width: 70%;
-}
-
-@media (max-width: 961px) {
+@media screen and (max-width: 900px) {
     width: 100%;
 }
 `

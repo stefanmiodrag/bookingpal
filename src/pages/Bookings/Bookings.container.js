@@ -24,7 +24,6 @@ const BookingsContainer = props => {
         const query = state.search.toLowerCase();
 
         return (
-            item.service.label.toLowerCase().indexOf(query) >= 0 ||
             item.customer.toLowerCase().indexOf(query) >= 0
         )
     });

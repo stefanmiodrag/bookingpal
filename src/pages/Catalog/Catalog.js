@@ -31,27 +31,31 @@ const Catalog = ({
                 <Container>
                     <Column mb={30} width="large">
                         <style.Buttons>
-                            <ButtonLink path="/catalog/new-catalog" label="New Catalog" theme="success" />
-                            <ButtonLink path="/catalog/new-product" label="New Product" theme="success" />
+                            <ButtonLink
+                                path="/catalog/new-catalog"
+                                theme="success"
+                                label="New Catalog"
+                            />
+
+                            <ButtonLink
+                                path="/catalog/new-product"
+                                theme="success"
+                                label="New Product"
+                            />
                         </style.Buttons>
                     </Column>
-
-                    {catalogs !== 0 &&
-                        catalogs.map(catalog => (
-                            <>
-                                {catalog.name}
-                            </>
-                        ))}
 
                     {products.length !== 0 ?
                         <Column width="small">
                             {filteredItems.length !== 0 ? filteredItems.map((product, i) => (
-                                <Card key={i} space={true}>
-                                    <Button onClick={() => removeProduct(product._id)} label="Remove" />
+                                <style.Item>
+                                    <Card key={i} space={true}>
+                                        <Button onClick={() => removeProduct(product._id)} label="Remove" />
+                                        {product.catalog.map(catalog => (catalog.label))}
 
-                                    <style.Item>
                                         <style.ItemHeader>
-                                            <strong>{product.name}</strong><Tag label={`DURATION ${product.duration}`} />
+                                            <strong>{product.name}</strong>
+                                            <Tag label={`DURATION ${product.duration}`} />
                                         </style.ItemHeader>
 
                                         {product.catalog && product.catalog.map(catalog => (
@@ -59,8 +63,8 @@ const Catalog = ({
                                         ))}
 
                                         <p>{product.price} {product.currency}</p>
-                                    </style.Item>
-                                </Card>
+                                    </Card>
+                                </style.Item>
                             )) : <p className="light-color">Nothing's here, try a different searching term.</p>}
                         </Column> :
                         <>
