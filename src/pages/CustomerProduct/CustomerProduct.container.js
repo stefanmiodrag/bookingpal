@@ -12,15 +12,12 @@ const CustomerProductContainer = () => {
     const { slug } = useParams();
 
     const init = () => dispatch => {
-        return Promise.all([
-            dispatch(fetchCompanyAsCustomer(slug)),
-            dispatch(fetchProductsByCompany(slug))
-        ])
-            .catch(err => (err.message))
+        dispatch(fetchCompanyAsCustomer(slug))
+            .then(data => dispatch(fetchProductsByCompany(data.company[0]._id)))
     };
 
-    const products = useSelector(selectProducts);
     const company = useSelector(selectCompany);
+    const products = useSelector(selectProducts);
 
     return <CustomerProduct init={init} products={products} company={company} />;
 };

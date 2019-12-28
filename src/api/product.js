@@ -22,8 +22,8 @@ export const callRemoveProduct = (id) =>
         .then(checkOkAndJSON);
 
 
-export const callFindProductByCompany = (slug) =>
-    fetch(`http://localhost:3000/api/v1/public/product/${slug}`, {
+export const callFindProductByCompany = (id) =>
+    fetch(`http://localhost:3000/api/v1/public/product/${id}`, {
         method: 'GET',
         credentials: 'include',
         headers: {

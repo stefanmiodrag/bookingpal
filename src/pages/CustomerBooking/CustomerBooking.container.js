@@ -18,11 +18,8 @@ const CustomerBookingContainer = () => {
     });
 
     const init = () => dispatch => {
-        return Promise.all([
-            dispatch(fetchCompanyAsCustomer(slug)),
-            dispatch(fetchProductsByCompany(slug))
-        ])
-            .catch(err => (err.message))
+        dispatch(fetchCompanyAsCustomer(slug))
+            .then(data => dispatch(fetchProductsByCompany(data.company[0]._id)))
     };
 
     const products = useSelector(selectProducts);

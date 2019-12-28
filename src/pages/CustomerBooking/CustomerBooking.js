@@ -10,7 +10,15 @@ import { Button, Input, Tag, Card } from "../../components";
 
 import * as style from "./CustomerBooking.style";
 
-const CustomerBooking = ({ init, products, company, customer, startTime, handleChange, onNewBookingClick }) => {
+const CustomerBooking = ({
+    init,
+    products,
+    handleChange,
+    onNewBookingClick,
+    company,
+    customer,
+    startTime,
+}) => {
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -23,12 +31,12 @@ const CustomerBooking = ({ init, products, company, customer, startTime, handleC
                 {company.length !== 0 ?
                     <>
                         <style.CardWrapper>
-                            <style.Header color={company[0].customize_settings.theme_color}>
+                            <style.Header color={company[0].customize_settings && company[0].customize_settings.theme_color}>
                                 <div>
                                     {company[0] &&
                                         <h4>{company[0].name}</h4>}
 
-                                    {company[0] &&
+                                    {company[0].customize_settings &&
                                         <p>{company[0].customize_settings.welcome_message}</p>}
                                 </div>
                             </style.Header>
