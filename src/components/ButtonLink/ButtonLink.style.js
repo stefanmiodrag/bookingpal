@@ -5,6 +5,8 @@ const BUTTON_BACKGROUND = theme => {
     switch (theme) {
         case "primary":
             return "transparent";
+        case "secondary":
+            return "#0c9ee6";
         case "disabled":
             return "#CBD1DB";
         case "success":
@@ -18,6 +20,8 @@ const BUTTON_COLOR = theme => {
     switch (theme) {
         case "primary":
             return "#343C47";
+        case "secondary":
+            return "#FFFFFF";
         case "disabled":
             return "#343C47";
         case "success":
@@ -31,6 +35,8 @@ const BUTTON_HOVER_BACKGROUND = theme => {
     switch (theme) {
         case "primary":
             return "#f5f9fb";
+        case "secondary":
+            return "#0b90d2";
         case "disabled":
             return "#CBD1DB";
         case "success":
@@ -44,6 +50,8 @@ const BUTTON_ACTIVE_BACKGROUND = theme => {
     switch (theme) {
         case "primary":
             return "#ebf1f5";
+        case "secondary":
+            return "#098aca";
         case "disabled":
             return "#CBD1DB";
         case "success":

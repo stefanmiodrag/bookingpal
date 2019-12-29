@@ -34,14 +34,16 @@ const Bookings = ({ bookings, search, handleChange, filteredItems }) => {
                     {bookings.length !== 0 ?
                         <Column width="small">
                             {filteredItems.length !== 0 ? filteredItems.map(item => (
-                                <Card space={true} key={item._id}>
-                                    {item.service.map(service => (
-                                        <Tag label={service.label.toUpperCase()} />
-                                    ))}
+                                <style.Item key={item._id}>
+                                    <Card space={true}>
+                                        {item.service.map(service => (
+                                            <Tag label={service.label.toUpperCase()} />
+                                        ))}
 
-                                    <p>{item.start_time} — {item.end_time}</p>
-                                    <p>{item.customer}</p>
-                                </Card>
+                                        <p>{item.start_time} — {item.end_time}</p>
+                                        <p>{item.customer}</p>
+                                    </Card>
+                                </style.Item>
                             )) : <p className="light-color">Nothing's here, try a different searching term.</p>}
                         </Column> :
                         <>

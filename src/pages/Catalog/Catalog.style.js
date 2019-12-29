@@ -1,7 +1,9 @@
 import styled from "styled-components";
 
 export const Item = styled.div`
-margin-bottom: 20px;
+&:not(:last-child) {
+    margin-bottom: 20px;
+}
 
 p {
     margin: 0px;

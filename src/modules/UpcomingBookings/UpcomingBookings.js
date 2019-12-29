@@ -17,36 +17,37 @@ const UpcomingBookings = props => {
             <>
                 <style.Container>
                     <style.Header>
-                        <style.Title>
-                            <h5 className="semibold">Today's Schedule</h5>
+                        <h5 className="semibold">Upcoming Bookings</h5>
 
-                            {todaysBookings.length !== 0 ?
-                                <p>{`You have (${todaysBookings.length}) 
+                        {todaysBookings.length !== 0 ?
+                            <p>{`You have (${todaysBookings.length}) 
                                 ${todaysBookings.length !== 1 ? "bookings" : "booking"} today.`}</p>
-                                : <p>You have no bookings today.</p>}
-                        </style.Title>
-
-                        <p>{moment(new Date()).format('MMMM Do YYYY')}</p>
+                            : <p>You have no bookings today.</p>}
                     </style.Header>
 
-                    {todaysBookings.length !== 0 ?
+                    {props.bookings.length !== 0 ?
                         <SimpleBar style={{ maxHeight: 400 }}>
                             {props.bookings.map(item => {
                                 const date = moment(item.start_date).format('MM-DD-YYYY');
-                                const active = date === moment(new Date()).format('MM-DD-YYYY');
+                                const today = date === moment(new Date()).format('MM-DD-YYYY');
 
-                                if (active) {
-                                    return (
-                                        <style.Item key={item._id}>
-                                            {item.service.map(service => (
-                                                <Tag theme="secondary" label={service.label.toUpperCase()} />
-                                            ))}
+                                return (
+                                    <style.Item key={item._id}>
+                                        <style.ItemContainer>
+                                            <div>
+                                                {today ? "Today" : moment(item.start_date).format('MMMM Do YYYY')}
+                                                <p>{item.start_time} — {item.end_time}</p>
+                                                <p>{item.customer}</p>
+                                            </div>
 
-                                            <p>{item.start_time} — {item.end_time}</p>
-                                            <p>{item.customer}</p>
-                                        </style.Item>
-                                    );
-                                };
+                                            <style.Tags>
+                                                {item.service.map(service => (
+                                                    <Tag label={service.label.toUpperCase()} />
+                                                ))}
+                                            </style.Tags>
+                                        </style.ItemContainer>
+                                    </style.Item>
+                                );
                             })}
                         </SimpleBar> :
                         <p>It's quite empty here...</p>}

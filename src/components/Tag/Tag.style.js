@@ -6,8 +6,23 @@ const TAG_BORDER = theme => {
             return "#CED9E0";
         case "secondary":
             return "#5C5C75";
+        case "warning":
+            return "transparent";
         default:
             return "#CED9E0";
+    }
+};
+
+const TAG_BACKGROUND = theme => {
+    switch (theme) {
+        case "primary":
+            return "transparent";
+        case "secondary":
+            return "transparent";
+        case "warning":
+            return "#FF7800";
+        default:
+            return "transparent";
     }
 };
 
@@ -17,6 +32,8 @@ const TAG_COLOR = theme => {
             return "#5C7080";
         case "secondary":
             return "#aeaece";
+        case "warning":
+            return "#FFFFFF";
         default:
             return "#5C7080";
     }
@@ -30,6 +47,7 @@ line-height: 18px;
 height: 24px;
 display: inline-flex;
 align-items: center;
+background-color: ${({ theme }) => TAG_BACKGROUND(theme)};
 color: ${({ theme }) => TAG_COLOR(theme)};
 border: 1px solid ${({ theme }) => TAG_BORDER(theme)};
 font-weight: 500;

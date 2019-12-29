@@ -6,7 +6,7 @@ width: 100%;
 height: 100%;
 left: 0;
 color: white;
-background-color: #1D1D2E;
+background-color: #192231;
 `
 
 export const Container = styled.div`
@@ -27,8 +27,6 @@ box-sizing: border-box;
 background-color: white;
 padding: 24px;
 width: 100%;
-border-top: none;
-border-top: 6px solid #ffa400;
 `
 
 export const Form = styled.div`
@@ -41,7 +39,7 @@ export const Content = styled.div`
 margin-bottom: 24px;
 
 p {
-    color: #7c7c94;
+    color: #bdc8d0;
 }
 `
 
@@ -85,7 +83,7 @@ border-radius: 3px;
 margin-top: 24px;
 text-decoration: none;
 color: inherit;
-background-color: #303046;
+background-color: #2d3a50;
 padding: 8px 14px;
 
 a {

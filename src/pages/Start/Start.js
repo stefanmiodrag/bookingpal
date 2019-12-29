@@ -25,7 +25,7 @@ const Start = ({ user, bookings }) => {
 
                                 <ButtonLink
                                     path="/booking/new"
-                                    theme="success"
+                                    theme="secondary"
                                     label="New booking"
                                 />
                             </style.Header>
