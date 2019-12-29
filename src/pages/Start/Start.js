@@ -17,16 +17,18 @@ const Start = ({ user, bookings }) => {
 
                 <Container>
                     <style.Container>
-                        <Column width="large">
-                            <h4>Hi {user.username}, happy {dayOfTheWeek(today)}! {' '}
-                                <span role="img" aria-label="wave">👋</span></h4>
-                            <p className="light-color">Here's what's happening today.</p>
+                        <Column width="small">
+                            <style.Header>
+                                <h4>Hi {user.username}, happy {dayOfTheWeek(today)}! {' '}
+                                    <span role="img" aria-label="wave">👋</span></h4>
+                                <p className="light-color">Here's what's happening today.</p>
 
-                            <ButtonLink
-                                path="/booking/new"
-                                theme="success"
-                                label="New booking"
-                            />
+                                <ButtonLink
+                                    path="/booking/new"
+                                    theme="success"
+                                    label="New booking"
+                                />
+                            </style.Header>
                         </Column>
                     </style.Container>
 

@@ -8,4 +8,5 @@ background-color: white;
 padding: ${props => props.space ? "24px" : "0px"};
 width: ${props => props.width || "100%"};
 border-top: ${props => props.bar ? "4px solid #2D9BF3" : "none"};
+border-radius: 3px;
 `
