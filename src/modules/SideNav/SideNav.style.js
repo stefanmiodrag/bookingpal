@@ -70,7 +70,7 @@ li {
         }
         
         &.active {
-            background-color: #2f8fce;
+            background-color: #0c9ee6;
             color: white;
             
             svg {

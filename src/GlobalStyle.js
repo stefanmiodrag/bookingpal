@@ -12,7 +12,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background-color: #F4F5F8;
+    background-color: #FAFDFF;
     color: #222;
     font-family: "Roboto", sans-serif;
     font-weight: 400;
@@ -98,7 +98,7 @@ const GlobalStyle = createGlobalStyle`
     vertical-align: baseline;
     border: none;
     border-radius: 3px;
-    box-shadow: rgb(230, 230, 230) 0px 0px 0px 1px inset;
+    box-shadow: rgb(200, 205, 208) 0px 0px 0px 1px inset;
     background: white;
     height: 40px;
     padding: 5px 14px;

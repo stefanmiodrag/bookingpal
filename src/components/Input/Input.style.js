@@ -5,7 +5,7 @@ outline: none;
 vertical-align: baseline;
 border: none;
 border-radius: 3px;
-box-shadow: rgb(230, 230, 230) 0px 0px 0px 1px inset;
+box-shadow: rgb(200, 205, 208) 0px 0px 0px 1px inset;
 background: white;
 height: 40px;
 padding: 5px 14px;

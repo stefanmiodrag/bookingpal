@@ -3,13 +3,13 @@ import styled from "styled-components";
 const BUTTON_BACKGROUND = theme => {
     switch (theme) {
         case "primary":
-            return "transparent";
+            return "linear-gradient(180deg, #FEFEFE 0%, #F7F7FA 100%)";
         case "disabled":
             return "#CBD1DB";
         case "success":
             return "#4bc800";
         default:
-            return "transparent";
+            return "linear-gradient(180deg, #FEFEFE 0%, #F7F7FA 100%)";
     }
 };
 
@@ -29,26 +29,26 @@ const BUTTON_COLOR = theme => {
 const BUTTON_HOVER_BACKGROUND = theme => {
     switch (theme) {
         case "primary":
-            return "#f5f9fb";
+            return "linear-gradient(180deg, #FDFEFE 0%, #EEF0F4 100%)";
         case "disabled":
             return "#CBD1DB";
         case "success":
             return "#4cb50d";
         default:
-            return "transparent";
+            return "linear-gradient(180deg, #FDFEFE 0%, #EEF0F4 100%)";
     }
 };
 
 const BUTTON_ACTIVE_BACKGROUND = theme => {
     switch (theme) {
         case "primary":
-            return "#ebf1f5";
+            return "linear-gradient(180deg, #FDFDFE 0%, #EAEEF8 100%)";
         case "disabled":
             return "#CBD1DB";
         case "success":
             return "#3c9804";
         default:
-            return "transparent";
+            return "linear-gradient(180deg, #FDFDFE 0%, #EAEEF8 100%)";
     }
 };
 
@@ -58,7 +58,7 @@ cursor: pointer;
 vertical-align: bottom;
 text-align: center;
 color: ${({ theme }) => BUTTON_COLOR(theme)};
-background-color: ${({ theme }) => BUTTON_BACKGROUND(theme)};
+background: ${({ theme }) => BUTTON_BACKGROUND(theme)};
 box-shadow: ${props => !props.minimal ?
         "inset 0 0 0 1px rgba(16,22,26,.2), inset 0 -1px 0 rgba(16,22,26,.1)" : "none"};
 border-radius: 3px;
@@ -67,16 +67,16 @@ padding: 5px 14px;
 min-width: 30px;
 height: 100%;
 min-height: 40px;
-transition: background-color 0.2s ease;
+transition: background 0.2s ease;
 
 &:hover {
-    background-color: ${({ theme }) => BUTTON_HOVER_BACKGROUND(theme)};
-    transition: background-color 0.2s ease;
+    background: ${({ theme }) => BUTTON_HOVER_BACKGROUND(theme)};
+    transition: background 0.2s ease;
 }
 
 &:active, :focus {
     transform: translateY(1px);
-    background-color: ${({ theme }) => BUTTON_ACTIVE_BACKGROUND(theme)};
+    background: ${({ theme }) => BUTTON_ACTIVE_BACKGROUND(theme)};
 }
 
 &:disabled {
