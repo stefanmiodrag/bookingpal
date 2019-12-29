@@ -12,18 +12,18 @@ border-bottom-color: #D9DEE4;
 export const Container = styled.div`
 display: flex;
 align-items: center;
-margin: 0 20px;
+margin: 0 30px;
 `
 
 export const Title = styled.h1`
 font-size: 1.15em;
-margin-right: 14px;
+margin-right: 30px;
 margin-bottom: 4px;
 `
 
 export const Breadcrumb = styled.div`
 background-color: white;
-padding: 14px 20px;
+padding: 14px 30px;
 border-bottom: 1px solid;
 border-bottom-color: #D9DEE4;
 

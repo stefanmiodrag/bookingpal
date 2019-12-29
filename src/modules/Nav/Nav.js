@@ -24,7 +24,7 @@ const Nav = (props) => {
                                 name="search"
                                 type="text"
                                 value={props.searchValue}
-                                placeholder="Search..."
+                                placeholder="Search for terms..."
                                 onChange={props.onSearch}
                             />}
                     </style.Container>

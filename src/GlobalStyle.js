@@ -13,7 +13,7 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     background-color: #F4F5F8;
-    color: #222;
+    color: #282c47;
     font-family: "Roboto", sans-serif;
     font-weight: 400;
     line-height: 1.45;
@@ -82,7 +82,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   .light-color {
-    color: #555d75;
+    color: #5b617c;
   }
 
   .semibold, strong {

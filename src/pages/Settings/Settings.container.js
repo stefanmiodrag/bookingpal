@@ -41,19 +41,30 @@ const SettingsContainer = () => {
 
     const removeErrorMessage = () => setError(false);
 
+    const displaySuccessMessage = () => {
+        setComplete(true);
+        setTimeout(() => { setComplete(false) }, 4000);
+    };
+
+    const removeSuccessMessage = () => setComplete(false);
+
     const onUpdateCompanyClick = e => {
         e.preventDefault();
 
         const { color, message } = state;
 
-        callUpdateCompany(color, message)
-            .then(setComplete(true))
-            .catch(err => {
-                if (err.status === 400) {
-                    setErrorMessage("Error")
-                    displayErrorMessage();
-                }
-            })
+        if (color && message) {
+            callUpdateCompany(color, message)
+                .then(displaySuccessMessage())
+                .catch(err => {
+                    if (err.status === 400) {
+                        setErrorMessage("Error")
+                        displayErrorMessage();
+                    }
+                })
+        } else {
+            alert("Missing fields");
+        };
     };
 
     const onLogoutCLick = () => dispatch(logOut());
@@ -71,6 +82,7 @@ const SettingsContainer = () => {
             handleChange={handleChange}
             color={state.color}
             message={state.message}
+            removeSuccessMessage={removeSuccessMessage}
             complete={complete}
             error={error}
             errorMessage={errorMessage}

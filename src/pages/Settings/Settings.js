@@ -26,6 +26,8 @@ const User = ({
     handleChange,
     onUpdateCompanyClick,
     company,
+    removeSuccessMessage,
+    complete,
     errorMessage,
     error,
     removeErrorMessage,
@@ -41,6 +43,12 @@ const User = ({
                     close={removeErrorMessage}
                     label={errorMessage}
                     theme="danger"
+                />
+
+                <Toaster
+                    visible={complete}
+                    close={removeSuccessMessage}
+                    label="Successfully saved the changes"
                 />
 
                 <Nav title={`Manage ${company.length !== 0 ?
@@ -62,30 +70,42 @@ const User = ({
                         <style.CardWrapper>
                             <Card space={true}>
                                 <style.Divider>
+                                    <h5>Availability</h5>
+                                </style.Divider>
+                            </Card>
+                        </style.CardWrapper>
+
+                        <style.CardWrapper>
+                            <Card space={true}>
+                                <style.Divider>
                                     <h5>Customize</h5>
                                 </style.Divider>
 
                                 <style.Form onSubmit={onUpdateCompanyClick}>
                                     <style.Fieldset>
-                                        <Cleave
-                                            type="text"
-                                            name="color"
-                                            className="input"
-                                            placeholder={"Theme color..."}
-                                            value={color}
-                                            onChange={handleChange}
-                                            options={{
-                                                uppercase: true
-                                            }}
-                                        />
+                                        <Label label="Welcome Message">
+                                            <Input
+                                                type="text"
+                                                name="message"
+                                                placeholder="Message..."
+                                                value={message}
+                                                onChange={handleChange}
+                                            />
+                                        </Label>
 
-                                        <Input
-                                            type="text"
-                                            name="message"
-                                            placeholder="Message..."
-                                            value={message}
-                                            onChange={handleChange}
-                                        />
+                                        <Label label="Accent color">
+                                            <Cleave
+                                                type="text"
+                                                name="color"
+                                                className="input"
+                                                placeholder={"Accent color..."}
+                                                value={color}
+                                                onChange={handleChange}
+                                                options={{
+                                                    uppercase: true
+                                                }}
+                                            />
+                                        </Label>
                                     </style.Fieldset>
 
                                     <Button

@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Loading = styled.div`
 position: absolute;
-background-color: #1D1D33;
+background-color: #192231;
 width: 100%;
 height: 100vh;
 `
