@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const SideNav = styled.nav`
-background-color: #192231;
+background: linear-gradient(101.85deg, #192231 0%, #28354B 78.52%);
 position: fixed;
 left: 0;
 height: 100vh;
@@ -27,8 +27,15 @@ li {
     margin-bottom: 8px;
 
     &.disabled {
-        opacity: 0.64;
         pointer-events: none;
+
+        a {
+            color: #7e919e;
+        }
+
+        svg {
+            fill: #7e919e;
+        }
     }
 
     &:last-child {
@@ -39,35 +46,35 @@ li {
         display: flex;
         align-items: center;
         justify-content: ${props => props.toggle ? "center" : "left"};
-        color: white;
+        color: #bdc8d0;
         white-space: nowrap;
         text-overflow: ellipsis;
         text-decoration: none;
         height: ${props => props.toggle ? "40px" : "32px"};
         padding: 0 2px;
-        border-radius: ${props => props.toggle ? "8px" : "3px"};
-        opacity: 0.8;
+        border-radius: 3px;
+        transition: color .2s ease;
 
         svg {
-            opacity: 0.64;
             padding-right: ${props => props.toggle ? "0px" : "3px"};
-            fill: white;
+            fill: #bdc8d0;
         }
 
         &:hover {
-            opacity: 1;
+            color: white;
+            transition: color .2s ease;
             
             svg {
-                opacity: 1;
+                fill: white;
             }
         }
         
         &.active {
             background-color: #2f8fce;
-            opacity: 1;
+            color: white;
             
             svg {
-                opacity: 1;
+                fill: white;
             }
         }
     }
@@ -83,9 +90,10 @@ height: 100%;
 `
 
 export const List = styled.ul`
-border-bottom: ${props => props.toggle ? "1px solid" : "none"};
-border-bottom-color: #39404a;
-margin-bottom: ${props => props.toggle ? "18px" : "0px"};
+border-bottom: 1px solid;
+border-bottom-color: #151E2D;
+box-shadow: 0px 1px 0px #39475d;
+margin-bottom: 18px;
 
 :first-of-type {
     margin-top: ${props => props.toggle ? "18px" : "0px"};
@@ -130,6 +138,10 @@ padding: 0 15px;
 display: ${props => props.toggle ? "none" : "flex"};
 align-items: center;
 justify-content: space-between;
+border-bottom: 1px solid;
+border-bottom-color: #151E2D;
+box-shadow: 0px 1px 0px #39475d;
+margin-bottom: 18px;
 
 button {
     all: unset;
